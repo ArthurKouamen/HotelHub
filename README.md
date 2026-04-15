@@ -1,109 +1,168 @@
 # HotelHub
 
-# 🏨 Système de Gestion Hôtelière
+# 🏨 Système de Promotion Hôtelière
 
-Application web permettant aux utilisateurs de rechercher, réserver   des chambres d’hôtel en ligne.
+Application web permettant aux utilisateurs de rechercher et réserver des chambres d’hôtel en ligne au Cameroun.
 
 ## 🎯 Objectif
 
-Ce projet a pour objectif de digitaliser la gestion des hôtels en facilitant :
-- La consultation et la réservation en ligne
-- La gestion des hôtels et chambres
-- L'administration des utilisateurs
+Ce projet a pour objectif de digitaliser la gestion des hôtels au Cameroun en facilitant :
+- La consultation et la réservation de chambres en ligne pour les clients.
+- La gestion des hôtels et des chambres pour les administrateurs.
+- L'administration des utilisateurs de la plateforme.
 
-  ## ⚙️ Technologies
+## ✨ Fonctionnalités du MVP (Minimum Viable Product)
 
-- Frontend : HTML, CSS, JavaScript
-- Backend : Laravel
-- Base de données : MySQL (phpMyAdmin)
-- Serveur : Apache (Laragon)
+Le développement du projet sera découpé en plusieurs sprints, visant à livrer progressivement les fonctionnalités clés :
 
-  ## 👥 Équipe et Rôles
+### Sprint 1: Initialisation et Base de Données
+*   Mettre en place l'environnement de développement.
+*   Concevoir et implémenter la structure de la base de données pour les entités principales (`Utilisateur`, `Hôtel`, `Chambre`).
+*   Mettre en place les bases de l'authentification (inscription, connexion).
 
-- Arthur : 
-- Merveille :
-- Ange : 
-- Kabrel :
+### Sprint 2: Navigation et Affichage des Hôtels
+*   Permettre aux utilisateurs de parcourir les hôtels et voir leurs détails de base (nom, adresse, ville, description, image).
+*   Afficher les chambres disponibles pour un hôtel donné (type, prix, statut).
 
-## 🚀 Installation
+### Sprint 3: Gestion des Hôtels et Chambres (Admin)
+*   Permettre à l'administrateur de gérer les hôtels (ajouter, modifier, supprimer).
+*   Permettre à l'administrateur de gérer les chambres (ajouter, modifier, supprimer) pour chaque hôtel.
 
-🚀 Installation complète du projet
+### Sprint 4: Recherche et Filtrage
+*   Permettre aux utilisateurs de rechercher des hôtels par ville ou par nom.
+*   Permettre aux utilisateurs de filtrer les résultats de recherche par prix.
 
-1. Prérequis
+### Sprint 5: Processus de Réservation
+*   Permettre aux utilisateurs connectés de sélectionner une chambre et saisir les dates d'arrivée et de départ.
+*   Implémenter la confirmation de réservation avec les règles métier (disponibilité, dates valides).
+*   Envoyer une confirmation de réservation.
 
-Avant de commencer, assurez-vous d’avoir installé :
-	•	Git → https://git-scm.com/
-	•	Laragon → https://laragon.org/
-	•	Composer → https://getcomposer.org/
+### Sprint 6: Gestion des Réservations et Commentaires
+*   Permettre aux utilisateurs connectés de consulter et annuler leurs réservations.
+*   Permettre aux utilisateurs de laisser des commentaires et des notes sur les hôtels.
+*   Permettre aux administrateurs de consulter toutes les réservations et les commentaires.
 
-⸻
+---
 
-2. Récupérer le projet
+## ⚙️ Technologies Utilisées
 
-1. Cloner le projet :
-git clone https://github.com/HotelHub.git
+-   **Frontend** : HTML, CSS, JavaScript
+-   **Backend** : Laravel
+-   **Base de données** : MySQL (géré via phpMyAdmin)
+-   **Serveur de développement local** : Apache (intégré dans Laragon)
 
-2. Aller dans le dossier :
-cd HotelHub
+## 👥 Équipe et Rôles
 
-3. Installer les dépendances :
-composer install
+-   **Arthur** : [À compléter avec le rôle spécifique d'Arthur]
+-   **Merveille** : [À compléter avec le rôle spécifique de Merveille]
+-   **Ange** : [À compléter avec le rôle spécifique d'Ange]
+-   **Kabrel** : [À compléter avec le rôle spécifique de Kabrel]
 
-4. Configurer le fichier .env
+## 🚀 Installation du Projet
 
-5. Lancer le serveur :
-php artisan 🔄
+### 1. Prérequis
 
-6. Mettre à jour le projet (à faire avant de travailler)
- git pull origin main
+Avant de commencer, assurez-vous d’avoir installé les outils suivants sur votre machine :
+*   **Git** : Pour le clonage du dépôt. Téléchargez-le depuis [https://git-scm.com/](https://git-scm.com/).
+*   **Laragon** : Un environnement de développement local complet (Apache, MySQL, PHP, Composer). Téléchargez-le depuis [https://laragon.org/](https://laragon.org/).
+*   **Composer** : Un gestionnaire de dépendances pour PHP. Laragon l'installe généralement, mais vérifiez sa présence ou téléchargez-le depuis [https://getcomposer.org/](https://getcomposer.org/).
 
-🌿 7. Créer une branche (TRÈS IMPORTANT)
+### 2. Étapes d'Installation
 
-Ne jamais travailler directement sur main.
-git checkout -b nom-de-ta-branche
+1.  **Cloner le projet** :
+    ```bash
+    git clone https://github.com/HotelHub.git
+    ```
 
-✍️ 8. Ajouter et enregistrer les modifications
-git add .
-git commit -m "Ajout de la page de connexion"
+2.  **Accéder au dossier du projet** :
+    ```bash
+    cd HotelHub
+    ```
 
-🚀 9. Envoyer son travail sur GitHub
-git push origin nom-de-ta-branche
+3.  **Installer les dépendances Composer** :
+    ```bash
+    composer install
+    ```
 
-🔁 10. Créer une Pull Request
-	1.	Aller sur le dépôt GitHub
-	2.	Cliquer sur Compare & pull request
-	3.	Ajouter une description
-	4.	Cliquer sur Create pull request
+4.  **Configurer le fichier `.env`** :
+    *   Copiez le fichier `.env.example` et renommez-le en `.env`.
+    *   Modifiez les paramètres de connexion à la base de données (si nécessaire, Laragon configure souvent par défaut `DB_DATABASE=homestead`, `DB_USERNAME=root`, `DB_PASSWORD=` ou laissez vide).
+    *   Générez une clé d'application Laravel :
+        ```bash
+        php artisan key:generate
+        ```
 
-  ✅ 11. Après validation
+5.  **Lancer les migrations et les seeders** :
+    ```bash
+    php artisan migrate --seed
+    ```
+    (Ceci créera les tables de la base de données et les remplira avec des données de test si des seeders sont définis.)
 
-Une fois la Pull Request acceptée :
-git checkout main
-git pull origin main
+6.  **Lancer le serveur de développement Laragon** :
+    *   Démarrez Laragon (Apache et MySQL).
+    *   Depuis le terminal du projet, vous pouvez lancer le serveur Laravel :
+        ```bash
+        php artisan serve
+        ```
+    *   Accédez ensuite à l'application via l'URL fournie par Laravel (généralement `http://127.0.0.1:8000`).
 
-## 🧩 Fonctionnalités
+### 3. Workflow de Contribution Git
 
-- Inscription / Connexion
-- Recherche d’hôtels
-- Réservation de chambres
-- Annulation de réservation
-- Gestion admin
-- Commentaires clients
+1.  **Mettre à jour le projet (avant de commencer à travailler)** :
+    ```bash
+    git pull origin main
+    ```
 
-  ## 🗂️ Structure
+2.  **Créer une branche pour votre fonctionnalité (TRÈS IMPORTANT)** :
+    Ne travaillez **jamais** directement sur la branche `main`.
+    ```bash
+    git checkout -b nom-de-ta-branche
+    ```
+    (Exemple : `git checkout -b feature/login-page` ou `git checkout -b fix/bug-reservation`)
 
-- /frontend
-- /backend
-- /database
-- /resources
+3.  **Ajouter et enregistrer vos modifications** :
+    ```bash
+    git add .
+    git commit -m "Description concise de vos modifications"
+    ```
+    (Exemple : `git commit -m "Ajout de la page de connexion et gestion du formulaire"`)
 
-  ## 📌 Contribution
+4.  **Envoyer votre travail sur GitHub** :
+    ```bash
+    git push origin nom-de-ta-branche
+    ```
 
-- Créer une branche pour chaque fonctionnalité
-- Ne pas push directement sur main
-- Passer par des Pull Requests
+5.  **Créer une Pull Request (PR)** :
+    *   Accédez au dépôt GitHub de votre projet dans votre navigateur web.
+    *   Vous verrez probablement une notification pour créer une Pull Request depuis votre nouvelle branche.
+    *   Cliquez sur **`Compare & pull request`**.
+    *   Ajoutez un titre clair et une description détaillée de votre Pull Request.
+    *   Cliquez sur **`Create pull request`**.
 
-  ## 📄 Licence
+6.  **Après validation de la Pull Request** :
+    Une fois que votre Pull Request a été examinée et fusionnée avec succès dans la branche `main` :
+    ```bash
+    git checkout main          # Revenez à la branche principale
+    git pull origin main       # Synchronisez votre branche principale locale avec celle du dépôt
+    git branch -d nom-de-ta-branche # Supprimez votre branche locale de fonctionnalité (optionnel mais recommandé)
+    ```
 
-Projet académique - usage éducatif
+## 🗂️ Structure du Projet
+
+-   `/app` : Logique métier (Modèles, Contrôleurs, etc.)
+-   `/database` : Migrations, seeders, factories.
+-   `/public` : Fichiers accessibles publiquement (CSS, JS, images).
+-   `/resources` : Vues Blade, assets frontend (SCSS, JS).
+-   `/routes` : Définition des routes de l'application.
+-   `/tests` : Tests unitaires et fonctionnels.
+
+## 📌 Contribution
+
+-   Chaque nouvelle fonctionnalité ou correction de bug doit être développée sur une **branche dédiée**.
+-   Ne jamais pousser directement sur la branche `main`.
+-   Toutes les modifications doivent passer par une **Pull Request** pour revue et validation.
+
+## 📄 Licence
+
+Ce projet est un projet académique destiné à des fins éducatives et ne dispose pas d'une licence open-source formelle pour l'instant.
 
