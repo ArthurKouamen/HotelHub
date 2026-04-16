@@ -162,6 +162,11 @@ Avant de commencer, assurez-vous d’avoir installé les outils suivants sur vot
 -   Ne jamais pousser directement sur la branche `main`.
 -   Toutes les modifications doivent passer par une **Pull Request** pour revue et validation.
 
+🗂️📄 Documentation
+
+-docs/cahier-de-charges-v1
+
+
 ## 📄 Licence
 
 Ce projet est un projet académique destiné à des fins éducatives et ne dispose pas d'une licence open-source formelle pour l'instant.
