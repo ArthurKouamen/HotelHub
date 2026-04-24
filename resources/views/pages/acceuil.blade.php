@@ -129,5 +129,9 @@
                 </div>
             </div>
         </div>
+        <div class="footer">
+                <p>Déjà inscrit ? <a href="/connexion">Connectez-vous</a></p>
+                <p>Pas de compte ? <a href="/inscription">Créer un compte</a></p>
+            </div>
     </body>
 </html>
