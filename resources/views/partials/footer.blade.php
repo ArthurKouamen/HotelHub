@@ -74,6 +74,6 @@
             <span class="partner-logo">CAMER-PROMO</span>
         </div>
     </footer>
-
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>
