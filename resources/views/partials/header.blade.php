@@ -15,7 +15,8 @@
 
     <!-- Header & Navigation -->
     <header>
-        <nav class="navbar">
+        <div class= "hamburger" id="hamburger"><i class="fa fa-bars"></i></div>
+        <nav class="navbar" id="nav-menu">
             <div class="logo"><img src="images/logo.png" alt="logo du site" width= "100" height = "70"></div>
             <ul class="nav-links">
                 <li><a href="#" class="active">Accueil</a></li>
