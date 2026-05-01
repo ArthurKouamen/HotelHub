@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.acceuil');
 });
+
+Route::get('/inscription', function () {
+    return view('pages.inscription');
+});
+
+Route::get('/connexion', function () {
+    return view('pages.connexion');
+});
+
+

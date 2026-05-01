@@ -1,0 +1,61 @@
+/* NAVIGATION */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 8%;
+    background-color: var(--primary-color); /* Utilisation du bleu nuit */
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo img {
+    border-radius: 40px;
+}
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* BOUTONS NAVIGATION */
+.btn-login {
+    padding: 8px 20px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 6px;
+    color: var(--secondary-color) !important;
+}
+
+.btn-signup {
+    padding: 8px 20px;
+    background-color: var(--secondary-color);
+    color: var(--white) !important;
+    border-radius: 6px;
+}
+
+.btn-signup:hover {
+    background-color: #1a948e; /* Un peu plus sombre au survol */
+}
