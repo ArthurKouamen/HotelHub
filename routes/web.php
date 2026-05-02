@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.acceuil');
+    return view('pages.inscription');
 });
 
 Route::get('/inscription', function () {
