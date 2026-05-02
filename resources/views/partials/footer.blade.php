@@ -4,7 +4,7 @@
         <div class="footer-columns">
             <!-- Colonne 1 : À propos -->
             <div class="column">
-                <img src="images/logo.png" alt="logo du site" width="150" height="80">
+                <img src="images/logo.png" alt="logo du site" width="100" height="80">
                 <p class="about-text">
                     La plateforme leader pour la promotion et la gestion hôtelière au Cameroun. Trouvez l'hôtel idéal en quelques clics.
                 </p>
