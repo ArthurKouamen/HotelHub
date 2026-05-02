@@ -15,15 +15,22 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gradient-to-br from-[#115e59] via-[#1A365D] to-[#20B2AA]">
+    <body class="font-sans text-gray-900 dark:text-gray-100 antialiased">
+    <div x-data="{ darkMode: localStorage.getItem('darkMode') === 'true', toggleDarkMode() { this.darkMode = !this.darkMode; localStorage.setItem('darkMode', this.darkMode); if (this.darkMode) document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark'); } }" x-init="if (darkMode) document.documentElement.classList.add('dark')" class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
+            <!-- Dark Mode Toggle -->
+            <div class="absolute top-4 right-4">
+                <button @click="toggleDarkMode()" class="w-10 h-10 border border-transparent text-sm leading-4 font-medium rounded-full text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150 shadow-lg">
+                    🌙
+                </button>
+            </div>
+
             <div>
                 <a href="/">
                     <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                 </a>
             </div>
 
-            <div class="w-full sm:max-w-md mt-6 px-10 py-12 bg-white shadow-2xl overflow-hidden sm:rounded-3xl">
+            <div class="w-full sm:max-w-md mt-6 px-10 py-12 bg-white dark:bg-gray-800 shadow-2xl overflow-hidden sm:rounded-3xl">
                 {{ $slot }}
             </div>
         </div>
