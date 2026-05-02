@@ -12,12 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('notifications', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_notification');
+            $table->text('message');
+            $table->date('date');
+            $table->enum('statut' ,['lu','non_lu'])->default('non_lu');;
+            $table->foreignId('utilisateur')->contained('utilisateurs')->onDelete('casacde');
             $table->timestamps();
         });
     }
 
-    /**
+    /**s
      * Reverse the migrations.
      */
     public function down(): void
