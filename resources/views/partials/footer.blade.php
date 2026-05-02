@@ -2,6 +2,24 @@
     <footer class="main-footer">
         <!-- Section des liens (Colonnes) -->
         <div class="footer-columns">
+            <!-- Colonne 1 : À propos -->
+            <div class="column">
+                <h4 class="footer-logo">HOTEL-<span>HUB</span></h4>
+                <p class="about-text">
+                    La plateforme leader pour la promotion et la gestion hôtelière au Cameroun. Trouvez l'hôtel idéal en quelques clics.
+                </p>
+            </div>
+            <!-- Colonne 2 : Navigation -->
+            <div class="column">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="{{ url('/') }}" class="{{ request()->is('/') ? 'active' : '' }}">Accueil</a></li>
+                    <li><a href="{{ url('/hotels') }}" class="{{ request()->is('hotels*') ? 'active' : '' }}">Explorer les hôtels</a></li>
+                    <li><a href="#">Hôtels à Dschang</a></li>
+                    <li><a href="#">Promotions</a></li>
+                    <li><a href="{{ url('/dashboard') }}" class="{{ request()->is('dashboard') ? 'active' : '' }}">Mon Compte</a></li>
+                </ul>
+            </div>
             <div class="column">
                 <h4>Assistance</h4>
                 <ul>
@@ -61,10 +79,18 @@
             </div>
         </div>
 
+        <!-- réseaux sociaux -->
+        <div class="footer-social">
+            <a href="#" class="social-facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-linkedin"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
         <!-- Copyright et Mentions -->
         <div class="footer-copyright">
-            <p>Hotel-Hub fait partie de l'Université de Dschang, leader dans la formation web au Cameroun.</p>
-            <p>Copyright © 1996–2026 Hotel-Hub™. Tous droits réservés.</p>
+            <p>Hotel-Hub est votre plateforme idéale, leader dans la promotion hotélière au Cameroun.</p>
+            <p>Copyright © 2026 Hotel-Hub™. Tous droits réservés.</p>
         </div>
 
         <!-- Logos Partenaires (Simulation) -->

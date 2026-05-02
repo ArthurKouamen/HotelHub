@@ -17,13 +17,24 @@
     <header>
         <div class= "hamburger" id="hamburger"><i class="fa fa-bars"></i></div>
         <nav class="navbar" id="nav-menu">
-            <div class="logo"><img src="images/logo.png" alt="logo du site" width= "100" height = "70"></div>
+            <div class="logo"><img src="images/logo.png" alt="logo du site" width= "150" height = "80"></div>
             <ul class="nav-links">
-                <li><a href="#" class="active">Accueil</a></li>
-                <li><a href="#">Hôtels</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="/connexion" class="btn-login">Connexion</a></li>
-                <li><a href="/inscription" class="btn-signup">S'inscrire</a></li>
+                <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Accueil</a></li>
+                <li><a href="/hotels" class="{{ request()->is('hotels*') ? 'active' : '' }}">Hôtels</a></li>
+                <li><a href="/about" class="{{ request()->is('about') ? 'active' : '' }}">À propos</a></li>
+
+                @guest
+                    <li><a href="/connexion" class="btn-login"><i class="fa-solid fa-right-from-bracket"></i> Connexion</a></li>
+                    <li><a href="/inscription" class="btn-signup"><i class="fa-solid fa-user-plus"></i> S'inscrire</a></li>
+                @endguest
+
+                @auth 
+                    <li><a href="/dashboard" class="btn-signup"><i class="fa-solid fa-user"></i> Espace client</a></li>
+                    <form action="{{ route('logout') }}" method="POST" class="form">
+                        @csrf
+                         <li><a href="" class="btn-login" onclick="event.preventDefault(); this.closest('form').submit();">Déconnexion <i class="fa-solid fa-right-from-bracket"></i></a></li>
+                    </form>
+                @endauth
             </ul>
         </nav>
     </header>
