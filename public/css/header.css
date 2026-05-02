@@ -28,6 +28,10 @@
     border-radius: 40px;
 }
 
+.nav.active {
+    border-bottom: 1px solid var(--white);
+    color: var(--secondary-color);
+}
 
 .nav-links {
     display: flex;
@@ -41,9 +45,16 @@
     font-weight: 500;
     font-size: 0.95rem;
     transition: var(--transition);
+    position: relative;
+    padding-bottom: 5px;
 }
 
 .nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+.nav-links a.active {
+    border-bottom: 3px solid var(--secondary-color);
     color: var(--secondary-color);
 }
 

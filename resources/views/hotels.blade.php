@@ -4,7 +4,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Découvrez l'excellence hôtelière au <span class="highlight">Cameroun</span></h1>
-            <p>La solution de gestion locale pour une ambition internationale. Du Nord au Sud, de l'Est à l'Ouest, trouvez l'hôtel qui vous correspond en quelques clics.</p>
+            <p>De Dschang à Douala, trouvez l'hôtel qui vous correspond en quelques clics.</p>
             
             <div class="search-container">
                 <form class="search-bar">
@@ -57,11 +57,11 @@
         <div class="hotel-grid">
             <!-- Hôtel 1 -->
             <div class="hotel-card">
-                <div class="hotel-image" style="background-image: url('images/Adys-hotel-Dschang.jpg')">
+                <div class="hotel-image" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80')">
                     <span class="price">25.000 FCFA</span>
                 </div>
                 <div class="hotel-info">
-                    <h3>Hôtel Adys</h3>
+                    <h3>Hôtel Téclaire</h3>
                     <p><i class="fas fa-location-dot"></i> Dschang, Entrée Campus A</p>
                     <div class="rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
@@ -72,12 +72,12 @@
 
             <!-- Hôtel 2 -->
             <div class="hotel-card">
-                <div class="hotel-image" style="background-image: url('images/constellation-hotel-Dschang.jpg')">
+                <div class="hotel-image" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80')">
                     <span class="price">45.000 FCFA</span>
                 </div>
                 <div class="hotel-info">
-                    <h3>Constellation Hotel</h3>
-                    <p><i class="fas fa-location-dot"></i> Dschang, Quartier Administratif</p>
+                    <h3>La Falaise</h3>
+                    <p><i class="fas fa-location-dot"></i> Douala, Akwa</p>
                     <div class="rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
@@ -87,12 +87,12 @@
 
             <!-- Hôtel 3 -->
             <div class="hotel-card">
-                <div class="hotel-image" style="background-image: url('images/Hotel_Du_Lac_Dschang-Dschang-Cameroon01_large.webp')">
+                <div class="hotel-image" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=500&q=80')">
                     <span class="price">15.000 FCFA</span>
                 </div>
                 <div class="hotel-info">
-                    <h3>La voie Lactée Dschang</h3>
-                    <p><i class="fas fa-location-dot"></i> Dschang, derrière le musée de la civilisation</p>
+                    <h3>Manoir de Dschang</h3>
+                    <p><i class="fas fa-location-dot"></i> Dschang, Quartier Administratif</p>
                     <div class="rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
                     </div>
