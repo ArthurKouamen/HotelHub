@@ -9,8 +9,8 @@ class Image extends Model
 {
     protected $fillable[
        "url",
-       "id_hotel",
-       "id_chambre"
+       "hotel_id",
+       "chambre_id"
     ];
    public function chambres (){
     return $this -> belongsTo(Chambre::class);

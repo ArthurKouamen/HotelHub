@@ -19,9 +19,6 @@
     <div x-data="{ darkMode: localStorage.getItem('darkMode') === 'true', toggleDarkMode() { this.darkMode = !this.darkMode; localStorage.setItem('darkMode', this.darkMode); if (this.darkMode) document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark'); } }" x-init="if (darkMode) document.documentElement.classList.add('dark')" class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
             <!-- Dark Mode Toggle -->
             <div class="absolute top-4 right-4">
-                <button @click="toggleDarkMode()" class="w-10 h-10 border border-transparent text-sm leading-4 font-medium rounded-full text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150 shadow-lg">
-                    🌙
-                </button>
             </div>
 
             <div>

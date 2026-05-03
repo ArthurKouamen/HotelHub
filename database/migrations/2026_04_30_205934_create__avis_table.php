@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Avis', function (Blueprint $table) {
-            $table->id('id_avis');
+            $table->id('id');
             $table->integer('note');
             $table->text('commemtaire')->nullable();
             $table->date('date');
-            $table->foreignId('id_utilisateur')->contained('utilisateurs')->onDelete('cascade');
-            $table->foreignId('id_hotel')->contained('hotels')->onDelete('cascade');
+            $table->foreignId('users_id')->contained('users')->onDelete('cascade');
+            $table->foreignId('hotels_id')->contained('hotels')->onDelete('cascade');
             $table->timestamps();
         });
     }

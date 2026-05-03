@@ -11,8 +11,8 @@ class Avis extends Model
        "note",
        "commentaaire",
        "date",
-       "id_utilisateur",
-       "id_hotel"
+       "user_id",
+       "hotel_id"
     ];
     public function hotels(){
         return $this -> belongsTo(Hotel::class);
