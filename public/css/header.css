@@ -1,4 +1,10 @@
 /* NAVIGATION */
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -22,6 +28,10 @@
     border-radius: 40px;
 }
 
+.nav.active {
+    border-bottom: 1px solid var(--white);
+    color: var(--secondary-color);
+}
 
 .nav-links {
     display: flex;
@@ -35,9 +45,16 @@
     font-weight: 500;
     font-size: 0.95rem;
     transition: var(--transition);
+    position: relative;
+    padding-bottom: 5px;
 }
 
 .nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+.nav-links a.active {
+    border-bottom: 3px solid var(--secondary-color);
     color: var(--secondary-color);
 }
 
@@ -58,4 +75,26 @@
 
 .btn-signup:hover {
     background-color: #1a948e; /* Un peu plus sombre au survol */
+}
+
+@media screen and (max-width:700px) {
+    .hamburger {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav.active {
+        display: block;
+    }
 }
