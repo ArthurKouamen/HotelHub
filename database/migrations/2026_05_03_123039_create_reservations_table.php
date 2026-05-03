@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('hotels', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->id('id');
             $table->date('date_arrivee');
             $table->date('date_depart');
-            $table->enum('statut' ,['confirmee','annulee']);
-            $table->foreignId('users_id')->constained('users')->onDelete('cascade');
-            $table->foreignId('chambres_id')->constained('chambres')->onDelete('cascade');
+            $table->enum('statut', ['confirmée', 'annulée'])->default('confirmée');
+            $table->foreignId('utilisateurs_id')->constrained('users', 'id')->onDelete('cascade');
+            $table->foreignId('chambres_id')->constrained('chambres', 'id')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('hotels');
+        Schema::dropIfExists('reservations');
     }
 };

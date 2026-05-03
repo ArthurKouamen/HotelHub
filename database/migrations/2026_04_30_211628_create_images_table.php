@@ -12,11 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id('id_image')
-            ;$table->string('url');
-            $table->foreignId('id_hotel')->contained('hotels')->onDelete('cascade');
-            $table->id();
-            $table->foreignId('id_chambre')->contained('chambres')->onDelete('cascade');
+            $table->id('id');
+            $table->string('url');
+            $table->foreignId('hotels_id')->contained('hotels')->onDelete('cascade');
+            $table->foreignId('chambres_id')->contained('chambres')->onDelete('cascade');
             $table->timestamps();
         });
     }

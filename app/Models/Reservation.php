@@ -7,18 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
 {
-    protected $fillable[
-        "date_depart",
-        "date_arrive",
-        "statut",
-        "id_chambre",
-        "id_utilisateur"
+    protected $fillable = [
+        'date_arrivee',
+        'date_depart',
+        'statut',
+        'user_id',
+        'chambre_id',
     ];
-    public function chambres() {
-        return $this -> belongsTo(Chambre::class);
+
+    public function chambre()
+    {
+        return $this->belongsTo(Chambre::class, 'chambre_id', 'id');
     }
-    public function utilisateurs(){
-        return $this -> belongsTo(Utilisateur::class);
+
+    public function utilisateur()
+    {
+        return $this->belongsTo(Utilisateur::class, 'user_id', 'id');
     }
 
 }

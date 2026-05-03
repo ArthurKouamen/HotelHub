@@ -12,13 +12,12 @@ return new class extends Migration
     public function up(): void
     { 
         Schema::create('chambres', function (Blueprint $table) {
-            $table->id('id_chambre');
+            $table->id('id');
             $table->string('numero');
             $table->enum('type',['simple', 'double','suite']);
-            $table->enum('statut' ,['confirmee','annulee']);
             $table->decimal('prix', 10, 2);
             $table->enum('statut',['disponible','occupee'])->default('disponible');
-            $table->foreignId('id_hotel')->constained('hotels')->onDelete('cascade');
+            $table->foreignId('hotels_id')->constained('hotels')->onDelete('cascade');
             $table->timestamps(); 
         }); //
     }
