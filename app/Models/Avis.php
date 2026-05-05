@@ -9,7 +9,7 @@ class Avis extends Model
 {
      protected $fillable[
        "note",
-       "commentaaire",
+       "comments",
        "date",
        "user_id",
        "hotel_id"

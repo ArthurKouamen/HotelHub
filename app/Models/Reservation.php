@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Reservation extends Model
 {
     protected $fillable = [
-        'date_arrivee',
-        'date_depart',
-        'statut',
+        'arival_date',
+        'departure_date',
+        'status',
         'user_id',
-        'chambre_id',
+        'room_id',
     ];
 
     public function chambre()

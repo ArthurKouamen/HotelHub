@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Hotel extends Model
 {
      protected $fillable[
-       "nom",
-       "adresse",
-       "ville",
+       "name",
+       "address",
+       "city",
        "description"
     ];
     public function chambres (){
