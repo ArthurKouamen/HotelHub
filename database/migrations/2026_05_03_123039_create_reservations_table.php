@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id('id');
-            $table->date('date_arrivee');
-            $table->date('date_depart');
-            $table->enum('statut', ['confirmée', 'annulée'])->default('confirmée');
-            $table->foreignId('utilisateurs_id')->constrained('users', 'id')->onDelete('cascade');
-            $table->foreignId('chambres_id')->constrained('chambres', 'id')->onDelete('cascade');
+            $table->date('arrival_date');
+            $table->date('departure_date');
+            $table->enum('status', ['confirmée', 'annulée'])->default('confirmée');
+            $table->foreignId('users_id')->constrained('users', 'id')->onDelete('cascade');
+            $table->foreignId('chambre_id')->constrained('chambres', 'id')->onDelete('cascade');
             $table->timestamps();
         });
     }

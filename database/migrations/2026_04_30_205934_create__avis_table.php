@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('Avis', function (Blueprint $table) {
             $table->id('id');
             $table->integer('note');
-            $table->text('commemtaire')->nullable();
+            $table->text('commemts')->nullable();
             $table->date('date');
             $table->foreignId('users_id')->contained('users')->onDelete('cascade');
             $table->foreignId('hotels_id')->contained('hotels')->onDelete('cascade');

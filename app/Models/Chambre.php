@@ -9,8 +9,8 @@ class Chambre extends Model
 {
     protected $fillable[
         "type",
-        "prix",
-        "statut",
+        "price",
+        "status",
         "hotel_id"
     ];
    public function hotels(){

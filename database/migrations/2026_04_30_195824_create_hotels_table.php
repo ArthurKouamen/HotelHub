@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('hotels', function (Blueprint $table) {
             $table->id('id');
-            $table->date('date_arrivee');
-            $table->date('date_depart');
-            $table->enum('statut' ,['confirmee','annulee']);
-            $table->foreignId('users_id')->constained('users')->onDelete('cascade');
-            $table->foreignId('chambres_id')->constained('chambres')->onDelete('cascade');
+            $table->date('arrival_date');
+            $table->date('departure_date');
+            $table->enum('status' ,['confirmée','annulée']);
+            $table->foreignId('users_id')->constrained('users', 'id')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -17,7 +17,12 @@
                     <li><a href="{{ url('/hotels') }}" class="{{ request()->is('hotels*') ? 'active' : '' }}">Explorer les hôtels</a></li>
                     <li><a href="#">Hôtels à Dschang</a></li>
                     <li><a href="#">Promotions</a></li>
-                    <li><a href="{{ url('/dashboard') }}" class="{{ request()->is('dashboard') ? 'active' : '' }}">Mon Compte</a></li>
+                    @guest
+                        <li><a href="{{ url('/connexion') }}" class="{{ request()->is('dashboard') ? 'active' : '' }}">Mon Compte</a></li>
+                    @endguest
+                    @auth
+                        <li><a href="{{ url('/dashboard') }}" class="{{ request()->is('dashboard') ? 'active' : '' }}">Mon Compte</a></li>
+                    @endauth
                 </ul>
             </div>
             <div class="column">
