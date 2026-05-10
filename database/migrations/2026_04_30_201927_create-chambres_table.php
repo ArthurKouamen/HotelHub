@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('phone');
             $table->enum('type',['simple', 'double','suite']);
             $table->decimal('price', 10, 2);
+            $table -> text('discription');
+            $table -> integer('capacity');
             $table->enum('status',['disponible','occupee'])->default('disponible');
             $table->foreignId('hotels_id')->constained('hotels')->onDelete('cascade');
             $table->timestamps(); 

@@ -16,6 +16,14 @@ return new class extends Migration
             $table->date('arrival_date');
             $table->date('departure_date');
             $table->enum('status' ,['confirmée','annulée']);
+            $table -> string('name');
+            $table -> text('description');
+            $table -> string('address');
+            $table -> integer('phone');
+            $table -> string('email');
+            $table-> integer('pixmax');
+            $table -> integer('numberetoile');
+            $table -> string('city');
             $table->foreignId('users_id')->constrained('users', 'id')->onDelete('cascade');
             $table->timestamps();
         });

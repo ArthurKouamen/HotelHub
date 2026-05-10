@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HotelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,10 +31,8 @@ Route::get('/admin-dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('admin.dashboard');
 
-Route::get('/hotels', function () {
-    return view('hotels');
-});
-
+Route::get('/hotels', [HotelController::class , "index"]);
+Route::get('/hotels/{id}', [HotelController::class , "show"]);
 Route::get('/about', function () {
     return view('about');
 });
