@@ -7,19 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Chambre extends Model
 {
-    protected $fillable[
+        protected $fillable = [
         "type",
         "prix",
         "statut",
         "hotel_id"
     ];
-   public function hotels(){
-    return $this -> belongsTo(Hotel::class);
-   }
-   public function reservations(){
-    return $this -> hasOne(Reservation::class);
-   }
-   public function images(){
-    return $this -> hasMany(Image::class);
-   }
+    public function hotels()
+    {
+        return $this->belongsTo(Hotel::class);
+    }
+    public function reservations()
+    {
+        return $this->hasOne(Reservation::class);
+    }
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }
