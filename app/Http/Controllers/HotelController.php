@@ -59,6 +59,7 @@ class HotelController extends Controller
         Hotel::create([
             'name' => $request->name,
             'city' => $request->city,
+            'address' => $request->address,
             'description' => $request->description,
             'image' => $imagePath,
         ]);
@@ -89,6 +90,7 @@ class HotelController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'city' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
             'description' => 'required',
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
