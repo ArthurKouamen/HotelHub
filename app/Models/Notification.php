@@ -12,7 +12,7 @@ class Notification extends Model
        "message",
        "date",
        "user_id",
-       "status"
+       "status",
     ];
     public function utilisateur (){
         return $this ->belongsTo(Utilisateur::class);

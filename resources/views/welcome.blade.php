@@ -99,6 +99,94 @@
                     <a href="#" class="btn-view">Consulter</a>
                 </div>
             </div>
+                        <!-- Hôtel 4 -->
+            <div class="hotel-card">
+                <div class="hotel-image" style="background-image: url('images/Adys-hotel-Dschang.jpg')">
+                    <span class="price">25.000 FCFA</span>
+                </div>
+                <div class="hotel-info">
+                    <h3>Hôtel Adys</h3>
+                    <p><i class="fas fa-location-dot"></i> Dschang, Entrée Campus A</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <a href="#" class="btn-view">Consulter</a>
+                </div>
+            </div>
+
+            <!-- Hôtel 5 -->
+            <div class="hotel-card">
+                <div class="hotel-image" style="background-image: url('images/constellation-hotel-Dschang.jpg')">
+                    <span class="price">45.000 FCFA</span>
+                </div>
+                <div class="hotel-info">
+                    <h3>Constellation Hotel</h3>
+                    <p><i class="fas fa-location-dot"></i> Dschang, Quartier Administratif</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <a href="#" class="btn-view">Consulter</a>
+                </div>
+            </div>
+
+            <!-- Hôtel 6 -->
+            <div class="hotel-card">
+                <div class="hotel-image" style="background-image: url('images/Hotel_Du_Lac_Dschang-Dschang-Cameroon01_large.webp')">
+                    <span class="price">15.000 FCFA</span>
+                </div>
+                <div class="hotel-info">
+                    <h3>La voie Lactée Dschang</h3>
+                    <p><i class="fas fa-location-dot"></i> Dschang, derrière le musée de la civilisation</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <a href="#" class="btn-view">Consulter</a>
+                </div>
+            </div>
+            <!-- Hôtel 7 -->
+            <div class="hotel-card">
+                <div class="hotel-image" style="background-image: url('images/Adys-hotel-Dschang.jpg')">
+                    <span class="price">25.000 FCFA</span>
+                </div>
+                <div class="hotel-info">
+                    <h3>Hôtel Adys</h3>
+                    <p><i class="fas fa-location-dot"></i> Dschang, Entrée Campus A</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <a href="#" class="btn-view">Consulter</a>
+                </div>
+            </div>
+
+            <!-- Hôtel 8 -->
+            <div class="hotel-card">
+                <div class="hotel-image" style="background-image: url('images/constellation-hotel-Dschang.jpg')">
+                    <span class="price">45.000 FCFA</span>
+                </div>
+                <div class="hotel-info">
+                    <h3>Constellation Hotel</h3>
+                    <p><i class="fas fa-location-dot"></i> Dschang, Quartier Administratif</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <a href="#" class="btn-view">Consulter</a>
+                </div>
+            </div>
+
+            <!-- Hôtel 9 -->
+            <div class="hotel-card">
+                <div class="hotel-image" style="background-image: url('images/Hotel_Du_Lac_Dschang-Dschang-Cameroon01_large.webp')">
+                    <span class="price">15.000 FCFA</span>
+                </div>
+                <div class="hotel-info">
+                    <h3>La voie Lactée Dschang</h3>
+                    <p><i class="fas fa-location-dot"></i> Dschang, derrière le musée de la civilisation</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <a href="#" class="btn-view">Consulter</a>
+                </div>
+            </div>
         </div>
     </section>
 

@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Icones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!--Importation du css-->
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -22,7 +23,7 @@
             <div class="logo"><img src="images/logo.png" alt="logo du site" width= "100" height = "80"></div>
             <ul class="nav-links">
                 <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Accueil</a></li>
-                <li><a href="/hotels" class="{{ request()->is('hotels*') ? 'active' : '' }}">Hôtels</a></li>
+                <li><a href="/hotels.index" class="{{ request()->is('hotels*') ? 'active' : '' }}">Hôtels</a></li>
                 <li><a href="/about" class="{{ request()->is('about') ? 'active' : '' }}">À propos</a></li>
 
                 @guest
