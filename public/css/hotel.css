@@ -1,0 +1,239 @@
+/* Variables de Couleurs */
+:root {
+    --primary-blue: #1A365D;    /* Bleu Profond - Luxe & Confiance */
+    --accent-teal: #20B2AA;     /* Turquoise - Eau & Détente */
+    --bg-white: #FFFFFF;        /* Fond blanc */
+    --text-dark: #2D3748;       /* Texte gris foncé */
+    --text-light: #718096;      /* Texte secondaire */
+    --gray-light: #F7FAFC;      /* Gris très clair pour sections */
+}
+
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Retour */
+.mini-nav {
+    padding: 20px 0;
+    background: var(--bg-white);
+}
+
+.back-btn {
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    color: var(--accent-teal);
+}
+
+/* Galerie d'images */
+.gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 12px;
+    height: 450px;
+    margin-bottom: 40px;
+}
+
+.main-img {
+    border-radius: 12px 0 0 12px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.1);
+}
+
+.side-imgs {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+}
+
+.side-imgs div {
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 12px 12px 0;
+}
+
+/* Layout Principal */
+.hotel-layout {
+    display: grid;
+    grid-template-columns: 1.8fr 1.2fr;
+    gap: 60px;
+    padding-bottom: 80px;
+}
+
+/* Colonne Infos */
+h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-blue);
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.location {
+    color: var(--accent-teal);
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #edf2f7;
+    margin: 30px 0;
+}
+
+h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.description {
+    color: var(--text-light);
+    text-align: justify;
+}
+
+/* Équipements */
+.amenities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.amenities span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: var(--gray-light);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+}
+
+.amenities i {
+    color: var(--accent-teal);
+}
+
+/* Carte de Réservation */
+.booking-card {
+    background: var(--bg-white);
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(26, 54, 93, 0.08); /* Ombre bleutée légère */
+    height: fit-content;
+    position: sticky;
+    top: 40px;
+}
+
+.price-tag {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.amount {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+}
+
+/* Formulaire de réservation */
+form label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--primary-blue);
+}
+
+input[type="date"], select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-family: inherit;
+    outline: none;
+    transition: 0.3s;
+}
+
+input[type="date"]:focus {
+    border-color: var(--accent-teal);
+    box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.1);
+}
+
+.btn-book {
+    width: 100%;
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-book:hover {
+    background-color: var(--accent-teal);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(32, 178, 170, 0.3);
+}
+
+.notice {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hotel-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .gallery {
+        height: 350px;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    .side-imgs {
+        display: none;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+}
