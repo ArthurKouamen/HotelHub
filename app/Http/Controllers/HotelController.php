@@ -19,7 +19,7 @@ class HotelController extends Controller
             "name",
             "address",
             "city",
-             "description",
+            "description",
             "numberetoile",
             "pixmax"
         ) -> with('images')->paginate(18);
