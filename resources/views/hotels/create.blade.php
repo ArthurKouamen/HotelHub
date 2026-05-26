@@ -30,7 +30,7 @@
         <br>
 
         <div>
-            <label>Ville :</label>
+            <label>Adresse :</label>
         </div>
         <input type="text" name="adresse" placeholder="Adresse" required>
 
