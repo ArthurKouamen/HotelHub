@@ -29,19 +29,8 @@
                 <h4>Assistance</h4>
                 <ul>
                     <li><a href="#">Gérez vos voyages</a></li>
-                    <li><a href="#">Contacter le Service Clients</a></li>
+                    <li><a href="{{url('mailto:hotelhub@gmail.com')}}">Contacter le Service Clients</a></li>
                     <li><a href="#">Centre des ressources en matière de sécurité</a></li>
-                </ul>
-            </div>
-            <div class="column">
-                <h4>À découvrir</h4>
-                <ul>
-                    <li><a href="#">Programme de fidélité Genius</a></li>
-                    <li><a href="#">Offres de voyage saisonnières</a></li>
-                    <li><a href="#">Articles de voyages</a></li>
-                    <li><a href="#">Booking.com Business</a></li>
-                    <li><a href="#">Traveller Review Awards</a></li>
-                    <li><a href="#">Location de voitures</a></li>
                 </ul>
             </div>
             <div class="column">
@@ -66,7 +55,7 @@
             <div class="column">
                 <h4>À propos</h4>
                 <ul>
-                    <li><a href="#">À propos de Hotel-Hub</a></li>
+                    <li><a href="{{url('/about')}}">À propos de Hotel-Hub</a></li>
                     <li><a href="#">Le fonctionnement de notre site</a></li>
                     <li><a href="#">Durabilité</a></li>
                     <li><a href="#">Centre de presse</a></li>

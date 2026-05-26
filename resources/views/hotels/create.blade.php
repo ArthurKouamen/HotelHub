@@ -8,30 +8,38 @@
 </head>
 <body>
 
-    <h1>Ajouter un hôtel</h1>
+    <h1>Ajoutez votre hôtel</h1>
 
-    <form action="{{ route('hotels.store') }}" method="POST" enctype="multipart/form-data">
+    <div class="container">
+         <form action="{{ route('hotels.store') }}" method="POST" enctype="multipart/form-data" class="formulaire">
 
         @csrf
 
         <div>
             <label>Nom :</label>
         </div>
-        <input type="text" name="name">
+        <input type="text" name="name" placeholder="Nom de l'hotel" required>
 
         <br>
 
         <div>
             <label>Ville :</label>
         </div>
-        <input type="text" name="city">
+        <input type="text" name="city" placeholder="Ville" required>
+
+        <br>
+
+        <div>
+            <label>Ville :</label>
+        </div>
+        <input type="text" name="adresse" placeholder="Adresse" required>
 
         <br>
 
         <div>
             <label>Description :</label>
         </div>
-        <textarea name="description"></textarea>
+        <textarea name="description" placeholder="Description" required></textarea>
 
         <br>
 
@@ -78,6 +86,9 @@
         </button>
 
     </form>
+    </div>
+
+   
 
 </body>
 </html>

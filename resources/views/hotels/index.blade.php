@@ -10,7 +10,7 @@
 @include('partials.header')
 
 <body>
-
+    BONJOUR
     <header class="mini-nav">
         <a href="{{ url('/') }}" class="back-btn"><i class="fas fa-arrow-left"></i> Retour</a>
     </header>
