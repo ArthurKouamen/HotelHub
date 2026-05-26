@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Hotel;
 use Illuminate\Http\Request;
+use App\Models\Image;
+
 
 class HotelController extends Controller
 {
@@ -12,11 +14,16 @@ class HotelController extends Controller
      */
     public function index()
     {
-        // Récupérer tous les hôtels
-        $hotels = Hotel::all();
-
-        // Retourner la vue avec les données
-        return view('hotels.index', compact('hotels'));
+        $hotels = Hotel::select(
+            "id",
+            "name",
+            "address",
+            "city",
+             "description",
+            "numberetoile",
+            "pixmax"
+        ) -> with('images')->paginate(18);
+         return view("hotels.index",compact("hotels"));
     }
 
     /**
@@ -24,11 +31,10 @@ class HotelController extends Controller
      */
     public function show($id)
     {
-        // Rechercher l’hôtel par son ID
-        $hotel = Hotel::findOrFail($id);
-
-        // Retourner la vue des détails
-        return view('hotels.show', compact('hotel'));
+      
+        $hotel = Hotel::with('images') -> findOrFail($id);
+        $chambre = Chambre::with('images')-> where('hotels_id', $id)->get();
+        return view ("hotels.show", compact("hotel","chambre"));
     }
 
     /**
@@ -49,20 +55,44 @@ class HotelController extends Controller
             'name' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'image' => 'required|array',
+            'image.*' => 'image|mimes:jpg,jpeg,png|max:2048',
+            'address' => 'required|string|',
+            'phone'=> 'required|string',
+            'pixmax' => 'required|numeric',
+            'numberetoile' => 'required|integer',
+            'email' => 'required|email'
         ]);
 
         // Upload image
-        $imagePath = $request->file('image')->store('hotels', 'public');
 
         // Création hôtel
-        Hotel::create([
+        $hotel = Hotel::create([
             'name' => $request->name,
             'city' => $request->city,
             'address' => $request->address,
             'description' => $request->description,
-            'image' => $imagePath,
-        ]);
+            'address' => $request->address,
+            'phone'=> $request->phone,
+            'pixmax' => $request->pixmax,
+            'numberetoile' => $request->numberetoile,
+            'email' =>  $request->email,
+            'users_id' => 1,
+         ]);
+         if($request -> hasFile('image')){
+               foreach ($request -> file('image') as $image){
+                // genere le nom de l'image de facon unique avec time
+                $file = time().'_'. uniqid().'.'.$image ->extension();
+                // deplacer vers le dossier public
+                $image -> move(public_path('images'), $file);
+                //enregistrer l'image
+                Image::create ([
+                    'hotels_id' => $hotel -> id,
+                    'url' => 'images/'. $file,
+                    'chambres_id' => null
+                ]);
+               }
+           }
 
         // Redirection
         return redirect()->route('hotels.index')

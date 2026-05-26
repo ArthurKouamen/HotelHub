@@ -8,15 +8,15 @@ use App\Models\Chambre;
 use App\Models\Hotel;
 class Image extends Model
 {
-    protected $fillable[
+    protected $fillable = ([
        "url",
-       "hotel_id",
-       "room_id",
-    ];
+       "hotels_id",
+       "chambres_id"
+    ]);
    public function chambres (){
-    return $this -> belongsTo(Chambre::class);
+    return $this -> belongsTo(Chambre::class, 'chambres_id');
    }
    public function hotels (){
-    return $this -> belongsTo(Hotel::class);
+    return $this -> belongsTo(Hotel::class, 'hotels_id');
    }
 }

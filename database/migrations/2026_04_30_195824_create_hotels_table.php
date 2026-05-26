@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('hotels', function (Blueprint $table) {
             $table->id('id');
-            $table->string('name');
             $table->string('address');
             $table->string('city');
             $table->text('description');
-            $table->string('image')->nullable();
-            $table->date('arrival_date');
-            $table->date('departure_date');
             $table->enum('status' ,['confirmée','annulée']);
+            $table -> string('name');
+            $table -> integer('phone');
+            $table -> string('email');
+            $table-> integer('pixmax');
+            $table -> integer('numberetoile');
             $table->foreignId('users_id')->constrained('users', 'id')->onDelete('cascade');
             $table->timestamps();
         });

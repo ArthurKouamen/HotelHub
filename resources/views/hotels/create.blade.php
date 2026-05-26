@@ -46,9 +46,40 @@
         <div>
             <label>Image :</label>
         </div>
-        <input type="file" name="image" placeholder="Choisissez une image" required>
+        <input type="file" name="image[]" multiple>
+        <br>
+
+        <div>
+            <label>adresse :</label>
+        </div>
+        <input type="text" name="address">
 
         <br>
+
+        <div>
+            <label>numero de telephone :</label>
+        </div>
+        <input type="tel" name="phone">
+        <br>
+
+        <div>
+            <label>prix maximal :</label>
+        </div>
+        <input type="number" name="pixmax">
+        <br>
+
+        <div>
+            <label>nombre d'etoile :</label>
+        </div>
+        <input type="number" name="numberetoile">
+        <br>
+
+        <div>
+            <label>email:</label>
+        </div>
+        <input type="email" name="email">
+        <br>
+
 
         <button type="submit">
             Ajouter
