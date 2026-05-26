@@ -14,11 +14,16 @@ class HotelController extends Controller
      */
     public function index()
     {
-        // Récupérer tous les hôtels
-        $hotels = Hotel::all();
-
-        // Retourner la vue avec les données
-        return view('hotels.index', compact('hotels'));
+        $hotels = Hotel::select(
+            "id",
+            "name",
+            "address",
+            "city",
+             "description",
+            "numberetoile",
+            "pixmax"
+        ) -> with('images')->paginate(18);
+         return view("hotels.index",compact("hotels"));
     }
 
     /**
@@ -26,11 +31,10 @@ class HotelController extends Controller
      */
     public function show($id)
     {
-        // Rechercher l’hôtel par son ID
-        $hotel = Hotel::findOrFail($id);
-
-        // Retourner la vue des détails
-        return view('hotels.show', compact('hotel'));
+      
+        $hotel = Hotel::with('images') -> findOrFail($id);
+        $chambre = Chambre::with('images')-> where('hotels_id', $id)->get();
+        return view ("hotels.show", compact("hotel","chambre"));
     }
 
     /**

@@ -14,9 +14,9 @@ class Image extends Model
        "chambres_id"
     ]);
    public function chambres (){
-    return $this -> belongsTo(Chambre::class);
+    return $this -> belongsTo(Chambre::class, 'chambres_id');
    }
    public function hotels (){
-    return $this -> belongsTo(Hotel::class);
+    return $this -> belongsTo(Hotel::class, 'hotels_id');
    }
 }

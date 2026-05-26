@@ -1,3 +1,18 @@
+@extends('partials.header')
+@section('titre')
+    HOTEL-HUB | Promotion des hôtels au Cameroun
+@endsection
+@section('contenu')
+    <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
+    <!-- Importation d'une police moderne -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!--Importation du css-->
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+@endsection
 @include('partials.header')
 
     <!-- Hero Section avec Barre de Recherche (Besoin III.1.1) -->
