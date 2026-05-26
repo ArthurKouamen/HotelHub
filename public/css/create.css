@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 h1 {
     text-align: center;
     color: #1A365D;
@@ -5,17 +9,20 @@ h1 {
 
 .container{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
     height: 100vh;
     background-color: #f2f2f2;
+    width: 100%;
+    border-radius: 10px;
+    padding-top: 30px;
 }
+
 
 .formulaire{
     background: white;
     padding: 30px;
     border-radius: 10px;
-    width: 400px;
+    width: 100%;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
@@ -23,12 +30,13 @@ h1 {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
+    margin-bottom: 10px;
     border-radius: 10px;
-    border: solid 2px black;
+    border: solid 1px black;
 }
 
 .formulaire input:hover {
-    border: solid 2px #20B2AA;
+    border: solid 1px #20B2AA;
 }
 
 .formulaire button{
@@ -38,6 +46,15 @@ h1 {
     background-color:  #20B2AA;
     color: white;
     border-radius: 10px;
+}
+
+textarea {
+    resize: none;
+    width: 200%;
+    height: 150px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .formulaire button:hover {
