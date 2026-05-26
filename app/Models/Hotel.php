@@ -9,15 +9,18 @@ use App\Models\Image;
 use App\Models\Avis;
 class Hotel extends Model
 {
-     protected $fillable=[
+     protected $fillable = [
        "name",
        "address",
        "city",
        "description",
        "phone",
+       "pixmax",
        "numberetoile",
+       "status",
        "email",
-       "pixmax"
+       "users_id"
+
     ];
     public function chambres (){
         return $this -> hasMany(Chambre::class);

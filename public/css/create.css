@@ -1,0 +1,11 @@
+body {
+    background-color: rgb(242, 241, 241);
+}
+
+form {
+    background-color: white;
+}
+
+input {
+    height: 30px;
+}

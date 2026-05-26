@@ -13,7 +13,7 @@ return new class extends Migration
     { 
         Schema::create('chambres', function (Blueprint $table) {
             $table->id('id');
-            $table->string('phone');
+            $table->string('number');
             $table->enum('type',['simple', 'double','suite']);
             $table->decimal('price', 10, 2);
             $table -> text('discription');
