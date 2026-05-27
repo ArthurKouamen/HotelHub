@@ -26,12 +26,12 @@
             
                     <div class="input-group">
                         <i class="fas fa-map-marker-alt"></i>
-                        <input type="text" placeholder="Ville (ex: Dschang)" name="city" >
+                        <input type="text" placeholder="Ville (ex: Dschang)" name="city">
                     </div>
                        
                     <div class="input-group">
                         <i class="fas fa-money-bill-wave"></i>
-                        <input type="number" placeholder="Prix max (FCFA)" name="pixmax" >
+                        <input type="number" placeholder="Prix min (FCFA)" name="pixmax" >
                     </div>
                         
                     <div class="input-group">
