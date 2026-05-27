@@ -34,6 +34,7 @@
 
         <section class="hotel-layout">
             <div class="info-column">
+            @if($hotels -> count() > 0)
                 @foreach($hotels as $hotel)
                     <!-- Image dynamique -->
                     @if($hotel->images->first())
@@ -58,6 +59,9 @@
                         <span class="amount">{{ $hotel->price }}€</span> / nuit
                     </div>
                 @endforeach
+            @else
+                    <p> aucun resultat</p>
+             @endif
             </div>
               
             </aside>
