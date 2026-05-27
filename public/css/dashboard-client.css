@@ -1,0 +1,11 @@
+.btn-ajouter {
+    background-color: #20B2AA;
+    border-radius: 10px;
+    margin-left: 25px;
+    padding: 12px 20px;
+    border: none;
+}
+
+.btn-ajouter:hover {
+    background-color: #1e8c7a;
+}

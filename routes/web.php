@@ -49,6 +49,13 @@ Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
 
 Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
 
+
+// Routes pour les chambres
+Route::get('/chambre/create', function () {
+    return view('chambre.create');
+});
+
+
 Route::get('/about', function () {
     return view('about');
 });

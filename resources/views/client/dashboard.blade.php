@@ -12,7 +12,7 @@
                     {{ __("You're logged in!") }}
                 </div>
                 <div>
-                    <a href="{{asset('#')}}">
+                    <a href="{{asset('hotels/create')}}">
                         <button type="button" class="btn-ajouter">
                             Voir mes reservations
                         </button>

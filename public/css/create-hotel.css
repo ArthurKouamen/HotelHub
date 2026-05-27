@@ -82,3 +82,11 @@ button:hover {
 button[type="submit"] {
     margin-top: 25px;
 }
+
+button[type="button"] {
+    background-color: #1A365D;
+}
+
+button[type="button"]:hover {
+    background-color: #031225;
+}
