@@ -1,64 +1,54 @@
-@include('partials.header')
 
-   <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ $hotel->name }} - Détails</title>
-    <!-- Chargement du CSS depuis public/assets/css/ -->
-    <link rel="stylesheet" href="{{ asset('assets/css/hotel.css') }}">
+
+    @section('titre')
+        Nos Hotels
+    @endsection
+    @section('contenu')
+    <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
+    <!-- Importation d'une police moderne -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Icones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+    <!--Importation du css-->
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/hotel.css') }}">
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @endsection
+    @include('partials.header')
 
-    <header class="mini-nav">
-        <a href="{{ url('/') }}" class="back-btn"><i class="fas fa-arrow-left"></i> Retour</a>
-    </header>
 
-    <main class="container">
-        <section class="gallery">
-            <!-- Image dynamique -->
-            <div class="main-img" style="background-image: url('{{ asset('assets/img/' . $hotel->image) }}');"></div>
-            <div class="side-imgs">
-                <div style="background-image: url('{{ asset('assets/img/spa.jpg') }}');"></div>
-                <div style="background-image: url('{{ asset('assets/img/room.jpg') }}');"></div>
-            </div>
-        </section>
-
-        <section class="hotel-layout">
-            <div class="info-column">
-                <h1>{{ $hotel->name }}</h1>
-                <p class="location"><i class="fas fa-map-marker-alt"></i> {{ $hotel->location }}</p>
-                
-                <hr>
-
-                <h3>Description</h3>
-                <p class="description">{{ $hotel->description }}</p>
-
-                <div class="amenities">
-                    <span><i class="fas fa-wifi"></i> Wifi</span>
-                    <span><i class="fas fa-swimmer"></i> Piscine</span>
+<main class="container">
+    <div class="hotels-grid"> <!-- Nouveau conteneur pour la grille -->
+        @foreach($hotels as $hotel)
+            <div class="hotel-card">
+                <!-- Image de la carte -->
+                <div class="card-image">
+                    @if($hotel->images->first())
+                        <img src="{{ asset($hotel->images->first()->url) }}" alt="{{ $hotel->name }}">
+                    @else
+                        <img src="{{ asset('assets/img/default-hotel.jpg') }}" alt="Image par défaut">
+                    @endif
+                    <div class="price-badge">{{ $hotel->price }}€ <span>/ nuit</span></div>
                 </div>
-            </div>
 
-            <aside class="booking-card">
-                <div class="price-tag">
-                    <span class="amount">{{ $hotel->price }}€</span> / nuit
-                </div>
-                
-                <form action="{{ route('booking.store') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="hotel_id" value="{{ $hotel->id }}">
+                <!-- Contenu de la carte -->
+                <div class="card-content">
+                    <h3>{{ $hotel->name }}</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> {{ $hotel->address }}</p>
+                    <p class="description-short">{{ Str::limit($hotel->description, 100) }}</p>
                     
-                    <label>Dates</label>
-                    <input type="date" name="checkin" required>
-                    <input type="date" name="checkout" required>
+                    <div class="amenities">
+                        <span><i class="fas fa-wifi"></i></span>
+                        <span><i class="fas fa-swimmer"></i></span>
+                    </div>
 
-                    <button type="submit" class="btn-book">Réserver cet hôtel</button>
-                </form>
-            </aside>
-        </section>
-    </main>
-
-</body>
-</html>
+                    <div class="card-footer">
+                        <a href="{{ route('hotels.show', $hotel->id) }}" class="btn-view">Voir les détails</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</main>
+@include('partials.footer')

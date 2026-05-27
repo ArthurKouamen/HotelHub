@@ -1,14 +1,14 @@
-@include('partials.header')
-
-   <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ $hotel->name }} - Détails</title>
-    <!-- Chargement du CSS depuis public/assets/css/ -->
+@extends('partials.header')
+@section('titre')
+    {{ $hotel->name }} - Détails
+@endsection
+@section('contenu')
+     <!-- Chargement du CSS depuis public/assets/css/ -->
     <link rel="stylesheet" href="{{ asset('assets/css/hotel.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+@endsection
+@include('partials.header')
+
 <body>
 
     <header class="mini-nav">

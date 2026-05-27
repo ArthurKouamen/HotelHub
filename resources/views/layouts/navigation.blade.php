@@ -18,6 +18,11 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @admin
+                        <x-nav-link :href="url('/hotels/create')" :active="request()->routeIs('/hotels/create')">
+                            {{ __('Ajouter un hotel') }}
+                        </x-nav-link>
+                    @endadmin
                 </div>
             </div>
 

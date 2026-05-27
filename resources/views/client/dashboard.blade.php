@@ -11,6 +11,13 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                 </div>
+                <div>
+                    <a href="{{asset('#')}}">
+                        <button type="button" class="btn-ajouter">
+                            Voir mes reservations
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
