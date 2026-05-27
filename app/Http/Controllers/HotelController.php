@@ -72,12 +72,11 @@ class HotelController extends Controller
             'city' => $request->city,
             'address' => $request->address,
             'description' => $request->description,
-            'address' => $request->address,
             'phone'=> $request->phone,
             'pixmax' => $request->pixmax,
             'numberetoile' => $request->numberetoile,
             'email' =>  $request->email,
-            'users_id' => auth() ->id,
+            'users_id' => auth() ->id(),
          ]);
          if($request -> hasFile('image')){
                foreach ($request -> file('image') as $image){
@@ -164,7 +163,7 @@ class HotelController extends Controller
              $hotel -> where('name', 'like','%'. $request -> name . '%');   
         }
          if($request -> filled('city')){
-             $hotel -> where('city', 'like','%'. $request -> name . '%');   
+             $hotel -> where('city', 'like','%'. $request -> city . '%');   
         }
          if($request -> filled('pixmax')){
              $hotel -> where('pixmax' , $request -> pixmax);   
