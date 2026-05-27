@@ -52,7 +52,7 @@
                         <div class="card-header">
                             <h3>{{ $hotel->name }}</h3>
                             <div class="locations">
-                                <p><i class="fas fa-home"></i> {{ $hotel->city }}</p>
+                                <p><i class="fas fa-city"></i> {{ $hotel->city }}</p>
                                 <p><i class="fas fa-map-marker-alt"></i> {{ $hotel->address }}</p>
                                 <p class="star"><i class="fas fa-star"></i> {{ $hotel->numberetoile }} étoiles</p>
 
@@ -80,7 +80,7 @@
             @endforeach
         @else
             <div class="no-result">
-                <p><i class="fas fa-search"></i> Aucun résultat trouvé</p>
+                <p><i class="fas fa-search"></i> Aucun résultat</p>
             </div>
         @endif
     </section>

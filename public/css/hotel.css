@@ -117,3 +117,20 @@
     font-size: 0.9rem;
     margin-top: 5px;
 }
+
+.no-result {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    color: #7f8c8d;
+    font-size: 1.2rem;
+    margin-top: 200px;
+    margin-bottom: 300px;
+}
+
+.no-result i {
+    color: #26b1a5;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
