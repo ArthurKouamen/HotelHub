@@ -55,6 +55,91 @@ body {
     opacity: 0.9;
 }
 
+/* Description du site */
+/* Section globale */
+.features {
+    padding: 80px 0;
+    background-color: #f8fafc; /* Gris très léger pour faire ressortir les cartes blanches */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #1e293b;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+/* Grille */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* Carte Individuelle */
+.feature-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Ombre légère */
+}
+
+/* Effet au survol (Hover) */
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border-color: #26b1a5; /* Rappel de ta couleur principale */
+}
+
+/* Wrapper de l'icône */
+.icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: rgba(38, 177, 165, 0.1); /* Fond léger avec ta couleur */
+    color: #26b1a5; /* Ta couleur principale */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    font-size: 1.8rem;
+    transition: 0.3s ease;
+}
+
+.feature-card:hover .icon-wrapper {
+    background: #26b1a5;
+    color: #ffffff;
+}
+
+/* Textes */
+.feature-card h3 {
+    color: #1e293b;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.feature-card p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Responsive : ajustement pour mobile */
+@media (max-width: 768px) {
+    .features {
+        padding: 50px 0;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
 /* BARRE DE RECHERCHE (Besoin III.1.1) */
 .search-container {
     background: var(--white);

@@ -2,13 +2,13 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Ajouter un hôtel</title>
+    <title>Ajouter une chambre</title>
     <!--Importation du css-->
-    <link rel="stylesheet" href="{{ asset('css/create-hotel.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/create-chambre.css') }}">
 </head>
 <body>
 
-    <h1>Ajoutez votre hôtel</h1>
+    <h1>Ajoutez votre Chambre</h1>
 
          <form action="{{route('hotels.store')}}" method="POST" enctype="multipart/form-data" class="formulaire">
     <div class="container">
@@ -17,22 +17,22 @@
             <div>
                 <label>Nom :</label>
             </div>
-            <input type="text" name="name" placeholder="Nom de l'hotel" required>
+            <input type="text" name="name" placeholder="Nom de la chambre" required>
 
             <div>
-                <label>Ville :</label>
+                <label>Numéro :</label>
             </div>
-            <input type="text" name="city" placeholder="Ville" required>
+            <input type="text" name="city" placeholder="Numéro de chambre" required>
 
             <div>
-                <label>Adresse :</label>
+                <label>Type :</label>
             </div>
-            <input type="text" name="address" placeholder="Adresse" required>
+            <input type="text" name="address" placeholder="Simple, double ou suite" required>
 
             <div>
-                <label>Description :</label>
+                <label>Courte description :</label>
             </div>
-            <textarea name="description" placeholder="Description" required></textarea>
+            <textarea name="description" placeholder="mini description" required></textarea>
 
             <a href="{{ route('dashboard') }}">
                 <button type="button">
@@ -43,29 +43,24 @@
 
         <div class="form-right">
             <div>
-                <label>Image :</label>
+                <label>Images :</label>
             </div>
             <input type="file" name="image[]" multiple>
     
             <div>
-                <label>numero de telephone :</label>
+                <label>A propos de la chambre :</label>
             </div>
-            <input type="tel" name="phone">
+            <textarea name="description" placeholder="Description plus détaillée" required></textarea>
 
             <div>
-                <label>prix minimum de chambre :</label>
+                <label>prix de la chambre :</label>
             </div>
             <input type="number" name="pixmax">
 
             <div>
-                <label>nombre d'etoile :</label>
+                <label>Capacité :</label>
             </div>
-            <input type="number" name="numberetoile">
-
-            <div>
-                <label>email:</label>
-            </div>
-            <input type="email" name="email">
+            <input type="number" name="capacity">
 
             <button type="submit">
                 Ajouter
