@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
 use App\Models\Image;
+use App\Models\Chambre;
 
 
 class HotelController extends Controller
@@ -32,8 +33,8 @@ class HotelController extends Controller
     public function show($id)
     {
       
-        $hotel = Hotel::with('images') -> findOrFail($id);
-        $chambre = Chambre::with('images')-> where('hotels_id', $id)->get();
+        $hotel = Hotel::with(['images','chambres']) -> findOrFail($id);
+        $chambre = Chambre::with('images')-> where('hotel_id', $id)->get();
         return view ("hotels.show", compact("hotel","chambre"));
     }
 
@@ -86,7 +87,7 @@ class HotelController extends Controller
                 $image -> move(public_path('images'), $file);
                 //enregistrer l'image
                 Image::create ([
-                    'hotels_id' => $hotel -> id,
+                    'hotel_id' => $hotel -> id,
                     'url' => 'images/'. $file,
                     'chambres_id' => null
                 ]);
