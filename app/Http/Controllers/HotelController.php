@@ -77,7 +77,7 @@ class HotelController extends Controller
             'pixmax' => $request->pixmax,
             'numberetoile' => $request->numberetoile,
             'email' =>  $request->email,
-            'users_id' => 1,
+            'users_id' => auth() ->id,
          ]);
          if($request -> hasFile('image')){
                foreach ($request -> file('image') as $image){
@@ -155,5 +155,21 @@ class HotelController extends Controller
 
         return redirect()->route('hotels.index')
                          ->with('success', 'Hôtel supprimé avec succès.');
+    }
+ 
+    public function search(Request $request){
+        $hotel = Hotel:: with('images');
+
+        if($request -> filled('name')){
+             $hotel -> where('name', 'like','%'. $request -> name . '%');   
+        }
+         if($request -> filled('city')){
+             $hotel -> where('city', 'like','%'. $request -> name . '%');   
+        }
+         if($request -> filled('pixmax')){
+             $hotel -> where('pixmax' , $request -> pixmax);   
+        }
+        $hotels = $hotel -> get();
+          return view("hotels.index",compact("hotels"));
     }
 }
