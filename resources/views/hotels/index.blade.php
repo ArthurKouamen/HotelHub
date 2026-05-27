@@ -59,16 +59,7 @@
                     </div>
                 @endforeach
             </div>
-                <form action="{{ route('hotels.store') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="hotel_id" value="{{ $hotel->id }}">
-                    
-                    <label>Dates</label>
-                    <input type="date" name="checkin" required>
-                    <input type="date" name="checkout" required>
-
-                    <button type="submit" class="btn-book">Réserver cet hôtel</button>
-                </form>
+              
             </aside>
         </section>
     </main>
