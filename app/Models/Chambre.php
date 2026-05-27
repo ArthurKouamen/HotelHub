@@ -10,7 +10,7 @@ use App\Models\Image;
 
 class Chambre extends Model
 {
-    protected $fillable[
+    protected $fillable=[
         "type",
         "price",
         "status",

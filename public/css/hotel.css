@@ -111,3 +111,9 @@
     text-decoration: none;
     font-weight: bold;
 }
+
+.locations .star i {
+    color: #f1c40f;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}

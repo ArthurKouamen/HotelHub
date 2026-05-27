@@ -1,64 +1,113 @@
-@extends('partials.header')
+
 @section('titre')
-    {{ $hotel->name }} - Détails
+    Détails de l'hôtel {{ $hotel->name }}
 @endsection
-@section('contenu')
-     <!-- Chargement du CSS depuis public/assets/css/ -->
-    <link rel="stylesheet" href="{{ asset('assets/css/hotel.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-@endsection
-@include('partials.header')
+    @section('contenu')
+        <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
+        <!-- Importation d'une police moderne -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        <!-- Icones -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <!--Importation du css-->
+        <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/show-hotel.css') }}">
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @endsection
+    @include('partials.header')
 
-<body>
-
-    <header class="mini-nav">
-        <a href="{{ url('/') }}" class="back-btn"><i class="fas fa-arrow-left"></i> Retour</a>
-    </header>
-
-    <main class="container">
-        <section class="gallery">
-            <!-- Image dynamique -->
-            <div class="main-img" style="background-image: url('{{ asset('assets/img/' . $hotel->image) }}');"></div>
-            <div class="side-imgs">
-                <div style="background-image: url('{{ asset('assets/img/spa.jpg') }}');"></div>
-                <div style="background-image: url('{{ asset('assets/img/room.jpg') }}');"></div>
-            </div>
-        </section>
-
-        <section class="hotel-layout">
-            <div class="info-column">
-                <h1>{{ $hotel->name }}</h1>
-                <p class="location"><i class="fas fa-map-marker-alt"></i> {{ $hotel->location }}</p>
-                
-                <hr>
-
-                <h3>Description</h3>
-                <p class="description">{{ $hotel->description }}</p>
-
-                <div class="amenities">
-                    <span><i class="fas fa-wifi"></i> Wifi</span>
-                    <span><i class="fas fa-swimmer"></i> Piscine</span>
+<main class="show-container">
+    <!-- 1. EN-TÊTE : PROFIL ET STATS -->
+    <section class="hotel-header">
+        <div class="profile-card">
+            <div class="profile-main">
+                <!-- Image du propriétaire ou logo hôtel -->
+                <div class="profile-img-wrapper">
+                    <img src="{{ asset($hotel->images->first()->url ?? 'assets/img/default.jpg') }}" alt="Hotel">
+                    <span class="verified-badge"><i class="fas fa-check"></i></span>
+                </div>
+                <div class="profile-info">
+                    <p class="status">Hôtel vérifié</p>
+                    <h1>{{ $hotel->name }}</h1>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> {{ $hotel->city }}, {{ $hotel->address }}</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i> <strong>4,9</strong> <span>(128 avis)</span>
+                    </div>
                 </div>
             </div>
+            <div class="profile-description">
+                <h3>À propos de cet hôte</h3>
+                <p>{{ $hotel->description }}</p>
+            </div>
+        </div>
 
-            <aside class="booking-card">
-                <div class="price-tag">
-                    <span class="amount">{{ $hotel->price }}€</span> / nuit
+        <!-- Grille de stats à droite -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <i class="fas fa-bed"></i>
+                <div class="stat-val">6</div>
+                <div class="stat-label">Chambres</div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <div class="stat-val">156</div>
+                <div class="stat-label">Voyageurs accueillis</div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-star"></i>
+                <div class="stat-val">4,9</div>
+                <div class="stat-label">Note moyenne</div>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-comment-dots"></i>
+                <div class="stat-val">100%</div>
+                <div class="stat-label">Taux de réponse</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. GALERIE D'IMAGES -->
+    <section class="gallery-section">
+        <div class="section-header">
+            <h2>Toutes les images ({{ $hotel->images->count() }})</h2>
+            <a href="#" class="view-all">Voir toutes les images</a>
+        </div>
+        <div class="image-grid">
+            @foreach($hotel->images->take(5) as $image)
+                <div class="grid-img">
+                    <img src="{{ asset($image->url) }}" alt="Gallery image">
                 </div>
-                
-                <form action="{{ route('booking.store') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="hotel_id" value="{{ $hotel->id }}">
-                    
-                    <label>Dates</label>
-                    <input type="date" name="checkin" required>
-                    <input type="date" name="checkout" required>
+            @endforeach
+        </div>
+    </section>
 
-                    <button type="submit" class="btn-book">Réserver cet hôtel</button>
-                </form>
-            </aside>
-        </section>
-    </main>
+    <!-- 3. LISTE DES CHAMBRES (Cartes horizontales) -->
+    <section class="rooms-section">
+        <h2>Toutes les chambres de l'hôte ({{ $hotel->chambres->count() ?? 0 }})</h2>
+        
+        <div class="rooms-list">
+            @foreach($hotel->chambres as $chambre)
+            <div class="room-horizontal-card">
+                <div class="room-img">
+                    <img src="{{ asset($chambre->image_url ?? 'assets/img/room.jpg') }}" alt="Chambre">
+                </div>
+                <div class="room-details">
+                    <h3>{{ $chambre->name ?? 'Chambre Cosy' }}</h3>
+                    <div class="room-icons">
+                        <span><i class="fas fa-users"></i> 2 voyageurs</span>
+                        <span><i class="fas fa-bed"></i> 1 lit double</span>
+                        <span><i class="fas fa-bath"></i> 1 salle de bain</span>
+                    </div>
+                    <p class="room-desc">Lumineuse avec balcon privé, idéale pour un séjour en couple.</p>
+                </div>
+                <div class="room-price-action">
+                    <div class="price"><strong>{{ $chambre->price }} €</strong> / nuit</div>
+                    <a href="#" class="btn-primary">Voir les détails</a>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </section>
+</main>
 
-</body>
-</html>
+@include('partials.footer')

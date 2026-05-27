@@ -54,6 +54,8 @@
                             <div class="locations">
                                 <p><i class="fas fa-home"></i> {{ $hotel->city }}</p>
                                 <p><i class="fas fa-map-marker-alt"></i> {{ $hotel->address }}</p>
+                                <p class="star"><i class="fas fa-star"></i> {{ $hotel->numberetoile }} étoiles</p>
+
                             </div>
                         </div>
 
