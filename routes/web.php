@@ -35,6 +35,7 @@ Route::get('/admin-dashboard', function () {
 Route::get('/hotels/create', [HotelController::class, 'create'])->name('hotels.create');
 
 Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
+Route::get('/hotels/search', [HotelController::class, 'search'])->name('hotel.search');
 Route::get('/hotels', [HotelController::class, 'index'])-> name('hotels.index');
 
 Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');

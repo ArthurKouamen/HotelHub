@@ -37,20 +37,29 @@
                     <h3>{{ $hotel->name }}</h3>
                     <p class="location"><i class="fas fa-home"></i> {{ $hotel->city }}</p>
                     <p class="location"><i class="fas fa-map-marker-alt"></i> {{ $hotel->address }}</p>
-                    <p class="evaluation"><i class="fas fa-star"></i> {{ $hotel->numberetoile }}</p>
-                    <p class="description-short">{{ Str::limit($hotel->description, 100) }}</p>
-                    
-                    <div class="amenities">
-                        <span><i class="fas fa-wifi"></i></span>
-                        <span><i class="fas fa-swimmer"></i></span>
-                    </div>
+                
+                    <hr>
 
-                    <div class="card-footer">
-                        <a href="{{ route('hotels.show', $hotel->id) }}" class="btn-view">Voir les détails</a>
+                    <h3>Description</h3>
+                    <p class="description">{{ $hotel->description }}</p>
+
+                    <div class="amenities">
+                        <span><i class="fas fa-wifi"></i> Wifi</span>
+                        <span><i class="fas fa-swimmer"></i> Piscine</span>
                     </div>
-                </div>
+            
+
+                    <aside class="booking-card">
+                    <div class="price-tag">
+                        <span class="amount">{{ $hotel->price }}€</span> / nuit
+                    </div>
+                @endforeach
             </div>
-        @endforeach
-    </div>
-</main>
+              
+            </aside>
+        </section>
+    </main>
+
+</body>
+</html>
 @include('partials.footer')

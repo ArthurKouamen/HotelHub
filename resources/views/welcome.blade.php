@@ -22,19 +22,23 @@
             <p>La solution de gestion locale pour une ambition internationale. Du Nord au Sud, de l'Est à l'Ouest, trouvez l'hôtel qui vous correspond en quelques clics.</p>
             
             <div class="search-container">
-                <form class="search-bar">
+                <form class="search-bar" method="GET" action="{{route ('hotel.search')}}">
+            
                     <div class="input-group">
                         <i class="fas fa-map-marker-alt"></i>
-                        <input type="text" placeholder="Ville (ex: Dschang)">
+                        <input type="text" placeholder="Ville (ex: Dschang)" name="city" >
                     </div>
+                       
                     <div class="input-group">
                         <i class="fas fa-money-bill-wave"></i>
-                        <input type="number" placeholder="Prix max (FCFA)">
+                        <input type="number" placeholder="Prix max (FCFA)" name="pixmax" >
                     </div>
+                        
                     <div class="input-group">
                         <i class="fas fa-hotel"></i>
-                        <input type="text" placeholder="Nom de l'hôtel">
+                        <input type="text" placeholder="Nom de l'hôtel" name="name" >
                     </div>
+                        
                     <button type="submit" class="btn-search">Rechercher</button>
                 </form>
             </div>
