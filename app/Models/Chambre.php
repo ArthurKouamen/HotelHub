@@ -17,7 +17,7 @@ class Chambre extends Model
         "hotel_id",
     ];
    public function hotels(){
-    return $this -> belongsTo(Hotel::class);
+    return $this -> belongsTo(Hotel::class, 'hotels_id');
    }
    public function reservations(){
     return $this -> hasOne(Reservation::class);

@@ -40,7 +40,9 @@
                     <!-- Image et Badge de prix -->
                     <div class="card-image">
                         @if($hotel->images->first())
+                             <a href="{{ route('hotels.show', $hotel->id) }}" alt="image pas trouve">
                             <img src="{{ asset($hotel->images->first()->url) }}" alt="{{ $hotel->name }}">
+                             </a>
                         @else
                             <img src="{{ asset('assets/img/default-hotel.jpg') }}" alt="Image par défaut">
                         @endif
