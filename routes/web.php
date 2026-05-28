@@ -41,6 +41,9 @@ Route::get('/hotels', [HotelController::class, 'index'])-> name('hotels.index');
 
 Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
 
+// Pour la page d'accueil (le welcome)
+Route::get('/', [HotelController::class, 'welcome'])->name('welcome');
+
 
 // Routes pour les hôtels
 Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');

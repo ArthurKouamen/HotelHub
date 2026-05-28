@@ -296,6 +296,40 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Badge "Nouveau" pour le style */
+.badge-new {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #26b1a5;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Effet Zoom sur l'image au survol de la carte */
+.hotel-card {
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.hotel-card:hover {
+    transform: translateY(-10px);
+}
+
+.hotel-card:hover .hotel-image {
+    background-size: 115%; /* Effet de zoom léger */
+}
+
+.hotel-image {
+    transition: background-size 0.5s ease;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .nav-links { display: none; }
