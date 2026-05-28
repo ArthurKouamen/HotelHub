@@ -21,6 +21,7 @@ return new class extends Migration
             $table -> integer('phone');
             $table -> string('email');
             $table-> integer('pixmax');
+            $table-> integer('numberroom');
             $table -> integer('numberetoile');
             $table->foreignId('users_id')->constrained('users', 'id')->onDelete('cascade');
             $table->timestamps();

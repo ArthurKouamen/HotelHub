@@ -40,9 +40,13 @@
                     <!-- Image et Badge de prix -->
                     <div class="card-image">
                         @if($hotel->images->first())
-                            <img src="{{ asset($hotel->images->first()->url) }}" alt="{{ $hotel->name }}">
+                            <a href="{{ route('hotels.show', $hotel->id) }}">
+                                <img src="{{ asset($hotel->images->first()->url) }}" alt="{{ $hotel->name }}">
+                            </a>
                         @else
-                            <img src="{{ asset('assets/img/default-hotel.jpg') }}" alt="Image par défaut">
+                            <a href="{{ route('hotels.show', $hotel->id) }}">
+                                <img src="{{ asset('assets/img/default-hotel.jpg') }}" alt="Image par défaut">
+                            </a>
                         @endif
                         <div class="price-badge">À partir de {{ $hotel->pixmax }} XAF <span>/ nuit</span></div>
                     </div>
@@ -55,7 +59,6 @@
                                 <p><i class="fas fa-city"></i> {{ $hotel->city }}</p>
                                 <p><i class="fas fa-map-marker-alt"></i> {{ $hotel->address }}</p>
                                 <p class="star"><i class="fas fa-star"></i> {{ $hotel->numberetoile }} étoiles</p>
-
                             </div>
                         </div>
 

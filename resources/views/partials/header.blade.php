@@ -12,7 +12,7 @@
     <header class="dark:bg-gray-800">
         <div class= "hamburger" id="hamburger"><i class="fa fa-bars"></i></div>
         <nav class="navbar" id="nav-menu">
-            <div class="logo"><img src="images/logo.png" alt="logo du site" width= "100" height = "80"></div>
+            <div class="logo"><img src="{{ asset('images/logo.png') }}" alt="logo du site" width= "100" height = "80"></div>
             <ul class="nav-links">
                 <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Accueil</a></li>
                 <li><a href="{{route('hotels.index')}}" class="{{ request()->is('hotels*') ? 'active' : '' }}">Hôtels</a></li>

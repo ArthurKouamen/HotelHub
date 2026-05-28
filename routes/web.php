@@ -49,6 +49,8 @@ Route::get('/hotels/create', [HotelController::class, 'create'])->name('hotels.c
 Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
 
 Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
+// Route pour voir toutes les images d'un hôtel spécifique
+Route::get('/hotels/{hotel}/images', [App\Http\Controllers\HotelController::class, 'allImages'])->name('hotels.images');
 
 
 // Routes pour les chambres

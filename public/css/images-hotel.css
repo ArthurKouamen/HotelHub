@@ -1,0 +1,56 @@
+.gallery-all { 
+    max-width: 1200px; 
+    margin: 40px auto; 
+    padding: 0 20px; 
+}
+
+.gallery-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+    margin-bottom: 30px; 
+}
+
+.gallery-header h1 { 
+    font-size: 1.8rem; 
+    color: var(--primary-color);
+}
+
+.back-btn { 
+    text-decoration: none; 
+    color: #1e293b; 
+    font-weight: 600; 
+    padding: 10px 20px; 
+    border-radius: 10px; 
+    background: #f1f5f9; 
+    transition: 0.3s; 
+}
+
+.back-btn:hover { 
+    background: #e2e8f0; 
+}
+    
+/* Grille style "Masonry" ou Grille propre */
+.full-images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item { 
+    height: 250px; 
+    border-radius: 15px; 
+    overflow: hidden; 
+}
+
+.gallery-item img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: 0.5s; 
+    cursor: pointer; 
+}
+
+.gallery-item img:hover { 
+    transform: scale(1.05); 
+}

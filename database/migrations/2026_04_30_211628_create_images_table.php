@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id('id');
             $table->string('url');
-            $table->foreignId('hotels_id')->contained('hotels')->onDelete('cascade') -> nullable();
+            $table->foreignId('hotel_id')->contained('hotels')->onDelete('cascade') -> nullable();
             $table->foreignId('chambres_id')->contained('chambres')->onDelete('cascade') -> nullable();
             $table->timestamps();
         });

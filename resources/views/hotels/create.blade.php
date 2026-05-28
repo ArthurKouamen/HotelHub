@@ -58,6 +58,11 @@
             <input type="number" name="pixmax">
 
             <div>
+                <label>Nombre de chambre :</label>
+            </div>
+            <input type="number" name="numberroom">
+
+            <div>
                 <label>nombre d'etoile :</label>
             </div>
             <input type="number" name="numberetoile">
