@@ -33,9 +33,9 @@ class HotelController extends Controller
     public function show($id)
     {
       
-        $hotel = Hotel::with(['images','chambres']) -> findOrFail($id);
-        $chambre = Chambre::with('images')-> where('hotel_id', $id)->get();
-        return view ("hotels.show", compact("hotel","chambre"));
+        $hotels = Hotel::with('images') -> findOrFail($id);
+        $chambre = Chambre::with('images')-> where('hotels_id', $id)->get();
+        return view ("hotels.show", compact("hotels","chambre"));
     }
 
     /**
@@ -87,7 +87,7 @@ class HotelController extends Controller
                 $image -> move(public_path('images'), $file);
                 //enregistrer l'image
                 Image::create ([
-                    'hotel_id' => $hotel -> id,
+                    'hotels_id' => $hotel -> id,
                     'url' => 'images/'. $file,
                     'chambres_id' => null
                 ]);

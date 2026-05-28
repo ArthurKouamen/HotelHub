@@ -19,7 +19,7 @@ return new class extends Migration
             $table -> text('discription');
             $table -> integer('capacity');
             $table->enum('status',['disponible','occupee'])->default('disponible');
-            $table->foreignId('hotel_id')->constained('hotels')->onDelete('cascade');
+            $table->foreignId('hotels_id')->constained('hotels')->onDelete('cascade');
             $table->timestamps(); 
         }); //
     }

@@ -12,15 +12,19 @@ class RoomController extends Controller
     /**
      * Affiche le formulaire de création d'une chambre pour un hôtel précis
      */
-    public function create(Hotel $hotel)
+    public function create()
     {
-        return view('rooms.create', compact('hotel'));
+        $hotels = Hotel::select(
+            'id',
+            'name'
+        ) -> get();
+        return view('chambre.create', compact('hotels'));
     }
 
     /**
      * Enregistre la nouvelle chambre dans la base de données
      */
-    public function store(Request $request, Hotel $hotel)
+    public function store(Request $request)
     {
         // 1. Validation des données
         $request->validate([
