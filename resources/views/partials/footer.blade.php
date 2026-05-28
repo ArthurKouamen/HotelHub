@@ -63,6 +63,19 @@
                     <li><a href="#">Contacts de l'entreprise</a></li>
                 </ul>
             </div>
+                <div class="column">
+                <h4>Ajouter votre établissement</h4>
+                <!-- Section d'appel a l'action pour les propriétaires d'hôtels -->
+                <section class="cta-owner">
+                    <div class="cta-container">
+                        <div class="cta-text">
+                            <h2>Vous êtes propriétaire d'un hôtel au Cameroun ? <br> contactez nous pour faire ajouter votre établissement</h2>
+                            <p>Rejoignez HOTEL-HUB et augmentez votre visibilité dès aujourd'hui. Gérez vos réservations et présentez vos chambres à des milliers de voyageurs.</p>
+                            <a href="mailto:hotelhub@gmail.com" class="btn-cta">Ecrivez-nous</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
 
         <!-- Section Sélecteur de langue/Devise -->
@@ -85,13 +98,6 @@
         <div class="footer-copyright">
             <p>Hotel-Hub est votre plateforme idéale, leader dans la promotion hotélière au Cameroun.</p>
             <p>Copyright © 2026 Hotel-Hub™. Tous droits réservés.</p>
-        </div>
-
-        <!-- Logos Partenaires (Simulation) -->
-        <div class="footer-partners">
-            <span class="partner-logo">HOTEL-HUB</span>
-            <span class="partner-logo">DSCHANG-TECH</span>
-            <span class="partner-logo">CAMER-PROMO</span>
         </div>
     </footer>
     <script src="{{ asset('js/script.js') }}"></script>

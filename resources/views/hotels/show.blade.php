@@ -1,6 +1,6 @@
 
 @section('titre')
-    Détails de l'hôtel {{ $hotels->name }}
+    Détails de l'hôtel {{ $hotel->name }}
 @endsection
     @section('contenu')
         <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
@@ -23,13 +23,13 @@
             <div class="profile-main">
                 <!-- Image du propriétaire ou logo hôtel -->
                 <div class="profile-img-wrapper">
-                    <img src="{{ asset($hotels->images->first()->url ?? 'assets/img/default.jpg') }}" alt="Hotel">
+                    <img src="{{ asset($hotel->images->first()->url ?? 'assets/img/default.jpg') }}" alt="Hotel">
                     <span class="verified-badge"><i class="fas fa-check"></i></span>
                 </div>
                 <div class="profile-info">
                     <p class="status">Hôtel vérifié</p>
-                    <h1>{{ $hotels->name }}</h1>
-                    <p class="location"><i class="fas fa-map-marker-alt"></i> {{ $hotels->city }}, {{ $hotels->address }}</p>
+                    <h1>{{ $hotel->name }}</h1>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> {{ $hotel->city }}, {{ $hotel->address }}</p>
                     <div class="rating">
                         <i class="fas fa-star"></i> <strong>4,9</strong> <span>(128 avis)</span>
                     </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="profile-description">
                 <h3>À propos de cet hôte</h3>
-                <p>{{ $hotels->description }}</p>
+                <p>{{ $hotel->description }}</p>
             </div>
         </div>
 
@@ -73,7 +73,7 @@
             <a href="{{ route('hotels.images', $hotel->id) }}" class="view-all">Voir toutes les images</a>
         </div>
         <div class="image-grid">
-            @foreach($hotels->images->take(5) as $image)
+            @foreach($hotel->images->take(5) as $image)
                 <div class="grid-img">
                     <a href="{{ asset($image->url) }}" target="_blank">
                         <img src="{{ asset($image->url) }}" alt="Gallery image">

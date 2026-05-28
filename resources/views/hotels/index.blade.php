@@ -48,7 +48,7 @@
                                 <img src="{{ asset('assets/img/default-hotel.jpg') }}" alt="Image par défaut">
                             </a>
                         @endif
-                        <div class="price-badge">À partir de {{ $hotel->pixmax }} XAF <span>/ nuit</span></div>
+                        <div class="price-badge">À partir de {{ number_format($hotel->pixmax, 0, ',', '.') }} XAF <span>/ nuit</span></div>
                     </div>
 
                     <!-- Contenu de la carte -->
@@ -58,7 +58,11 @@
                             <div class="locations">
                                 <p><i class="fas fa-city"></i> {{ $hotel->city }}</p>
                                 <p><i class="fas fa-map-marker-alt"></i> {{ $hotel->address }}</p>
-                                <p class="star"><i class="fas fa-star"></i> {{ $hotel->numberetoile }} étoiles</p>
+                                <div class="star">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        <i class="{{ $i <= $hotel->numberetoile ? 'fas' : 'far' }} fa-star"></i>
+                                    @endfor
+                                </div>
                             </div>
                         </div>
 
