@@ -85,94 +85,29 @@
         </div>
         
         <div class="hotel-grid">
-            <!-- Hôtel 1 -->
-            <div class="hotel-card">
-                <div class="hotel-image" style="background-image: url('images/Adys-hotel-Dschang.jpg')">
-                    <span class="price">25.000 FCFA</span>
-                </div>
-                <div class="hotel-info">
-                    <h3>Hôtel Adys</h3>
-                    <p><i class="fas fa-location-dot"></i> Dschang, Entrée Campus A</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+            @foreach($featuredHotels as $hotel)
+                <div class="hotel-card">
+                    <div class="hotel-image" 
+                        style="background-image: url('{{ $hotel->images->first() ? asset($hotel->images->first()->url) : asset('images/default-hotel.jpg') }}')">
+                        <span class="price">{{ number_format($hotel->pixmax, 0, ',', '.') }} FCFA</span>
+                        @if($hotel->created_at->diffInDays() < 7)
+                            <span class="badge-new">Nouveau</span>
+                        @endif
                     </div>
-                    <a href="#" class="btn-view">Consulter</a>
-                </div>
-            </div>
-
-            <!-- Hôtel 2 -->
-            <div class="hotel-card">
-                <div class="hotel-image" style="background-image: url('images/constellation-hotel-Dschang.jpg')">
-                    <span class="price">45.000 FCFA</span>
-                </div>
-                <div class="hotel-info">
-                    <h3>Constellation Hotel</h3>
-                    <p><i class="fas fa-location-dot"></i> Dschang, Quartier Administratif</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <div class="hotel-info">
+                        <h3>{{ $hotel->name }}</h3>
+                        <p><i class="fas fa-location-dot"></i> {{ $hotel->city }}, {{ Str::limit($hotel->address, 30) }}</p>
+                
+                        <div class="rating">
+                            @for($i = 1; $i <= 5; $i++)
+                                <i class="{{ $i <= $hotel->numberetoile ? 'fas' : 'far' }} fa-star"></i>
+                            @endfor
+                        </div>
+                
+                        <a href="{{ route('hotels.show', $hotel->id) }}" class="btn-view">Consulter</a>
                     </div>
-                    <a href="#" class="btn-view">Consulter</a>
                 </div>
-            </div>
-
-            <!-- Hôtel 3 -->
-            <div class="hotel-card">
-                <div class="hotel-image" style="background-image: url('images/Hotel_Du_Lac_Dschang-Dschang-Cameroon01_large.webp')">
-                    <span class="price">15.000 FCFA</span>
-                </div>
-                <div class="hotel-info">
-                    <h3>La voie Lactée Dschang</h3>
-                    <p><i class="fas fa-location-dot"></i> Dschang, derrière le musée de la civilisation</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                    </div>
-                    <a href="#" class="btn-view">Consulter</a>
-                </div>
-            </div>
-                        <!-- Hôtel 4 -->
-            <div class="hotel-card">
-                <div class="hotel-image" style="background-image: url('images/Adys-hotel-Dschang.jpg')">
-                    <span class="price">25.000 FCFA</span>
-                </div>
-                <div class="hotel-info">
-                    <h3>Hôtel Adys</h3>
-                    <p><i class="fas fa-location-dot"></i> Dschang, Entrée Campus A</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    </div>
-                    <a href="#" class="btn-view">Consulter</a>
-                </div>
-            </div>
-
-            <!-- Hôtel 5 -->
-            <div class="hotel-card">
-                <div class="hotel-image" style="background-image: url('images/constellation-hotel-Dschang.jpg')">
-                    <span class="price">45.000 FCFA</span>
-                </div>
-                <div class="hotel-info">
-                    <h3>Constellation Hotel</h3>
-                    <p><i class="fas fa-location-dot"></i> Dschang, Quartier Administratif</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <a href="#" class="btn-view">Consulter</a>
-                </div>
-            </div>
-
-            <!-- Hôtel 6 -->
-            <div class="hotel-card">
-                <div class="hotel-image" style="background-image: url('images/Hotel_Du_Lac_Dschang-Dschang-Cameroon01_large.webp')">
-                    <span class="price">15.000 FCFA</span>
-                </div>
-                <div class="hotel-info">
-                    <h3>La voie Lactée Dschang</h3>
-                    <p><i class="fas fa-location-dot"></i> Dschang, derrière le musée de la civilisation</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-                    </div>
-                    <a href="#" class="btn-view">Consulter</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
 

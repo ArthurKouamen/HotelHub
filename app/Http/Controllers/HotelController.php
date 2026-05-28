@@ -29,6 +29,13 @@ class HotelController extends Controller
          return view("hotels.index",compact("hotels"));
     }
 
+    public function welcome(){
+        // On récupère les 6 derniers hôtels pour la page d'accueil
+        $featuredHotels = Hotel::with('images')->latest()->take(6)->get();
+
+        return view('welcome', compact('featuredHotels'));
+    }
+
     /**
      * Afficher les détails d’un hôtel
      */
