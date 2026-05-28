@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->enum('status' ,['confirmée','annulée']);
             $table -> string('name');
-            $table -> integer('phone');
+            $table -> string('phone');
             $table -> string('email');
             $table-> integer('pixmax');
             $table-> integer('numberroom');

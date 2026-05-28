@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -67,3 +68,12 @@ Route::get('/about', function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 require __DIR__.'/auth.php';
+Route::get('/room', [RoomController::class, 'index'])->name('room.index');
+
+Route::get('/room/create', [RoomController::class, 'create'])->name('room.create');
+
+Route::post('/room', [RoomController::class, 'store'])->name('room.store');
+
+Route::get('/room/{id}', [RoomController::class, 'show'])->name('room.show');
+
+

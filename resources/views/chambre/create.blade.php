@@ -10,7 +10,7 @@
 
     <h1>Ajoutez votre Chambre</h1>
 
-         <form action="{{route('hotels.store')}}" method="POST" enctype="multipart/form-data" class="formulaire">
+         <form action="{{route('room.store')}}" method="POST" enctype="multipart/form-data" class="formulaire">
     <div class="container">
         @csrf
         <div class="form-left">
@@ -22,12 +22,12 @@
             <div>
                 <label>Numéro :</label>
             </div>
-            <input type="text" name="city" placeholder="Numéro de chambre" required>
+            <input type="text" name="number" placeholder="Numéro de chambre" required>
 
             <div>
                 <label>Type :</label>
             </div>
-            <input type="text" name="address" placeholder="Simple, double ou suite" required>
+            <input type="text" name="type" placeholder="Simple, double ou suite" required>
 
             <div>
                 <label>Courte description :</label>
@@ -50,17 +50,28 @@
             <div>
                 <label>A propos de la chambre :</label>
             </div>
-            <textarea name="description" placeholder="Description plus détaillée" required></textarea>
+            <textarea name="discription" placeholder="Description plus détaillée" required></textarea>
 
             <div>
                 <label>prix de la chambre :</label>
             </div>
-            <input type="number" name="pixmax">
+            <input type="number" name="price">
 
             <div>
                 <label>Capacité :</label>
             </div>
             <input type="number" name="capacity">
+
+             <div>
+                <label>hotel :</label> 
+            </div>
+            @foreach($hotels as $hotel)
+            <label class="group">
+                <span class ="s1">{{$hotel -> name}} </span>
+            <input type="radio" name="hotels_id" value ="{{$hotel ->id}}"> 
+            
+            </label>
+            @endforeach
 
             <button type="submit">
                 Ajouter

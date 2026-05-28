@@ -91,3 +91,13 @@ button[type="button"] {
 button[type="button"]:hover {
     background-color: #031225;
 }
+.group{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    padding-left: 100px;
+}
+.s1{
+    width: 100%;
+    text-align: top;
+}

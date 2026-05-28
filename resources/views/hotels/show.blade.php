@@ -1,6 +1,6 @@
 
 @section('titre')
-    Détails de l'hôtel {{ $hotel->name }}
+    Détails de l'hôtel {{ $hotels->name }}
 @endsection
     @section('contenu')
         <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
@@ -23,13 +23,13 @@
             <div class="profile-main">
                 <!-- Image du propriétaire ou logo hôtel -->
                 <div class="profile-img-wrapper">
-                    <img src="{{ asset($hotel->images->first()->url ?? 'assets/img/default.jpg') }}" alt="Hotel">
+                    <img src="{{ asset($hotels->images->first()->url ?? 'assets/img/default.jpg') }}" alt="Hotel">
                     <span class="verified-badge"><i class="fas fa-check"></i></span>
                 </div>
                 <div class="profile-info">
                     <p class="status">Hôtel vérifié</p>
-                    <h1>{{ $hotel->name }}</h1>
-                    <p class="location"><i class="fas fa-map-marker-alt"></i> {{ $hotel->city }}, {{ $hotel->address }}</p>
+                    <h1>{{ $hotels->name }}</h1>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> {{ $hotels->city }}, {{ $hotels->address }}</p>
                     <div class="rating">
                         <i class="fas fa-star"></i> <strong>4,9</strong> <span>(128 avis)</span>
                     </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="profile-description">
                 <h3>À propos de cet hôte</h3>
-                <p>{{ $hotel->description }}</p>
+                <p>{{ $hotels->description }}</p>
             </div>
         </div>
 
@@ -73,7 +73,7 @@
             <a href="{{ route('hotels.images', $hotel->id) }}" class="view-all">Voir toutes les images</a>
         </div>
         <div class="image-grid">
-            @foreach($hotel->images->take(5) as $image)
+            @foreach($hotels->images->take(5) as $image)
                 <div class="grid-img">
                     <a href="{{ asset($image->url) }}" target="_blank">
                         <img src="{{ asset($image->url) }}" alt="Gallery image">
@@ -85,22 +85,23 @@
 
     <!-- 3. LISTE DES CHAMBRES (Cartes horizontales) -->
     <section class="rooms-section">
-        <h2>Toutes les chambres de l'hôte ({{ $hotel->chambres->count() ?? 0 }})</h2>
+        <h2>Toutes les chambres de l'hôte ({{ $chambre->count() ?? 0 }})</h2>
         
         <div class="rooms-list">
-            @foreach($hotel->chambres as $chambre)
+            @foreach($chambre  as $chambres)
             <div class="room-horizontal-card">
                 <div class="room-img">
-                    <img src="{{ asset($chambre->image_url ?? 'assets/img/room.jpg') }}" alt="Chambre">
+                
+                    <img src="{{ asset($chambres->images ->url->first ?? 'assets/img/room.jpg') }}" alt="Chambre">
                 </div>
                 <div class="room-details">
-                    <h3>{{ $chambre->name ?? 'Chambre Cosy' }}</h3>
+                    <h3>{{ $chambres->name ?? 'Chambre Cosy' }}</h3>
                     <div class="room-icons">
-                        <span><i class="fas fa-users"></i> 2 voyageurs</span>
+                        <span><i class="fas fa-users"></i> {{$chambres -> capacity}} voyageurs</span>
                         <span><i class="fas fa-bed"></i> 1 lit double</span>
                         <span><i class="fas fa-bath"></i> 1 salle de bain</span>
                     </div>
-                    <p class="room-desc">Lumineuse avec balcon privé, idéale pour un séjour en couple.</p>
+                    <p class="room-desc">{{ str::limit($chambres -> description, 100)}}.</p>
                 </div>
                 <div class="room-price-action">
                     <div class="price"><strong>{{ $chambre->price }} €</strong> / nuit</div>
