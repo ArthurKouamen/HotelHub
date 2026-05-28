@@ -46,36 +46,74 @@
     </section>
 
     <!-- Section Intérêts (Basé sur le Tableau I.3 du CDC) -->
-<section class="features">
-    <div class="container">
-        <h2 class="section-title">Pourquoi nous choisir ?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="icon-wrapper">
-                    <i class="fas fa-bolt"></i>
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Pourquoi nous choisir ?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Accès Rapide</h3>
+                    <p>Trouvez des informations fiables et comparez les meilleurs hôtels en un temps record.</p>
                 </div>
-                <h3>Accès Rapide</h3>
-                <p>Trouvez des informations fiables et comparez les meilleurs hôtels en un temps record.</p>
-            </div>
 
-            <div class="feature-card">
-                <div class="icon-wrapper">
-                    <i class="fas fa-calendar-check"></i>
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Réservation Facile</h3>
+                    <p>Réservez votre chambre en quelques clics, sans stress et sans déplacement physique.</p>
                 </div>
-                <h3>Réservation Facile</h3>
-                <p>Réservez votre chambre en quelques clics, sans stress et sans déplacement physique.</p>
-            </div>
 
-            <div class="feature-card">
-                <div class="icon-wrapper">
-                    <i class="fas fa-shield-alt"></i>
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Fiabilité Garantie</h3>
+                    <p>Profitez de photos réelles et de tarifs mis à jour quotidiennement par les hôteliers.</p>
                 </div>
-                <h3>Fiabilité Garantie</h3>
-                <p>Profitez de photos réelles et de tarifs mis à jour quotidiennement par les hôteliers.</p>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section class="destinations">
+        <div class="container">
+            <h2 class="section-title">Destinations priorisées au Cameroun</h2>
+            <div class="destinations-grid">
+                <a href="{{ route('hotel.search', ['city' => 'Kribi']) }}" class="dest-card" style="background-image: url('images/kribi.jpg')">
+                    <div class="dest-overlay">
+                        <h3>Kribi</h3>
+                        <p>La cité balnéaire</p>
+                    </div>
+                </a>
+                <a href="{{ route('hotel.search', ['city' => 'Dschang']) }}" class="dest-card" style="background-image: url('images/dschang.jpg')">
+                    <div class="dest-overlay">
+                        <h3>Dschang</h3>
+                        <p>Le charme des montagnes</p>
+                    </div>
+                </a>
+                <a href="{{ route('hotel.search', ['city' => 'Douala']) }}" class="dest-card" style="background-image: url('images/douala.jpg')">
+                    <div class="dest-overlay">
+                        <h3>Douala</h3>
+                        <p>La métropole économique</p>
+                    </div>
+                </a>
+                <a href="{{ route('hotel.search', ['city' => 'Limbe']) }}" class="dest-card" style="background-image: url('images/limbe.jpg')">
+                    <div class="dest-overlay">
+                        <h3>Limbe</h3>
+                        <p>La cité de l'amitié</p>
+                    </div>
+                </a>
+                <a href="{{ route('hotel.search', ['city' => 'Yaounde']) }}" class="dest-card" style="background-image: url('images/yaounde.jpg')">
+                    <div class="dest-overlay">
+                        <h3>Yaounde</h3>
+                        <p>La capitale ensoleillée</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- Section Hôtels Populaires -->
     <section class="hotels-preview">
@@ -87,13 +125,15 @@
         <div class="hotel-grid">
             @foreach($featuredHotels as $hotel)
                 <div class="hotel-card">
+                    <a href="{{ route('hotels.show', $hotel->id) }}">
                     <div class="hotel-image" 
-                        style="background-image: url('{{ $hotel->images->first() ? asset($hotel->images->first()->url) : asset('images/default-hotel.jpg') }}')">
-                        <span class="price">{{ number_format($hotel->pixmax, 0, ',', '.') }} FCFA</span>
+                         style="background-image: url('{{ $hotel->images->first() ? asset($hotel->images->first()->url) : asset('images/default-hotel.jpg') }}')">
+                        <span class="price">{{ number_format($hotel->pixmax, 0, ',', '.') }} FCFA / nuit</span>
                         @if($hotel->created_at->diffInDays() < 7)
                             <span class="badge-new">Nouveau</span>
                         @endif
                     </div>
+                    </a>
                     <div class="hotel-info">
                         <h3>{{ $hotel->name }}</h3>
                         <p><i class="fas fa-location-dot"></i> {{ $hotel->city }}, {{ Str::limit($hotel->address, 30) }}</p>

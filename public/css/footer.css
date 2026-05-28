@@ -128,6 +128,29 @@
     letter-spacing: 1px;
 }
 
+.cta-text a {
+    display: inline-block;
+    background-color: #26b1a5; /* Ta couleur principale */
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.cta-text a:hover {
+    background-color: #4184e1; /* Ta couleur bleu nuit */
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(26, 54, 93, 0.3);
+}
+
+.cta-text h2 {
+    margin-bottom: 10px;
+}
+
+
 /* Responsive pour mobiles */
 @media (max-width: 768px) {
     .footer-columns {
