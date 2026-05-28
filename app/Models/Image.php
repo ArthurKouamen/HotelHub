@@ -10,13 +10,13 @@ class Image extends Model
 {
     protected $fillable = ([
        "url",
-       "hotels_id",
+       "hotel_id",
        "chambres_id"
     ]);
    public function chambres (){
     return $this -> belongsTo(Chambre::class, 'chambres_id');
    }
    public function hotels (){
-    return $this -> belongsTo(Hotel::class, 'hotels_id');
+    return $this -> belongsTo(Hotel::class, 'hotel_id');
    }
 }

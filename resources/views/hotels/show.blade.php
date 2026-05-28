@@ -45,7 +45,7 @@
         <div class="stats-grid">
             <div class="stat-item">
                 <i class="fas fa-bed"></i>
-                <div class="stat-val">6</div>
+                <div class="stat-val">{{ $hotel->numberroom }}</div>
                 <div class="stat-label">Chambres</div>
             </div>
             <div class="stat-item">
@@ -69,13 +69,15 @@
     <!-- 2. GALERIE D'IMAGES -->
     <section class="gallery-section">
         <div class="section-header">
-            <h2>Toutes les images ({{ $hotels->images->count() }})</h2>
-            <a href="#" class="view-all">Voir toutes les images</a>
+            <h2>Toutes les images ({{ $hotel->images->count() }})</h2>
+            <a href="{{ route('hotels.images', $hotel->id) }}" class="view-all">Voir toutes les images</a>
         </div>
         <div class="image-grid">
             @foreach($hotels->images->take(5) as $image)
                 <div class="grid-img">
-                    <img src="{{ asset($image->url) }}" alt="Gallery image">
+                    <a href="{{ asset($image->url) }}" target="_blank">
+                        <img src="{{ asset($image->url) }}" alt="Gallery image">
+                    </a>
                 </div>
             @endforeach
         </div>

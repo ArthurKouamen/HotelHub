@@ -22,7 +22,9 @@ class HotelController extends Controller
             "city",
             "description",
             "numberetoile",
-            "pixmax"
+            "pixmax",
+            "numberroom"
+            
         ) -> with('images')->paginate(18);
          return view("hotels.index",compact("hotels"));
     }
@@ -61,6 +63,7 @@ class HotelController extends Controller
             'address' => 'required|string|',
             'phone'=> 'required|string',
             'pixmax' => 'required|numeric',
+            'numberroom' => 'required|integer',
             'numberetoile' => 'required|integer',
             'email' => 'required|email'
         ]);
@@ -75,6 +78,7 @@ class HotelController extends Controller
             'description' => $request->description,
             'phone'=> $request->phone,
             'pixmax' => $request->pixmax,
+            'numberroom' => $request->numberroom,
             'numberetoile' => $request->numberetoile,
             'email' =>  $request->email,
             'users_id' => auth() ->id(),
@@ -171,5 +175,12 @@ class HotelController extends Controller
         }
         $hotels = $hotel -> get();
           return view("hotels.index",compact("hotels"));
+    }
+
+    public function allImages(Hotel $hotel) {
+        // On charge l'hôtel avec toutes ses images
+        $hotel->load('images');
+    
+        return view('hotels.images', compact('hotel'));
     }
 }
