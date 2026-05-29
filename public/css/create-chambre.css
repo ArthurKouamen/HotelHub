@@ -1,0 +1,103 @@
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1A365D;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(237, 237, 237);
+
+}
+
+/* Le conteneur qui sépare gauche et droite */
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* Espace entre les deux colonnes */
+    max-width: 1000px; /* Ajuste selon tes besoins */
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+/* Chaque colonne prend 50% de l'espace disponible */
+.form-left, .form-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* On cible TOUS les types d'inputs et le textarea */
+.form-left input,
+.form-left textarea,
+.form-right input {
+    width: 100%; /* Ils prennent toute la largeur de la colonne */
+    box-sizing: border-box; /* Très important : inclut le padding dans la largeur */
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.form-left input:hover,
+.form-left textarea:hover,
+.form-right input:hover {
+    border-color: #20B2AA; /* Change la bordure au survol pour un effet visuel */
+}
+
+/* On donne une hauteur fixe au textarea pour qu'il soit harmonieux */
+textarea {
+    height: 150px; /* Ajuste la hauteur pour qu'elle corresponde à peu près au bloc de droite */
+    resize: none; /* Permet d'agrandir seulement en hauteur */
+}
+
+/* Style spécifique pour le label pour être sûr qu'ils soient bien au-dessus */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* Alignement du bouton */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #20B2AA;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #1e8c7a;
+}
+
+button[type="submit"] {
+    margin-top: 25px;
+}
+
+button[type="button"] {
+    background-color: #1A365D;
+    margin-top: 24px;
+}
+
+button[type="button"]:hover {
+    background-color: #031225;
+}
+.group{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    padding-left: 100px;
+}
+.s1{
+    width: 100%;
+    text-align: top;
+}

@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ asset('css/dashboard-client.css') }}">
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -12,7 +14,11 @@
                     {{ __("You're logged in!") }}
                 </div>
                 <div>
-                    <a href="{{asset('hotels/create')}}"></a>
+                    <a href="{{asset('hotels/create')}}">
+                        <button type="button" class="btn-ajouter">
+                            Voir mes reservations
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

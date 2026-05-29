@@ -14,18 +14,22 @@ class Hotel extends Model
        "address",
        "city",
        "description",
-       "image",
-       "arrival_date",
-       "departure_date",
+       "phone",
+       "pixmax",
+       "numberroom",
+       "numberetoile",
        "status",
+       "email",
+       "users_id"
+
     ];
     public function chambres (){
         return $this -> hasMany(Chambre::class);
     }
     public function images(){
-        return $this -> hasMany(Image::class);
+        return $this -> hasMany(Image::class, 'hotel_id');
     }
     public function avis (){
-        return $this -> hasMany(Avis::class);
+        return $this -> hasMany(Avis::class, 'hotel_id');
     }
 }

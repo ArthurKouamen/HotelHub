@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HotelController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +33,16 @@ Route::get('/admin-dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('admin.dashboard');
 
-Route::get('/hotels', function () {
-    return view('hotels.');
-});
+Route::get('/hotels/create', [HotelController::class, 'create'])->name('hotels.create');
+
+Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
+Route::get('/hotels/search', [HotelController::class, 'search'])->name('hotel.search');
+Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');
+
+Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
+
+// Pour la page d'accueil (le welcome)
+Route::get('/', [HotelController::class, 'welcome'])->name('welcome');
 
 
 // Routes pour les hôtels
@@ -44,15 +53,39 @@ Route::get('/hotels/create', [HotelController::class, 'create'])->name('hotels.c
 Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
 
 Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
+// Route pour voir toutes les images d'un hôtel spécifique
+Route::get('/hotels/{hotel}/images', [App\Http\Controllers\HotelController::class, 'allImages'])->name('hotels.images');
+
+
+// Routes pour les chambres
+Route::get('/chambre/create', function () {
+    return view('chambre.create');
+});
+
 
 Route::get('/about', function () {
     return view('about');
 });
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+require __DIR__ . '/auth.php';
+Route::get('/room', [RoomController::class, 'index'])->name('room.index');
 
-require __DIR__.'/auth.php';
+Route::get('/room/create', [RoomController::class, 'create'])->name('room.create');
+
+Route::post('/room', [RoomController::class, 'store'])->name('room.store');
+
+Route::get('/room/{id}', [RoomController::class, 'show'])->name('room.show');
+
+
+Route::get('/reservation/create', function () {
+    return view('reservation.create');
+})->name('reservation.create');
+
+Route::post('/reservation', [App\Http\Controllers\ReservationController::class, 'store'])->name('reservation.store');
+
+Route::get('/reservation/{reservation}/edit', [App\Http\Controllers\ReservationController::class, 'edit'])->name('reservation.edit');
+
+Route::put('/reservation/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('reservation.update');

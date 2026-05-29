@@ -1,15 +1,20 @@
+@section('titre')
+    Nos Hotels
+@endsection
+@section('contenu')
+    <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
+    <!-- Importation d'une police moderne -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!--Importation du css-->
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/hotel.css') }}">
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+@endsection
 @include('partials.header')
 
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Liste des hôtels</title>
-    <!-- Chargement du CSS depuis public/assets/css/ -->
-    <link rel="stylesheet" href="{{ asset('assets/css/hotel.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
 
 <body>
     <header class="mini-nav">
@@ -17,58 +22,78 @@
     </header>
 
     <main class="container">
-        @if ($hotels->isEmpty())
-            <section class="hotel-list-empty">
-                <h1>Aucun hôtel trouvé</h1>
-                <p>Vérifiez si des hôtels ont bien été ajoutés dans la base de données.</p>
-            </section>
-        @else
-            @foreach ($hotels as $hotel)
-                <section class="hotel-layout">
-                    <section class="gallery">
-                        <div class="main-img"
-                            style="background-image: url('{{ asset('assets/img/' . $hotel->image) }}');"></div>
-                        <div class="side-imgs">
-                            <div style="background-image: url('{{ asset('assets/img/spa.jpg') }}');"></div>
-                            <div style="background-image: url('{{ asset('assets/img/room.jpg') }}');"></div>
+        <!-- Section de présentation optionnelle (Spa/Room) -->
+        <section class="gallery">
+            <div class="side-imgs">
+                <div style="background-image: url('{{ asset('assets/img/spa.jpg') }}');"></div>
+                <div style="background-image: url('{{ asset('assets/img/room.jpg') }}');"></div>
+            </div>
+        </section>
+
+        <!-- GRILLE D'HOTELS -->
+        <section class="hotels-grid">
+            @if ($hotels->count() > 0)
+                @foreach ($hotels as $hotel)
+                    <div class="hotel-card">
+                        <!-- Image et Badge de prix -->
+                        <div class="card-image">
+                            @if ($hotel->images->first())
+                                <a href="{{ route('hotels.show', $hotel->id) }}">
+                                    <img src="{{ asset($hotel->images->first()->url) }}" alt="{{ $hotel->name }}">
+                                </a>
+                            @else
+                                <a href="{{ route('hotels.show', $hotel->id) }}">
+                                    <img src="{{ asset('assets/img/default-hotel.jpg') }}" alt="Image par défaut">
+                                </a>
+                            @endif
+                            <div class="price-badge">À partir de {{ number_format($hotel->pixmax, 0, ',', '.') }} XAF
+                                <span>/ nuit</span></div>
                         </div>
-                    </section>
 
-                    <div class="info-column">
-                        <h1>{{ $hotel->name }}</h1>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> {{ $hotel->city }}</p>
+                        <!-- Contenu de la carte -->
+                        <div class="card-body">
+                            <div class="card-header">
+                                <h3>{{ $hotel->name }}</h3>
+                                <div class="locations">
+                                    <p><i class="fas fa-city"></i> {{ $hotel->city }}</p>
+                                    <p><i class="fas fa-map-marker-alt"></i> {{ $hotel->address }}</p>
+                                    <div class="star">
+                                        @for ($i = 1; $i <= 5; $i++)
+                                            <i class="{{ $i <= $hotel->numberetoile ? 'fas' : 'far' }} fa-star"></i>
+                                        @endfor
+                                    </div>
+                                </div>
+                            </div>
 
-                        <hr>
+                            <hr>
 
-                        <h3>Description</h3>
-                        <p class="description">{{ $hotel->description }}</p>
+                            <div class="card-description">
+                                <h4>Description</h4>
+                                <p>{{ Str::limit($hotel->description, 100) }}</p>
+                            </div>
 
-                        <div class="amenities">
-                            <span><i class="fas fa-wifi"></i> Wifi</span>
-                            <span><i class="fas fa-swimmer"></i> Piscine</span>
+                            <div class="amenities">
+                                <span><i class="fas fa-wifi"></i> Wifi</span>
+                                <span><i class="fas fa-swimmer"></i> Piscine</span>
+                            </div>
+
+                            <!-- Bouton d'action -->
+                            <div class="card-footer">
+                                <a href="{{ route('hotels.show', $hotel->id) }}" class="btn-detail">Voir les
+                                    détails</a>
+                            </div>
                         </div>
                     </div>
-
-                    <aside class="booking-card">
-                        <div class="price-tag">
-                            <span class="amount">{{ $hotel->price }}€</span> / nuit
-                        </div>
-
-                        <form action="{{ route('booking.store') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="hotel_id" value="{{ $hotel->id }}">
-
-                            <label>Dates</label>
-                            <input type="date" name="checkin" required>
-                            <input type="date" name="checkout" required>
-
-                            <button type="submit" class="btn-book">Réserver cet hôtel</button>
-                        </form>
-                    </aside>
-                </section>
-            @endforeach
-        @endif
+                @endforeach
+            @else
+                <div class="no-result">
+                    <p><i class="fas fa-search"></i> Aucun résultat</p>
+                </div>
+            @endif
+        </section>
     </main>
+
 </body>
 
 </html>
+@include('partials.footer')

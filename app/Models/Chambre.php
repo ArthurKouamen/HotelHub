@@ -10,14 +10,14 @@ use App\Models\Image;
 
 class Chambre extends Model
 {
-    protected $fillable[
+    protected $fillable=[
         "type",
         "price",
         "status",
         "hotel_id",
     ];
    public function hotels(){
-    return $this -> belongsTo(Hotel::class);
+    return $this -> belongsTo(Hotel::class, 'hotels_id');
    }
    public function reservations(){
     return $this -> hasOne(Reservation::class);
