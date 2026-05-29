@@ -148,6 +148,11 @@
                     </div>
                 </div>
             @endforeach
+            <div class="view-more-container">
+                <a href="{{ route('hotels.index') }}" class="btn-outline">
+                    Voir tous nos hôtels <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
         </div>
     </section>
 

@@ -58,14 +58,17 @@ Route::get('/hotels/{hotel}/images', [App\Http\Controllers\HotelController::clas
 
 
 // Routes pour les chambres
-Route::get('/chambre/create', function () {
-    return view('chambre.create');
-});
+Route::get('/chambre', [HotelController::class, 'index'])->name('chambre.index');
+Route::get('/chambre/create', [RoomController::class, 'create'])->name('chambre.create');
+Route::get('/chambre/{id}', [HotelController::class, 'show'])->name('chambre.show');
+
+
 
 
 Route::get('/about', function () {
     return view('about');
 });
+
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

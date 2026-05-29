@@ -16,6 +16,11 @@
     @endsection
     @include('partials.header')
 
+    
+<header class="mini-nav">
+    <a href="{{ url('/hotels') }}" class="back-btn"><i class="fas fa-arrow-left"></i> Retour</a>
+</header>
+
 <main class="show-container">
     <!-- 1. EN-TÊTE : PROFIL ET STATS -->
     <section class="hotel-header">

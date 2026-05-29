@@ -25,7 +25,7 @@ class HotelController extends Controller
             "pixmax",
             "numberroom"
             
-        ) -> with('images')->paginate(18);
+        ) -> with('images')->orderBy('numberetoile', 'desc')->paginate(18);
          return view("hotels.index",compact("hotels"));
     }
 

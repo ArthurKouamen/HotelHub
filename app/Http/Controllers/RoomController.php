@@ -14,13 +14,13 @@ class RoomController extends Controller
      */
     public function create()
     {
-        $hotels = Hotel::select(
-            'id',
-            'name'
-        ) -> get();
-        return view('chambre.create', compact('hotels'));
-    }
+        // 1. On récupère TOUS les hôtels pour pouvoir les choisir dans le formulaire
+        $hotels = Hotel::all();
 
+        // 2. On envoie la variable $hotels à la vue
+        return view('chambre.create', compact('hotels'));
+        // 3. Dans la vue, on affichera un select avec tous les hôtels pour que l'utilisateur puisse choisir à quel hôtel il veut ajouter une chambre}
+    }
     /**
      * Enregistre la nouvelle chambre dans la base de données
      */
