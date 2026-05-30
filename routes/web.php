@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,9 +25,8 @@ Route::get('/', function () {
 
 
 //routes pour la page d'accueil
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [AdminController::class, 'index']
+)->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
@@ -56,7 +56,10 @@ Route::get('/hotels/search', [HotelController::class, 'search'])->name('hotel.se
 
 Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
 
-Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
+Route::get('/hotels/show/{id}', [HotelController::class, 'show'])->name('hotels.show');
+Route::get('/hotels/edit/{id}', [HotelController::class, 'edit'])->name('hotels.edit');
+Route::post('/hotels/{id}', [HotelController::class, 'update'])->name('hotels.update');
+Route::get('/hotels/delete/{id}', [HotelController::class, 'delete'])->name('hotels.delete');
 
 // Route pour voir toutes les images d'un hôtel spécifique
 Route::get('/hotels/{hotel}/images', [App\Http\Controllers\HotelController::class, 'allImages'])->name('hotels.images');

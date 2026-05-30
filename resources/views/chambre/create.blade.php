@@ -63,7 +63,7 @@
             </div>
             <div>
                 <label for="hotel_id">Choisir l'hôtel :</label>
-                <select name="hotel_id" id="hotel_id" class ="s1" size="4"required>
+                <select name="hotels_id" id="hotel_id" class ="s1" size="4"required >
         
                     @foreach($hotels as $hotel)
                         <option value="{{ $hotel->id }}" >{{ $hotel->name }}</option>
