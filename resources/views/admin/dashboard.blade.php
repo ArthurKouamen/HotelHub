@@ -69,7 +69,9 @@
         <section class="admin-table-section">
             <div class="section-header">
                 <h3>Hôtels récents</h3>
-                <button class="btn-add">+ Ajouter un hôtel</button>
+                <a href="/hotels/create">
+                    <button class="btn-add">+ Ajouter un hôtel</button>
+                </a>
             </div>
             <table class="admin-table">
                 <thead>
