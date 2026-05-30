@@ -150,6 +150,10 @@
     margin-bottom: 10px;
 }
 
+.login {
+    margin-top: 25px;
+}
+
 
 /* Responsive pour mobiles */
 @media (max-width: 768px) {

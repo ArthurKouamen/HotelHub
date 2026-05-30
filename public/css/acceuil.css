@@ -366,6 +366,30 @@ footer {
 }
 .dest-card:hover { transform: scale(1.02); transition: 0.3s; }
 
+/* ajout d'un bouton "Voir tous les hôtels" après les cartes d'hôtels */
+.view-more-container {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 15px 35px;
+    border: 2px solid #26b1a5;
+    color: #26b1a5;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #26b1a5;
+    color: white;
+    transform: scale(1.05);
+}
+
 
 
 /* RESPONSIVE */

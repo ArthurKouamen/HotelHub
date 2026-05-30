@@ -17,7 +17,7 @@
             <div>
                 <label>Nom :</label>
             </div>
-            <input type="text" name="name" placeholder="Nom de la chambre" required>
+            <input type="text" name="name" placeholder="Nom de la chambre">
 
             <div>
                 <label>Numéro :</label>
@@ -65,13 +65,15 @@
              <div>
                 <label>hotel :</label> 
             </div>
-            @foreach($hotels as $hotel)
-            <label class="group">
-                <span class ="s1">{{$hotel -> name}} </span>
-            <input type="radio" name="hotels_id" value ="{{$hotel ->id}}"> 
-            
-            </label>
-            @endforeach
+            <div>
+                <label for="hotel_id">Choisir l'hôtel :</label>
+                <select name="hotel_id" id="hotel_id" required>
+                    <option value="">-- Sélectionnez un hôtel --</option>
+                    @foreach($hotels as $hotel)
+                        <option value="{{ $hotel->id }}">{{ $hotel->name }}</option>
+                    @endforeach
+                </select>
+            </div>
 
             <button type="submit">
                 Ajouter

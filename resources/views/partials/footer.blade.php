@@ -63,7 +63,7 @@
                     <li><a href="#">Contacts de l'entreprise</a></li>
                 </ul>
             </div>
-                <div class="column">
+            <div class="column">
                 <h4>Ajouter votre établissement</h4>
                 <!-- Section d'appel a l'action pour les propriétaires d'hôtels -->
                 <section class="cta-owner">
@@ -75,6 +75,29 @@
                         </div>
                     </div>
                 </section>
+            </div>
+                <div class="column">
+                    <h4 class="navigation">Navigation</h4>
+                    <ul>
+                        <li><a href="{{ route('welcome') }}">Accueil</a></li>
+                        <li><a href="{{ route('hotels.index') }}">Hotels</a></li>
+                        <li><a href="{{ url('/about') }}">A propos</a></li>
+                        <li>
+                            @guest
+                                <li class="login"><a href="/connexion" class="btn-login"><i class="fa-solid fa-right-from-bracket"></i> Connexion</a></li>
+                                <li><a href="/inscription" class="btn-signup"><i class="fa-solid fa-user-plus"></i> S'inscrire</a></li>
+                            @endguest
+
+                            @auth 
+                                <li><a href="/dashboard" class="btn-signup"><i class="fa-solid fa-user"></i> Espace client</a></li>
+                                <form action="{{ route('logout') }}" method="POST" class="form">
+                                    @csrf
+                                    <li class="login"><a href="" class="btn-login" onclick="event.preventDefault(); this.closest('form').submit();">Déconnexion <i class="fa-solid fa-right-from-bracket"></i></a></li>
+                                </form>
+                            @endauth
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 

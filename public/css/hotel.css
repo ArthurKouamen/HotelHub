@@ -1,136 +1,26 @@
-/* Container Principal */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+.page-header {
+    text-align: center;
+    margin: 40px 0;
 }
 
-/* Grille des cartes */
-.hotels-grid {
+.page-header h1 { font-size: 2.5rem; color: #1e293b; }
+
+/* Grille fixe (pas de slider ici) */
+.hotel-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
-    margin-top: 40px;
+    margin-bottom: 50px;
 }
 
-/* Style de la Carte */
-.hotel-card {
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Style des boutons de pagination Laravel */
+.pagination-container {
     display: flex;
-    flex-direction: column;
-    border: 1px solid #eee;
-}
-
-.hotel-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-/* Zone Image */
-.card-image {
-    position: relative;
-    height: 230px;
-}
-
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Badge de prix */
-.price-badge {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    background: #26b1a5; /* Ta couleur principale */
-    color: white;
-    padding: 8px 15px;
-    border-radius: 10px;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(38, 177, 165, 0.3);
-}
-
-.price-badge span {
-    font-size: 0.8rem;
-    font-weight: 300;
-}
-
-/* Corps de la carte */
-.card-body {
-    font-size: 0.9rem;
-    padding: 5px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-header h3 {
-    margin: 0 0 10px 0;
-    color: #2c3e50;
-    font-size: 1.4rem;
-}
-
-.locations p {
-    margin: 10px 0;
-    color: #7f8c8d;
-    font-size: 0.9rem;
-}
-
-.locations i {
-    color: #26b1a5;
-    width: 20px;
-}
-
-.card-description p {
-    margin-top: 5px;
-    margin-bottom: 15px;
-    color: #7f8c8d;
-    font-size: 0.9rem;
-}
-
-/* 3. Le footer (ou le bouton) est poussé tout en bas */
-.card-footer {
-    margin-top: auto; /* La magie est ici : ça pousse le bloc au fond */
-    padding-top: 20px; /* Un peu d'espace au-dessus du bouton */
-}
-
-/* Bouton */
-.btn-detail {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: #26b1a5;
-    color: white;
-    padding: 12px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.locations .star i {
-    color: #f1c40f;
-    font-size: 0.9rem;
-    margin-top: 5px;
-}
-
-.no-result {
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    display: flex;
-    color: #7f8c8d;
-    font-size: 1.2rem;
-    margin-top: 200px;
-    margin-bottom: 300px;
+    margin-bottom: 60px;
 }
 
-.no-result i {
-    color: #26b1a5;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+/* Si tu utilises Tailwind (par défaut avec Laravel 10/11) */
+.pagination-container nav svg {
+    width: 20px;
 }
