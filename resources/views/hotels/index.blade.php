@@ -24,7 +24,7 @@
 <main class="container">
     <div class="page-header">
         <h1>Tous nos hôtels au Cameroun</h1>
-        <p>Découvrez plus de {{ $hotels->total() }} établissements vérifiés</p>
+        <p>Découvrez plus de {{ $hotels->count() }} établissements vérifiés</p>
     </div>
 
     <!-- GRILLE DE TOUS LES HOTELS -->

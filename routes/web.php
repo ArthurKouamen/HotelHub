@@ -48,7 +48,7 @@ Route::get('/', [HotelController::class, 'welcome'])->name('welcome');
 
 
 // Routes pour les hôtels
-Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');
+Route::get('/hotels/index', [HotelController::class, 'index'])->name('hotels.index');
 
 Route::get('/hotels/create', [HotelController::class, 'create'])->name('hotels.create');
 
@@ -87,7 +87,7 @@ Route::get('/room', [RoomController::class, 'index'])->name('room.index');
 
 Route::get('/room/create', [RoomController::class, 'create'])->name('room.create');
 
-Route::post('/room', [RoomController::class, 'store'])->name('room.store');
+Route::post('/room/store', [RoomController::class, 'store'])->name('room.store');
 
 Route::get('/room/{id}', [RoomController::class, 'show'])->name('room.show');
 

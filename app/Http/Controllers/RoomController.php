@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
-use App\Models\Chambre; // Assure-toi que ton modèle s'appelle Room ou Chambre
+use App\Models\Chambre;
+use App\Models\Image; // Assure-toi que ton modèle s'appelle Room ou Chambre
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,33 +29,43 @@ class RoomController extends Controller
     {
         // 1. Validation des données
         $request->validate([
-            'name' => 'required|string|max:255',
+            'type' => 'required|string|max:255',
             'number' => 'required|string|max:255',
-            'description' => 'required|string',
+            'discription' => 'required|string',
             'price' => 'required|numeric|min:0',
             'capacity' => 'required|integer|min:1',
-            'bed_type' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'required|array',
+            'image.*' => 'image|mimes:jpeg,png,jpg.|max:2048',
+            'hotels_id'=>'required|numeric',
         ]);
 
         // 2. Gestion de l'image de la chambre
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('rooms', 'public');
-        }
 
         // 3. Création de la chambre liée à l'hôtel
-        $hotel->rooms()->create([
-            'name' => $request->name,
+        $chambre = Chambre::create([
+            'type' => $request->type,
             'number' => $request->number,
-            'description' => $request->description,
+            'discription' => $request->discription,
             'price' => $request->price,
             'capacity' => $request->capacity,
-            'bed_type' => $request->bed_type,
-            'image_url' => $imagePath,
+            'hotels_id' =>  $request->hotels_id,
         ]);
+        if($request -> hasFile('image')){
+               foreach ($request -> file('image') as $image){
+                // genere le nom de l'image de facon unique avec time
+                $file = time().'_'. uniqid().'.'.$image ->extension();
+                // deplacer vers le dossier public
+                $image -> move(public_path('images'), $file);
+                //enregistrer l'image
+                Image::create ([
+                    'hotels_id' => null,
+                    'url' => 'images/'. $file,
+                    'chambres_id' => $chambre ->id,
+                ]);
+               }
+           }
 
-        return redirect()->route('hotels.show', $hotel->id)
+        return redirect()->route('hotels.show', $request->hotels_id)
                          ->with('success', 'La chambre a été ajoutée avec succès !');
     }
 

@@ -23,7 +23,7 @@ class Hotel extends Model
 
     ];
     public function chambres (){
-        return $this -> hasMany(Chambre::class);
+        return $this -> hasMany(Chambre::class, 'hotels_id');
     }
     public function images(){
         return $this -> hasMany(Image::class, 'hotels_id');

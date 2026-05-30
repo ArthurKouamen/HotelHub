@@ -23,7 +23,6 @@ class HotelController extends Controller
             "description",
             "numberetoile",
             "pixmax",
-            "numberroom",
             "created_at"
             
         ) -> with('images')->orderBy('numberetoile', 'desc')->paginate(12);

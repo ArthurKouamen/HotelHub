@@ -7,12 +7,18 @@
     <link rel="stylesheet" href="{{ asset('css/create-hotel.css') }}">
 </head>
 <body>
+     @if($errors -> any())
+                @foreach($errors -> all() as $error)
+                <p> "{{$error}}" :</p>
+                 @endforeach
+        @endif
 
     <h1>Ajoutez votre hôtel</h1>
 
          <form action="{{route('hotels.store')}}" method="POST" enctype="multipart/form-data" class="formulaire">
     <div class="container">
         @csrf
+        
         <div class="form-left">
             <div>
                 <label>Nom :</label>
@@ -56,11 +62,6 @@
                 <label>prix minimum de chambre :</label>
             </div>
             <input type="number" name="pixmax">
-
-            <div>
-                <label>Nombre de chambre :</label>
-            </div>
-            <input type="number" name="numberroom">
 
             <div>
                 <label>nombre d'etoile :</label>

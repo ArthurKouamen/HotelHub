@@ -10,7 +10,7 @@ class Image extends Model
 {
     protected $fillable = ([
        "url",
-       "hotel_id",
+       "hotels_id",
        "chambres_id"
     ]);
    public function chambres (){
