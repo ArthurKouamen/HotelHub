@@ -1,0 +1,57 @@
+[33md421e43[m[33m ([m[1;36mHEAD -> [m[1;32mfeatures/brazzer-instal[m[33m)[m HEAD@{0}: reset: moving to head~1
+[33mb734269[m HEAD@{1}: commit: ajout des dashboard admin et client
+[33md421e43[m[33m ([m[1;36mHEAD -> [m[1;32mfeatures/brazzer-instal[m[33m)[m HEAD@{2}: pull origin main: Merge made by the 'ort' strategy.
+[33ma5d7567[m HEAD@{3}: commit: modification de la page hotel index
+[33m678b80a[m[33m ([m[1;31morigin/features/brazzer-instal[m[33m)[m HEAD@{4}: commit: Amélioration de la page welcome avec les sections chercher par ville et ajouter mon etablissement
+[33m83b7ec8[m HEAD@{5}: pull --rebase origin features/brazzer-instal (finish): returning to refs/heads/features/brazzer-instal
+[33m83b7ec8[m HEAD@{6}: pull --rebase origin features/brazzer-instal (pick): afiichage mobile pour la page show et modifications des hotels à la une de la page welcome. Ils s'afficheront dynamiquement
+[33mb0ea14f[m HEAD@{7}: pull --rebase origin features/brazzer-instal (start): checkout b0ea14f4f174c89c415f403c38e79034f18c9502
+[33mb6a292e[m HEAD@{8}: commit: afiichage mobile pour la page show et modifications des hotels à la une de la page welcome. Ils s'afficheront dynamiquement
+[33m374f5ea[m HEAD@{9}: pull --rebase origin features/brazzer-instal (finish): returning to refs/heads/features/brazzer-instal
+[33m374f5ea[m HEAD@{10}: pull --rebase origin features/brazzer-instal (pick): footer sur la page image-hotel
+[33m16ffa22[m HEAD@{11}: pull --rebase origin features/brazzer-instal (pick): ajout de la page afficher tous les images de l'hotel avec ajout du champs nombre de chambre dans le formulaire d'ajout
+[33mfee8f09[m HEAD@{12}: pull --rebase origin features/brazzer-instal (start): checkout fee8f09fe611b6eab0ac560abca61182c23bd071
+[33me696494[m HEAD@{13}: commit: footer sur la page image-hotel
+[33m65ecad9[m HEAD@{14}: commit: ajout de la page afficher tous les images de l'hotel avec ajout du champs nombre de chambre dans le formulaire d'ajout
+[33md636abc[m HEAD@{15}: reset: moving to head~2
+[33mda371e7[m HEAD@{16}: pull origin main: Fast-forward
+[33m1c20e7b[m HEAD@{17}: pull origin main: Fast-forward
+[33mfee8f09[m HEAD@{18}: commit: modification page aucun résultat
+[33m39c8849[m HEAD@{19}: commit: ajout de la page show hotel et création du controlleur des chambres
+[33m31df9ed[m HEAD@{20}: commit (merge): ajout de la fonctionnalité de recherche
+[33m8ac86e1[m HEAD@{21}: commit (merge): Merge branch 'main' into features/brazzer-instal
+[33ma4b8f55[m HEAD@{22}: commit: modification dashboard admin
+[33m38c3074[m HEAD@{23}: commit (merge): modification formulaire ajout hotel et stylisation de hotel/index
+[33m8b7ef6c[m HEAD@{24}: reset: moving to HEAD
+[33m8b7ef6c[m HEAD@{25}: checkout: moving from main to features/brazzer-instal
+[33m5c2aa92[m[33m ([m[1;32mmain[m[33m)[m HEAD@{26}: pull: Fast-forward
+[33m4bbf8d5[m[33m ([m[1;31morigin/features/authentification[m[33m)[m HEAD@{27}: checkout: moving from features/brazzer-instal to main
+[33m8b7ef6c[m HEAD@{28}: commit: modifications
+[33m8e0db27[m HEAD@{29}: pull origin main: Fast-forward
+[33m1eff498[m HEAD@{30}: commit: modification des models et migrations (nom des champs en anglais
+[33m64dcf72[m HEAD@{31}: commit: gestion de la redirection (admin/client) plus modification des migrations et models
+[33m4af4bb5[m HEAD@{32}: commit: gestion des tables users et utilisateurs ainsi que les models
+[33m1a5c0ab[m HEAD@{33}: commit: modification de la route
+[33mbb67809[m[33m ([m[1;32mtmp[m[33m)[m HEAD@{34}: pull origin main: Fast-forward
+[33me3468f4[m HEAD@{35}: pull: Fast-forward
+[33mbecd994[m HEAD@{36}: checkout: moving from main to features/brazzer-instal
+[33m4bbf8d5[m[33m ([m[1;31morigin/features/authentification[m[33m)[m HEAD@{37}: checkout: moving from 88ec0f2f1d0bc148fcf5839bfbdd51d8c6dead0f to main
+[33m88ec0f2[m HEAD@{38}: checkout: moving from features/brazzer-instal to 88ec0f2
+[33mbecd994[m HEAD@{39}: pull origin main: Fast-forward
+[33m88ec0f2[m HEAD@{40}: commit: finalisation de l'authentification
+[33m856ab9f[m HEAD@{41}: commit (merge): resolution fusion
+[33mf59d777[m[33m ([m[1;32mfeatures/authentification[m[33m)[m HEAD@{42}: checkout: moving from features/authentification to features/brazzer-instal
+[33mf59d777[m[33m ([m[1;32mfeatures/authentification[m[33m)[m HEAD@{43}: commit: installation et utilisation de laravel-brazeer
+[33mf2c3398[m[33m ([m[1;31morigin/features/acceuil[m[33m, [m[1;32mfeatures/acceuil[m[33m)[m HEAD@{44}: checkout: moving from features/acceuil to features/authentification
+[33mf2c3398[m[33m ([m[1;31morigin/features/acceuil[m[33m, [m[1;32mfeatures/acceuil[m[33m)[m HEAD@{45}: checkout: moving from features/authentification to features/acceuil
+[33mf2c3398[m[33m ([m[1;31morigin/features/acceuil[m[33m, [m[1;32mfeatures/acceuil[m[33m)[m HEAD@{46}: commit: ajout de la page d'accceuil et réorganisation du code
+[33m4bbf8d5[m[33m ([m[1;31morigin/features/authentification[m[33m)[m HEAD@{47}: checkout: moving from main to features/authentification
+[33m4bbf8d5[m[33m ([m[1;31morigin/features/authentification[m[33m)[m HEAD@{48}: commit: authentification(pages connexion et inscription)
+[33m41d7ef0[m HEAD@{49}: commit: modification du readme
+[33m837cda2[m HEAD@{50}: pull: Fast-forward
+[33ma109825[m HEAD@{51}: pull: Fast-forward
+[33m2995616[m[33m ([m[1;31morigin/setup/laravel-instal1[m[33m, [m[1;32msetup/laravel-instal1[m[33m)[m HEAD@{52}: checkout: moving from setup/laravel-instal1 to main
+[33m2995616[m[33m ([m[1;31morigin/setup/laravel-instal1[m[33m, [m[1;32msetup/laravel-instal1[m[33m)[m HEAD@{53}: checkout: moving from main to setup/laravel-instal1
+[33m2995616[m[33m ([m[1;31morigin/setup/laravel-instal1[m[33m, [m[1;32msetup/laravel-instal1[m[33m)[m HEAD@{54}: Branch: renamed refs/heads/main to refs/heads/main
+[33m2995616[m[33m ([m[1;31morigin/setup/laravel-instal1[m[33m, [m[1;32msetup/laravel-instal1[m[33m)[m HEAD@{56}: commit: initialisation du projet hotelhub(architecture laravel)
+[33m723903f[m HEAD@{57}: clone: from https://github.com/ArthurKouamen/HotelHub.git

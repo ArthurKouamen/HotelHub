@@ -22,6 +22,11 @@
             <a href="#"><i class="fas fa-bed"></i> Gérer les Chambres</a>
             <a href="#"><i class="fas fa-users"></i> Utilisateurs</a>
             <a href="#"><i class="fas fa-cog"></i> Paramètres</a>
+            <a href="{{ route('profile.edit') }}"><i class="fas fa-user"></i> Profil</a>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a href="" onclick="event.preventDefault(); this.closest('form').submit();" class="nav-item logout"><i class="fa-solid fa-right-from-bracket"></i> <span>Déconnexion</span></a>
+            </form>
         </nav>
     </aside>
 
