@@ -29,6 +29,9 @@
                 <!-- Image du propriétaire ou logo hôtel -->
                 <div class="profile-img-wrapper">
                     <img src="{{ asset($hotel->images->first()->url ?? 'assets/img/default.jpg') }}" alt="Hotel">
+                    @if($hotel->created_at->diffInDays() < 7)
+                        <span class="badge-new">Nouveau</span>
+                    @endif
                     <span class="verified-badge"><i class="fas fa-check"></i></span>
                 </div>
                 <div class="profile-info">

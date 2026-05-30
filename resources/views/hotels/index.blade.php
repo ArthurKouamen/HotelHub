@@ -34,6 +34,9 @@
                 <a href="{{ route('hotels.show', $hotel->id) }}">
                     <div class="hotel-image" 
                          style="background-image: url('{{ $hotel->images->first() ? asset($hotel->images->first()->url) : asset('images/default-hotel.jpg') }}')">
+                         @if($hotel->created_at->diffInDays() < 7)
+                            <span class="badge-new">Nouveau</span>
+                        @endif
                         <span class="price">A partir de {{ number_format($hotel->pixmax, 0, ',', '.') }} FCFA / nuit</span>
                     </div>
                 </a>

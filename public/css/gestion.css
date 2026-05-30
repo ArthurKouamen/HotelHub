@@ -1,0 +1,15 @@
+.admin-sidebar {
+    width: 260px;
+    height: 100vh; /* Toute la hauteur de l'écran */
+    position: fixed; /* Bloquée à gauche */
+    top: 0;
+    left: 0;
+    background: #1e293b;
+    z-index: 100;
+}
+
+.admin-main {
+    margin-left: 260px; /* On pousse le contenu vers la droite pour ne pas qu'il passe sous la sidebar */
+    width: calc(100% - 260px);
+    padding: 40px;
+}
