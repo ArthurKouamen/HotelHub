@@ -44,7 +44,7 @@ class HotelController extends Controller
     {
       
         $hotel = Hotel::with('images') -> findOrFail($id);
-        $chambre = Chambre::with('images')-> where('hotel_id', $id)->get();
+        $chambre = Chambre::with('images')-> where('hotels_id', $id)->get();
         return view ("hotels.show", compact("hotel","chambre"));
     }
 
@@ -71,7 +71,6 @@ class HotelController extends Controller
             'address' => 'required|string|',
             'phone'=> 'required|string',
             'pixmax' => 'required|numeric',
-            'numberroom' => 'required|integer',
             'numberetoile' => 'required|integer',
             'email' => 'required|email'
         ]);
@@ -86,7 +85,6 @@ class HotelController extends Controller
             'description' => $request->description,
             'phone'=> $request->phone,
             'pixmax' => $request->pixmax,
-            'numberroom' => $request->numberroom,
             'numberetoile' => $request->numberetoile,
             'email' =>  $request->email,
             'users_id' => auth() ->id(),
