@@ -195,7 +195,7 @@ class HotelController extends Controller
          if($request -> filled('pixmax')){
              $hotel -> where('pixmax' , $request -> pixmax);   
         }
-        $hotels = $hotel -> get();
+        $hotels = $hotel -> paginate(12);
           return view("hotels.index",compact("hotels"));
     }
 

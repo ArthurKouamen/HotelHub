@@ -14,8 +14,8 @@
         @endif
 
     <h1>Ajoutez votre hôtel</h1>
-    @if($hotels)
-        <form action="{{route('hotels.update')}}" method="POST" enctype="multipart/form-data" class="formulaire">
+    @if(isset($hotels))
+        <form action="{{route('hotels.update', ['id' => $hotels ->id])}}" method="POST" enctype="multipart/form-data" class="formulaire">
     <div class="container">
     @else
          <form action="{{route('hotels.store')}}" method="POST" enctype="multipart/form-data" class="formulaire">

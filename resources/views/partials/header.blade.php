@@ -32,10 +32,15 @@
                 @endguest
 
                 @auth 
-                    <li><a href="/dashboard" class="btn-signup"><i class="fa-solid fa-user"></i> Espace client</a></li>
+                    @if (auth()->user()->role ==="admin")
+                        <li><a href="/admin/dashboard" class="btn-signup"><i class="fa-solid fa-user"></i> Espace client</a></li>
+                    @else 
+                        <li><a href="/client/dashboard" class="btn-signup"><i class="fa-solid fa-user"></i> Espace client</a></li>
+                    @endif
+
                     <form action="{{ route('logout') }}" method="POST" class="form">
                         @csrf
-                         <li><a href="" class="btn-login" onclick="event.preventDefault(); this.closest('form').submit();">Déconnexion <i class="fa-solid fa-right-from-bracket"></i></a></li>
+                        <li><a href="" class="btn-login" onclick="event.preventDefault(); this.closest('form').submit();">Déconnexion <i class="fa-solid fa-right-from-bracket"></i></a></li>
                     </form>
                 @endauth
             </ul>

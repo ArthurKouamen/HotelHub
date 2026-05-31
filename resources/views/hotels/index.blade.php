@@ -3,7 +3,7 @@
     @section('titre')
         Nos Hotels
     @endsection
-    @section('contenu')
+   
         <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
         <!-- Importation d'une police moderne -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="{{ asset('css/hotel.css') }}">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @endsection
+    
     @include('partials.header')
 
 
@@ -24,6 +24,9 @@
 <main class="container">
     <div class="page-header">
         <h1>Tous nos hôtels au Cameroun</h1>
+        @if(!isset( $hotels))
+            <p> aucun resultat</p>
+        @else
         <p>Découvrez plus de {{ $hotels->count() }} établissements vérifiés</p>
     </div>
 
@@ -54,7 +57,9 @@
                 </div>
             </div>
         @endforeach
+
     </div>
+     @endif
 
     <!-- PAGINATION (Les boutons Suivant/Précédent) -->
     <div class="pagination-container">

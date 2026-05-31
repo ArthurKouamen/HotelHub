@@ -3,7 +3,7 @@
     @section('titre')
         A propos de nous
     @endsection
-    @section('contenu')
+
     <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
     <!-- Importation d'une police moderne -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="{{ asset('css/about.css') }}">
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @endsection
     @include('partials.header')
+    
+
 
 <body>
 

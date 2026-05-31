@@ -2,7 +2,6 @@
 @section('titre')
     Détails de l'hôtel {{ $hotel->name }}
 @endsection
-    @section('contenu')
         <link rel="stylesheet" href="{{ asset('css/acceuil.css') }}">
         <!-- Importation d'une police moderne -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -12,13 +11,12 @@
         <link rel="stylesheet" href="{{ asset('css/header.css') }}">
         <link rel="stylesheet" href="{{ asset('css/show-hotel.css') }}">
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @endsection
-    @include('partials.header')
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+@include('partials.header')
 
     
 <header class="mini-nav">
-    <a href="{{ url('/hotels') }}" class="back-btn"><i class="fas fa-arrow-left"></i> Retour</a>
+    <a href="/hotels/index" class="back-btn"><i class="fas fa-arrow-left"></i> Retour</a>
 </header>
 
 <main class="show-container">
@@ -53,7 +51,7 @@
         <div class="stats-grid">
             <div class="stat-item">
                 <i class="fas fa-bed"></i>
-                <div class="stat-val">{{ $hotel->numberroom }}</div>
+                <div class="stat-val">{{ $chambre->count()}}</div>
                 <div class="stat-label">Chambres</div>
             </div>
             <div class="stat-item">
@@ -92,19 +90,19 @@
     </section>
 
     <!-- 3. LISTE DES CHAMBRES (Cartes horizontales) -->
-     
+     @if(isset($chambre))
     <section class="rooms-section">
-        <h2>Toutes les chambres de l'hôte ({{ $chambre->count() ?? 0 }})</h2>
+        <h2>Toutes les chambres de l'hôtel ({{ $chambre->count()}})</h2>
         
         <div class="rooms-list">
             @foreach($chambre  as $chambres)
             <div class="room-horizontal-card">
                 <div class="room-img">
                 
-                    <img src="{{ asset($chambres->images ->first->url ?? 'assets/img/room.jpg') }}" alt="Chambre">
+                    <img src="{{ asset($chambres->images ->first()->url) }}" alt="Chambre">
                 </div>
                 <div class="room-details">
-                    <h3>{{ $chambres->name ?? 'Chambre Cosy' }}</h3>
+                    <h3>{{ $chambres->name  }}</h3>
                     <div class="room-icons">
                         <span><i class="fas fa-users"></i> {{$chambres -> capacity}} voyageurs</span>
                         <span><i class="fas fa-bed"></i> 1 lit double</span>
@@ -113,11 +111,12 @@
                     <p class="room-desc">{{ Str::limit($chambres -> description, 100)}}.</p>
                 </div>
                 <div class="room-price-action">
-                    <div class="price"><strong>{{ $chambres->price }} €</strong> / nuit</div>
-                    <a href="#" class="btn-primary">Voir les détails</a>
+                    <div class="price"><strong>{{ $chambres -> price }} €</strong> / nuit</div>
+                    <a href="{{route ('room.show',['id' => $chambres ->id])}}" class="btn-primary">Voir les détails</a>
                 </div>
             </div>
             @endforeach
+            @endif
         </div>
     </section>
 </main>

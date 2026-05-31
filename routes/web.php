@@ -18,24 +18,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//routes pour la page d'accueil
 Route::get('/', function () {
     return view('welcome');
 });
 
 
 
-//routes pour la page d'accueil
-Route::get('/dashboard', [AdminController::class, 'index']
-)->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 
 
 //routes pour les différents dashboards
-Route::get('/client-dashboard', function () {
+Route::get('/dashboard', [AdminController::class, 'index']
+)->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/client/dashboard', function () {
     return view('client.dashboard');
 })->middleware(['auth', 'verified'])->name('client.dashboard');
 
-Route::get('/admin-dashboard', function () {
+Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('admin.dashboard');
 
