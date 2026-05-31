@@ -10,9 +10,10 @@ class ReservationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index( $id)
     {
-        //
+        $chambre_id = $id;
+        return view('reservation.create', compact('chambre_id'));
     }
 
     /**
@@ -28,17 +29,33 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        $reservation = Reservation::create([
-            'arrival_date' => $request->arrival_date,
-            'departure_date' => $request->departure_date,
-        ]);
-        $reservation->save();
-        return redirect()->route('client.dashboard')->with('success', 'Reservation created successfully.');
+        $request -> validate([
+            'arrival_date' => 'required|date|after_or_equal:today',
+            'departure_date' => 'required|date|after:arrival_date',
+            'chambre_id' => 'required|numeric|exist:chambres,id',
+        ])
+
+        $exist = Reservation:: where('chambre_id', $request->chambre_id)
+                            -> where('arrival_date', '<' , $request -> departure_date)
+                            -> where('departure_date','>',$request -> arrival_date)
+                            -> exist();
+        
+        if(!$exist){
+            $reservation = Reservation::create([
+                'arrival_date' => $request->arrival_date,
+                'departure_date' => $request->departure_date,
+                'chambre_id' => $request -> chambre_id,
+                'users_id' => Auth::id(),
+                'status' => 'reserve',
+            ]);
+            return redirect()->route('hotels.index')->with('success', 'Reservation created successfully.');
+        }
+        else{
+        return redirect()->route('hotels.index')->with('success', 'chambre deja reserve.');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
+    
     public function show(string $id)
     {
         //

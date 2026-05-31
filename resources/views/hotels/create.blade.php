@@ -7,83 +7,85 @@
     <link rel="stylesheet" href="{{ asset('css/create-hotel.css') }}">
 </head>
 <body>
-     @if($errors -> any())
-                @foreach($errors -> all() as $error)
-                <p> "{{$error}}" :</p>
-                 @endforeach
-        @endif
 
     <h1>Ajoutez votre hôtel</h1>
-    @if($hotels)
-        <form action="{{route('hotels.update')}}" method="POST" enctype="multipart/form-data" class="formulaire">
-    <div class="container">
-    @else
-         <form action="{{route('hotels.store')}}" method="POST" enctype="multipart/form-data" class="formulaire">
-    <div class="container">
-    @endif
-        @csrf
-        
-        <div class="form-left">
-            <div>
-                <label>Nom :</label>
-            </div>
-            <input type="text" name="name" placeholder="Nom de l'hotel" required value = "{{old('name',$hotels->name ??'')}}">
+    @if(isset($hotels))
+        <form action="{{route('hotels.')}}" method="PUT" enctype="multipart/form-data" class="formulaire">
+            <div class="container">
+                @csrf
 
-            <div>
-                <label>Ville :</label>
-            </div>
-            <input type="text" name="city" placeholder="Ville" required value = "{{old('city',$hotels->city ??'')}}">
 
-            <div>
-                <label>Adresse :</label>
-            </div>
-            <input type="text" name="address" placeholder="Adresse" required value = "{{old('address',$hotels->address ??'')}}">
+                    <form action="{{route('hotels.store')}}" method="POST" enctype="multipart/form-data" class="formulaire">
+                        <div class="container">
+                            @csrf
+                                <div class="form-left">
+                                    <div>
+                                        <label>Nom :</label>
+                                    </div>
+                                    <input type="text" name="name" placeholder="Nom de l'hotel" required  value>
 
-            <div>
-                <label>Description :</label>
-            </div>
-            <textarea name="description" placeholder="Description" required value ="{{old ('description', $hotels->description ??'')}} "></textarea>
+                                    <div>
+                                        <label>Ville :</label>
+                                    </div>
+                                    <input type="text" name="city" placeholder="Ville" required>
 
-            <a href="{{ route('dashboard') }}">
-                <button type="button">
-                    Retour
-                </button>
-            </a>
-        </div>
+                                    <div>
+                                        <label>Adresse :</label>
+                                    </div>
+                                    <input type="text" name="address" placeholder="Adresse" required>
 
-        <div class="form-right">
-            <div>
-                <label>Image :</label>
-            </div>
-            <input type="file" name="image[]" multiple >
+                                    <div>
+                                        <label>Description :</label>
+                                    </div>
+                                    <textarea name="description" placeholder="Description" required></textarea>
+
+                                    <a href="{{ route('dashboard') }}">
+                                        <button type="button">
+                                            Retour
+                                        </button>
+                                    </a>
+                                </div>
+
+                                <div class="form-right">
+                                    <div>
+                                        <label>Image :</label>
+                                    </div>
+                                    <input type="file" name="image[]" multiple>
     
-            <div>
-                <label>numero de telephone :</label>
-            </div>
-            <input type="tel" name="phone" value = "{{old ('phone',$hotels->phone ??'')}}">
+                                    <div>
+                                        <label>numero de telephone :</label>
+                                    </div>
+                                    <input type="tel" name="phone">
 
-            <div>
-                <label>prix minimum de chambre :</label>
-            </div>
-            <input type="number" name="pixmax" value = "{{ old ('pixmax', $hotels->pixmax ??'')}}">
+                                    <div>
+                                        <label>prix minimum de chambre :</label>
+                                    </div>
+                                    <input type="number" name="pixmax">
 
-            <div>
-                <label>nombre d'etoile :</label>
-            </div>
-            <input type="number" name="numberetoile" value = "{{ old('numberetoile' , $hotels->numberetoile ??'')}}">
+                                    <div>
+                                        <label>Nombre de chambre :</label>
+                                    </div>
+                                    <input type="number" name="numberroom">
 
-            <div>
-                <label>email:</label>
-            </div>
-            <input type="email" name="email" value = "{{ old ('email', $hotels->email ??'')}}">
-            <button type="submit">
-                Ajouter
-            </button>
-        </div>
-      </div>   
-    </form>
+                                    <div>
+                                        <label>nombre d'etoile :</label>
+                                    </div>
+                                    <input type="number" name="numberetoile">
 
-   
+                                    <div>
+                                        <label>email:</label>
+                                    </div>
+                                    <input type="email" name="email">
+
+                                    <button type="submit">
+                                        Ajouter
+                                    </button>
+                                </div>
+                        </div>   
+                    </form>
+            </div> 
+        </form>
+   @endif
 
 </body>
 </html>

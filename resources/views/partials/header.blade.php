@@ -23,7 +23,7 @@
             <div class="logo"><img src="{{ asset('images/logo.png') }}" alt="logo du site" width= "100" height = "80"></div>
             <ul class="nav-links">
                 <li><a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Accueil</a></li>
-                <li><a href="/hotels/index" class="{{ request()->is('hotels*') ? 'active' : '' }}">Hôtels</a></li>
+                <li><a href="/hotels" class="{{ request()->is('hotels*') ? 'active' : '' }}">Hôtels</a></li>
                 <li><a href="/about" class="{{ request()->is('about') ? 'active' : '' }}">À propos</a></li>
 
                 @guest

@@ -20,7 +20,7 @@ class Chambre extends Model
         'capacity',
     ];
    public function hotels(){
-    return $this -> belongsTo(Hotel::class, 'hotels_id');
+    return $this -> belongsTo(Hotel::class);
    }
    public function reservations(){
     return $this -> hasOne(Reservation::class);

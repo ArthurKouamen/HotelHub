@@ -1,0 +1,40 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(237, 237, 237);
+
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+/* Alignement du bouton */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #20B2AA;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #1e8c7a;
+}
+
+button[type="submit"] {
+    margin-top: 25px;
+}
+
+button[type="button"] {
+    background-color: #1A365D;
+}
+
+button[type="button"]:hover {
+    background-color: #031225;
+}

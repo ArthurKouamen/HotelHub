@@ -94,14 +94,14 @@
     <!-- 3. LISTE DES CHAMBRES (Cartes horizontales) -->
      
     <section class="rooms-section">
-        <h2>Toutes les chambres de l'hôte ({{ $chambre->count() ?? 0 }})</h2>
+        <h2>Toutes les chambres de l'hôte ({{ $chambres->count() ?? 0 }})</h2>
         
         <div class="rooms-list">
-            @foreach($chambre  as $chambres)
+            @foreach($chambres  as $chambres)
             <div class="room-horizontal-card">
                 <div class="room-img">
                 
-                    <img src="{{ asset($chambres->images ->first->url ?? 'assets/img/room.jpg') }}" alt="Chambre">
+                    <img src="{{ asset($chambres->images ->first()->url ?? 'assets/img/room.jpg') }}" alt="Chambre">
                 </div>
                 <div class="room-details">
                     <h3>{{ $chambres->name ?? 'Chambre Cosy' }}</h3>
