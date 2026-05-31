@@ -8,9 +8,9 @@
 </head>
 <body>
      @if($errors -> any())
-                @foreach($errors -> all() as $error)
+            @foreach($errors -> all() as $error)
                 <p> "{{$error}}" :</p>
-                 @endforeach
+            @endforeach
         @endif
 
     <h1>Ajoutez votre hôtel</h1>
