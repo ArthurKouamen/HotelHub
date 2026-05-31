@@ -20,7 +20,6 @@
 
 <body>
 
-
 <main class="container">
     <div class="page-header">
         <h1>Tous nos hôtels au Cameroun</h1>
@@ -59,12 +58,13 @@
         @endforeach
 
     </div>
-     @endif
+    
 
     <!-- PAGINATION (Les boutons Suivant/Précédent) -->
     <div class="pagination-container">
         {{ $hotels->links() }}
     </div>
+    @endif
 </main>
 
 

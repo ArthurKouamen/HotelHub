@@ -20,7 +20,7 @@ class ClientController extends Controller
         // On utilise "with" pour charger les relations et éviter les ralentissements (Eager Loading)
         // 'chambre.hotel' permet d'avoir les détails de la chambre et du nom de l'hôtel en une fois
         $reservations = $user->reservations()
-            ->with(['chambre.hotel', 'chambre.images']) 
+            ->with(['chambres.hotels', 'chambres.images']) 
             ->latest() // Les plus récentes en premier
             ->get();
 

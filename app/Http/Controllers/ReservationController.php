@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Chambre;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -10,9 +12,10 @@ class ReservationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index( Request $request)
     {
-        //
+        $chambre_id = Chambre::findOrFail($request ->id);
+        return view('reservation.create', compact('chambre_id'));
     }
 
     /**
@@ -28,17 +31,33 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        $reservation = Reservation::create([
-            'arrival_date' => $request->arrival_date,
-            'departure_date' => $request->departure_date,
+        $request -> validate([
+            'arrival_date' => 'required|date|after_or_equal:today',
+            'departure_date' => 'required|date|after:arrival_date',
+            'chambre_id' => 'required|numeric|exists:chambres,id',
         ]);
-        $reservation->save();
-        return redirect()->route('client.dashboard')->with('success', 'Reservation created successfully.');
+
+        $exist = Reservation:: where('chambre_id', $request->chambre_id)
+                            -> where('arrival_date', '<' , $request -> departure_date)
+                            -> where('departure_date','>',$request -> arrival_date)
+                            -> exists();
+        
+        if(!$exist){
+            $reservation = Reservation::create([
+                'arrival_date' => $request->arrival_date,
+                'departure_date' => $request->departure_date,
+                'chambre_id' => $request -> chambre_id,
+                'users_id' => Auth::user() ->id,
+                'status' => 'confirmée',
+            ]);
+            return redirect()->route('room.show',$request -> chambre_id )->with('success', 'Reservation created successfully.');
+        }
+        else{
+        return redirect()->back()->with('success', 'date deja prise. veuillez choisir une autre date');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
+    
     public function show(string $id)
     {
         //

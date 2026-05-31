@@ -10,21 +10,22 @@ use App\Models\Utilisateur;
 class Reservation extends Model
 {
     protected $fillable = [
-        'arival_date',
+        'arrival_date',
         'departure_date',
         'status',
-        'user_id',
+        'users_id',
         'room_id',
+        'chambre_id',
     ];
 
-    public function chambre()
+    public function chambres()
     {
-        return $this->belongsTo(Chambre::class, 'chambre_id', 'id');
+        return $this->belongsTo(Chambre::class, 'chambres_id', 'id');
     }
 
-    public function utilisateur()
+    public function users()
     {
-        return $this->belongsTo(Utilisateur::class, 'user_id', 'id');
+        return $this->belongsTo(Utilisateur::class, 'users_id', 'id');
     }
 
 }

@@ -1,24 +1,63 @@
-<!Doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Réservation</title>
-        <link rel="stylesheet" href="{{ asset('assets/css/reservation.css') }}">
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body>
-        <form action="{{ route('reservations.store') }}" method="POST" class="reservation-form">
-            @csrf
-            <label for="arrival_date">Date d'arrivé </label>
-            <input type="date" id="arrival_date" name="arrival_date" required="required">
-            <label for="departure_date">Date de depart </label>
-            <input type="date" id="departure_date" name="departure_date" required="required">
-            <label for="payement">Mode de payement</label>
-            <input type="checkbox" name="payement" id="payement" value="Orange Money" required="required">
-            <input type="checkbox" name="payement" id="payement" value="MOMO" required="required">
-            <input type="submit" id="valider" value="valide">
-            <input type="reset" id="annuler" value="annuler">
-        </form>
-    </body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Faites votre reservation</title>
+    <!--Importation du css-->
+    <link rel="stylesheet" href="{{ asset('css/create-hotel.css') }}">
+</head>
+<body>
+     @if(session('success'))
+        <p style ="color:green;"> {{session('success')}} </p>
+    @endif
+     @if($errors -> any())
+            @foreach($errors -> all() as $error)
+                <p> "{{$error}}" :</p>
+            @endforeach
+        @endif
+
+    <h1>Faites votre reservation</h1>
+    @if(isset($chambres))
+        <form action="{{route('reservation.update', ['id' => $chambres ->id])}}" method="POST" enctype="multipart/form-data" class="formulaire">
+    <div class="container">
+    @else
+         <form action="{{route('reservation.edit', ['id' => $chambre_id ->id])}}" method="POST" enctype="multipart/form-data" class="formulaire">
+    <div class="container">
+    @endif
+        @csrf
+        
+        <div class="form-left">
+            <div>
+                <label>Date d'arrivée :</label>
+            </div>
+            <input type="date" name="arrival_date" required value = "{{old('arrival_date',$chambres->arrival_date ??'')}}">
+
+            <div>
+                <label>Date de départ :</label>
+            </div>
+            <input type="date" name="departure_date" required value = "{{old('departural_date',$chambres->departural_date ??'')}}">
+
+            <a href="{{ route('dashboard') }}">
+                <button type="button">
+                    Retour
+                </button>
+            </a>
+        </div>
+
+        <div class="form-right">
+            <div>
+                <input type="hidden" name="chambre_id" value="{{ $chambre_id ->id }}">
+                
+            </div>
+
+            <button type="submit">
+                Reserver
+            </button>
+        </div>
+      </div>   
+    </form>
+
+   
+
+</body>
 </html>

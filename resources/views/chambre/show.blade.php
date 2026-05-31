@@ -17,6 +17,9 @@
     @include('partials.header')
 
 <main class="room-page">
+    @if(session('success'))
+        <p style ="color:green;"> {{session('success')}} </p>
+    @endif
     <!-- Fil d'Ariane (Breadcrumbs) -->
     <nav class="breadcrumb">
         <a href="/">Accueil</a> <i class="fas fa-chevron-right"></i>
@@ -102,7 +105,9 @@
                 </div>
 
                 <div>
-                    <button type="submit" class="btn-reserve">Réserver</button>
+                    <a href="{{ route('reservation.store',['id' => $chambres->id])}}">
+                        <button type="button" class="btn-reserve">Réserver</button>
+                    </a>
                 </div>
 
                 

@@ -51,6 +51,7 @@
         </header>
 
         <!-- CARTES DE STATISTIQUES -->
+        
         <section class="stats-grid">
             <div class="stat-card">
                 <div class="icon-box purple"><i class="fa-solid fa-suitcase-rolling"></i></div>
@@ -62,8 +63,8 @@
             <div class="stat-card">
                 <div class="icon-box green"><i class="fa-solid fa-clock-rotate-left"></i></div>
                 <div class="stat-data">
-                    <span class="number">02</span>
-                    <span class="label">En attente</span>
+                    <span class="number">{{$reservations->count() ?? 0}}</span>
+                    <span class="label">reservées</span>
                 </div>
             </div>
             <div class="stat-card">
@@ -79,27 +80,29 @@
         <section class="recent-bookings">
             <div class="section-header">
                 <h2>Séjours à venir</h2>
-                <a href="#">Voir tout</a>
+                <a href="">Voir tout</a>
             </div>
-
+             @if($reservations->count())
+             @foreach($reservations as $reservation)
             <div class="booking-card">
                 <div class="hotel-preview">
-                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=300&q=80" alt="Hotel">
+                    <img src="{{asset($reservation ->chambres -> images ->first()->url)}}" alt="Hotel">
                 </div>
+                
                 <div class="booking-details">
                     <div class="hotel-name">
-                        <h3>Tagidor Garden Resort</h3>
+                        <h3>{{$reservations ->chambres -> number}}t</h3>
                         <span class="status-badge confirmed">Confirmé</span>
                     </div>
-                    <p class="location"><i class="fa-solid fa-location-dot"></i> Bangou, Ouest Cameroun</p>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> {{$reservations->chambres->discription}} </p>
                     <div class="date-price">
                         <div class="info-group">
                             <span class="info-label">Dates</span>
-                            <span class="info-value">12 Juin - 15 Juin 2024</span>
+                            <span class="info-value"> {{$reservations-> arrival_date}} - {{$reservations->departure_date}}</span>
                         </div>
                         <div class="info-group">
-                            <span class="info-label">Prix Total</span>
-                            <span class="info-value">150.000 FCFA</span>
+                            <span class="info-label">Prix</span>
+                            <span class="info-value"> {{$reservations->chambres->price}}</span>
                         </div>
                     </div>
                 </div>
@@ -108,6 +111,8 @@
                     <button class="btn-ticket"><i class="fa-solid fa-ticket"></i></button>
                 </div>
             </div>
+            @endforeach
+         @endif
         </section>
     </main>
 </div>

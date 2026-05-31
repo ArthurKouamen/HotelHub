@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -34,9 +35,8 @@ Route::get('/', function () {
 Route::get('/dashboard', [AdminController::class, 'index']
 )->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/client/dashboard', function () {
-    return view('client.dashboard');
-})->middleware(['auth', 'verified'])->name('client.dashboard');
+Route::get('/client/dashboard',  [ClientController::class,'index'] 
+)->middleware(['auth', 'verified'])->name('client.dashboard');
 
 Route::get('/admin/dashboard', [AdminController::class,'index'] 
 )->middleware(['auth', 'verified'])->name('admin.dashboard');
@@ -108,12 +108,9 @@ Route::post('/room/store', [RoomController::class, 'store'])->name('room.store')
 Route::get('/room/{id}', [RoomController::class, 'show'])->name('room.show');
 
 
-Route::get('/reservation/create', function () {
-    return view('reservation.create');
-})->name('reservation.create');
 
-Route::post('/reservation', [App\Http\Controllers\ReservationController::class, 'store'])->name('reservation.store');
+Route::get('/reservation/{id}', [App\Http\Controllers\ReservationController::class, 'index'])->name('reservation.store');
 
-Route::get('/reservation/{reservation}/edit', [App\Http\Controllers\ReservationController::class, 'edit'])->name('reservation.edit');
+Route::post('/reservation/store', [App\Http\Controllers\ReservationController::class, 'store'])->name('reservation.edit');
 
 Route::put('/reservation/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('reservation.update');
