@@ -3,7 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RoomController;
-use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,8 +24,9 @@ Route::get('/', function () {
 
 
 //routes pour la page d'accueil
-Route::get('/dashboard', [AdminController::class, 'index']
-)->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
@@ -39,11 +39,6 @@ Route::get('/admin-dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('admin.dashboard');
 
-Route::get('/hotels/create', [HotelController::class, 'create'])->name('hotels.create');
-
-Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
-Route::get('/hotels/search', [HotelController::class, 'search'])->name('hotel.search');
-Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');
 
 
 // Pour la page d'accueil (le welcome)
@@ -53,7 +48,7 @@ Route::get('/', [HotelController::class, 'welcome'])->name('welcome');
 
 
 // Routes pour les hôtels
-Route::get('/hotels/index', [HotelController::class, 'index'])->name('hotels.index');
+Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');
 
 Route::get('/hotels/create', [HotelController::class, 'create'])->name('hotels.create');
 
@@ -61,10 +56,8 @@ Route::get('/hotels/search', [HotelController::class, 'search'])->name('hotel.se
 
 Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
 
-Route::get('/hotels/show/{id}', [HotelController::class, 'show'])->name('hotels.show');
-Route::get('/hotels/edit/{id}', [HotelController::class, 'edit'])->name('hotels.edit');
-Route::post('/hotels/{id}', [HotelController::class, 'update'])->name('hotels.update');
-Route::get('/hotels/delete/{id}', [HotelController::class, 'delete'])->name('hotels.delete');
+Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
+Route::put('/hotels/create', [HotelController::class, ''])->name('hotels.show');
 
 // Route pour voir toutes les images d'un hôtel spécifique
 Route::get('/hotels/{hotel}/images', [App\Http\Controllers\HotelController::class, 'allImages'])->name('hotels.images');
@@ -85,25 +78,28 @@ Route::get('/about', function () {
     return view('about');
 });
 
+
+
 Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
+
+
 Route::get('/room', [RoomController::class, 'index'])->name('room.index');
 
 Route::get('/room/create', [RoomController::class, 'create'])->name('room.create');
 
-Route::post('/room/store', [RoomController::class, 'store'])->name('room.store');
+Route::post('/room', [RoomController::class, 'store'])->name('room.store');
 
 Route::get('/room/{id}', [RoomController::class, 'show'])->name('room.show');
+//route pour les reservations
 
+Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation.index');
 
-Route::get('/reservation/create', function () {
-    return view('reservation.create');
-})->name('reservation.create');
+Route::get('/reservation/create', [ReservationController::class, 'create'])->name('reservation.create');
 
-Route::post('/reservation', [App\Http\Controllers\ReservationController::class, 'store'])->name('reservation.store');
+Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation./store');
 
-Route::get('/reservation/{reservation}/edit', [App\Http\Controllers\ReservationController::class, 'edit'])->name('reservation.edit');
+Route::get('/reservation/{id}', [ReservationController::class, 'show'])->name('reservation.show');
 
-Route::put('/reservation/{reservation}', [App\Http\Controllers\ReservationController::class, 'update'])->name('reservation.update');

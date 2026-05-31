@@ -43,8 +43,8 @@ class HotelController extends Controller
     {
       
         $hotel = Hotel::with('images') -> findOrFail($id);
-        $chambre = Chambre::with('images')-> where('hotels_id', $id)->get();
-        return view ("hotels.show", compact("hotel","chambre"));
+        $chambres = Chambre::with('images')-> where('hotels_id', $id)->get();
+        return view ("hotels.show", compact("hotel","chambres"));
     }
 
     /**

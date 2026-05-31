@@ -50,22 +50,10 @@
                 </div>
             </div>
 
-            <div class="about-card">
-                <div class="card">
-                    <h2>+500</h2>
-                    <p>Réservations gérées</p>
-                </div>
-
-                <div class="card">
-                    <h2>24/7</h2>
-                    <p>Disponibilité du service</p>
-                </div>
-
-                <div class="card">
-                    <h2>100%</h2>
-                    <p>Sécurité des données</p>
-                </div>
-            </div>
+                
+           <form>
+            <fieldset>
+                
         </div>
     </section>
 

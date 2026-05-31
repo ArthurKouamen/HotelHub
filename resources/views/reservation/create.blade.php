@@ -5,16 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Réservation</title>
         <link rel="stylesheet" href="{{ asset('assets/css/reservation.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/create-hotel.css') }}">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
+         <p>
+                    HotelHub est une solution innovante permettant de gérer
+                    facilement les réservations, les chambres, les clients
+                    et les services hôteliers dans une interface moderne,
+                    rapide et intuitive.
+        </p>
         <form action="{{ route('reservations.store') }}" method="POST" class="reservation-form">
             @csrf
-            <label for="arrival_date">Date d'arrivé </label>
+            <div>
+
+                 <label for="arrival_date">Date d'arrivé </label>
+
+            </div>
+
             <input type="date" id="arrival_date" name="arrival_date" required="required">
-            <label for="departure_date">Date de depart </label>
+
+             <div>    
+                 <label for="departure_date">Date de depart </label>
+             </div>
+
             <input type="date" id="departure_date" name="departure_date" required="required">
-            <label for="payement">Mode de payement</label>
+
+            <div>
+               <label for="payement">Mode de payement</label>
+            </div>
+
             <input type="checkbox" name="payement" id="payement" value="Orange Money" required="required">
             <input type="checkbox" name="payement" id="payement" value="MOMO" required="required">
             <input type="submit" id="valider" value="valide">
