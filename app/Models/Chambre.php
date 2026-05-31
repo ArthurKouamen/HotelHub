@@ -14,7 +14,10 @@ class Chambre extends Model
         "type",
         "price",
         "status",
-        "hotel_id",
+        "hotels_id",
+        'number',
+        'discription',
+        'capacity',
     ];
    public function hotels(){
     return $this -> belongsTo(Hotel::class, 'hotels_id');
@@ -23,6 +26,6 @@ class Chambre extends Model
     return $this -> hasOne(Reservation::class);
    }
    public function images(){
-    return $this -> hasMany(Image::class);
+    return $this -> hasMany(Image::class,'chambres_id');
    }
 }

@@ -1,11 +1,348 @@
-.btn-ajouter {
-    background-color: #20B2AA;
-    border-radius: 10px;
-    margin-left: 25px;
-    padding: 12px 20px;
-    border: none;
+:root {
+    --primary: #5e17eb;
+    --primary-light: #f0eaff;
+    --text-dark: #1a1a1a;
+    --text-gray: #71717a;
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-.btn-ajouter:hover {
-    background-color: #1e8c7a;
+* { margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    background: var(--bg-light); 
+    color: var(--text-dark); 
+}
+
+.dashboard-container { 
+    display: flex; 
+    min-height: 100vh; 
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 280px;
+    background: var(--white);
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #f1f5f9;
+    position: sticky; top: 0; height: 100vh;
+}
+
+.logo { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    margin-bottom: 50px; 
+    padding-left: 10px; 
+}
+.logo-icon { 
+    width: 40px; 
+    height: 40px; 
+    background: var(--primary); 
+    color: white; 
+    border-radius: 12px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: 800; 
+    font-size: 1.2rem; 
+}
+
+.logo-text { 
+    font-size: 1.4rem; 
+    font-weight: 800; 
+}
+
+.logo-text span { 
+    color: var(--primary); 
+}
+
+.nav-menu { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+}
+
+.nav-item { 
+    text-decoration: none; 
+    color: var(--text-gray); 
+    padding: 14px 18px; 
+    border-radius: 14px; 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    transition: 0.3s; 
+    font-weight: 600; 
+}
+
+.nav-item i { 
+    font-size: 1.2rem; 
+}
+
+.nav-item:hover, .nav-item.active { 
+    background: var(--primary-light); 
+    color: var(--primary); 
+}
+
+.nav-item.logout { 
+    margin-top: 20px; 
+    color: #ef4444; 
+}
+
+/* MAIN CONTENT */
+.main-content { 
+    flex: 1; 
+    padding: 40px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    width: 100%; 
+}
+
+.top-bar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 40px; 
+}
+
+.welcome-text h1 { 
+    font-size: 1.8rem; 
+    margin-bottom: 5px; 
+}
+
+.welcome-text p { 
+    color: var(--text-gray); 
+}
+
+.user-actions { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+.notif-btn { 
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%; 
+    border: 1px solid #e2e8f0; 
+    background: white; cursor: pointer; 
+    position: relative; 
+    color: var(--text-gray); 
+}
+
+.notif-btn .dot { 
+    position: absolute; 
+    top: 12px; right: 12px; 
+    width: 8px; height: 8px; 
+    background: #ef4444; 
+    border-radius: 50%; 
+    border: 2px solid white; 
+}
+
+.user-avatar img { 
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 2px solid white; 
+    box-shadow: var(--shadow); 
+}
+
+/* STATS CARDS */
+.stats-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+    gap: 25px; 
+    margin-bottom: 50px; 
+}
+
+.stat-card { 
+    background: white; 
+    padding: 25px; 
+    border-radius: 24px; 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+    box-shadow: var(--shadow); 
+}
+
+.icon-box { 
+    width: 60px; 
+    height: 60px; 
+    border-radius: 18px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.5rem; 
+}
+
+.icon-box.purple { 
+    background: #f5f3ff; color: #7c3aed; 
+}
+
+.icon-box.green { 
+    background: #f0fdf4; color: #16a34a; 
+}
+.icon-box.orange { 
+    background: #fff7ed; color: #ea580c; 
+}
+.stat-data .number { 
+    display: block; font-size: 1.6rem; font-weight: 800; 
+}
+.stat-data .label { 
+    font-size: 0.9rem; color: var(--text-gray); 
+}
+
+/* BOOKING CARDS */
+.section-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-end; 
+    margin-bottom: 25px; 
+}
+
+.section-header h2 { 
+    font-size: 1.4rem; 
+    font-weight: 700; 
+}
+
+.section-header a { 
+    color: var(--primary); 
+    text-decoration: none; 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+}
+
+.booking-card { 
+    background: white; 
+    border-radius: 24px; 
+    padding: 20px; display: flex; 
+    gap: 25px; align-items: center; 
+    box-shadow: var(--shadow); 
+}
+
+.hotel-preview img { 
+    width: 140px; 
+    height: 140px; 
+    border-radius: 20px; 
+    object-fit: cover; 
+}
+
+.booking-details { 
+    flex: 1; 
+}
+
+.hotel-name { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    margin-bottom: 10px; 
+}
+
+.status-badge { 
+    padding: 4px 12px; 
+    border-radius: 50px; 
+    font-size: 0.75rem; 
+    font-weight: 700; 
+}
+
+.status-badge.confirmed { 
+    background: #dcfce7; 
+    color: #166534; 
+}
+
+.location { 
+    color: var(--text-gray); 
+    font-size: 0.9rem; 
+    margin-bottom: 15px; 
+}
+.date-price { 
+    display: flex; 
+    gap: 40px; 
+}
+.info-label { 
+    display: block; 
+    font-size: 0.75rem; 
+    color: var(--text-gray); 
+    margin-bottom: 4px; 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+}
+.info-value { 
+    font-weight: 700; 
+    font-size: 0.95rem; 
+}
+
+.booking-actions { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+}
+.btn-manage { 
+    background: var(--text-dark); 
+    color: white; 
+    border: none; 
+    padding: 12px 25px; 
+    border-radius: 12px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: 0.3s; 
+}
+
+.btn-manage:hover { 
+    background: #000; 
+}
+
+.btn-ticket { 
+    width: 45px; 
+    height: 45px; 
+    border-radius: 12px;
+    border: 1px solid #e2e8f0; 
+    background: white; 
+    cursor: pointer; 
+    color: var(--text-gray); 
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .sidebar { 
+        width: 85px; 
+        padding: 30px 10px; 
+    }
+
+    .logo-text, .nav-item span { 
+        display: none; 
+    }
+
+    .sidebar .logo { 
+        padding: 0; 
+        justify-content: center; 
+    }
+}
+
+@media (max-width: 768px) {
+    .booking-card { 
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    .hotel-preview img { 
+        width: 100%; 
+        height: 200px; 
+    }
+
+    .booking-actions { 
+        width: 100%; 
+        flex-direction: row; 
+    }
+    .btn-manage { 
+        flex: 1; 
+    }
 }

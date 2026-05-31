@@ -23,9 +23,9 @@ class HotelController extends Controller
             "description",
             "numberetoile",
             "pixmax",
-            "numberroom"
+            "created_at"
             
-        ) -> with('images')->paginate(18);
+        ) -> with('images')->orderBy('numberetoile', 'desc')->paginate(12);
          return view("hotels.index",compact("hotels"));
     }
 
@@ -43,7 +43,7 @@ class HotelController extends Controller
     {
       
         $hotel = Hotel::with('images') -> findOrFail($id);
-        $chambre = Chambre::with('images')-> where('hotel_id', $id)->get();
+        $chambre = Chambre::with('images')-> where('hotels_id', $id)->get();
         return view ("hotels.show", compact("hotel","chambre"));
     }
 
@@ -70,7 +70,6 @@ class HotelController extends Controller
             'address' => 'required|string|',
             'phone'=> 'required|string',
             'pixmax' => 'required|numeric',
-            'numberroom' => 'required|integer',
             'numberetoile' => 'required|integer',
             'email' => 'required|email'
         ]);
@@ -85,7 +84,6 @@ class HotelController extends Controller
             'description' => $request->description,
             'phone'=> $request->phone,
             'pixmax' => $request->pixmax,
-            'numberroom' => $request->numberroom,
             'numberetoile' => $request->numberetoile,
             'email' =>  $request->email,
             'users_id' => auth() ->id(),
@@ -115,9 +113,9 @@ class HotelController extends Controller
      */
     public function edit($id)
     {
-        $hotel = Hotel::findOrFail($id);
+        $hotels = Hotel::findOrFail($id);
 
-        return view('hotels.edit', compact('hotel'));
+        return view('hotels.create', compact('hotels'));
     }
 
     /**
@@ -131,27 +129,44 @@ class HotelController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'city' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
             'description' => 'required',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'image' => 'required|array',
+            'image.*' => 'image|mimes:jpg,jpeg,png|max:2048',
+            'address' => 'required|string|',
+            'phone'=> 'required|string',
+            'pixmax' => 'required|numeric',
+            'numberetoile' => 'required|integer',
+            'email' => 'required|email'
         ]);
 
         // Vérifier si une nouvelle image est envoyée
-        if ($request->hasFile('image')) {
-
-            $imagePath = $request->file('image')->store('hotels', 'public');
-
-            $hotel->image = $imagePath;
-        }
 
         // Mise à jour
-        $hotel->name = $request->name;
-        $hotel->city = $request->city;
-        $hotel->description = $request->description;
-
+            $hotel->name = $request->name;
+            $hotel->city = $request->city;
+            $hotel->address = $request->address;
+            $hotel->description = $request->description;
+            $hotel->phone = $request->phone;
+            $hotel->pixmax = $request->pixmax;
+            $hotel->numberetoile = $request->numberetoile;
+              $hotel->email = $request->email;
+             $hotel->users_id = $id;
+              if($request -> hasFile('image')){
+               foreach ($request -> file('image') as $image){
+                // genere le nom de l'image de facon unique avec time
+                $file = time().'_'. uniqid().'.'.$image ->extension();
+                // deplacer vers le dossier public
+                $image -> move(public_path('images'), $file);
+                //enregistrer l'image
+                $hotel ->images() ->create ([
+                   
+                    'url' => 'images/'. $file,
+                ]);
+               }
+            }
         $hotel->save();
 
-        return redirect()->route('hotels.index')
+        return redirect()->back()
                          ->with('success', 'Hôtel modifié avec succès.');
     }
 

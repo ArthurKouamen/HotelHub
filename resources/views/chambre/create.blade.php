@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="{{ asset('css/create-chambre.css') }}">
 </head>
 <body>
+     @if($errors -> any())
+                @foreach($errors -> all() as $error)
+                <p> "{{$error}}" :</p>
+                 @endforeach
+        @endif
 
     <h1>Ajoutez votre Chambre</h1>
 
@@ -14,10 +19,6 @@
     <div class="container">
         @csrf
         <div class="form-left">
-            <div>
-                <label>Nom :</label>
-            </div>
-            <input type="text" name="name" placeholder="Nom de la chambre" required>
 
             <div>
                 <label>Numéro :</label>
@@ -30,9 +31,9 @@
             <input type="text" name="type" placeholder="Simple, double ou suite" required>
 
             <div>
-                <label>Courte description :</label>
+                <label> description :</label>
             </div>
-            <textarea name="description" placeholder="mini description" required></textarea>
+            <textarea name="discription" placeholder="mini description" required></textarea>
 
             <a href="{{ route('dashboard') }}">
                 <button type="button">
@@ -48,11 +49,6 @@
             <input type="file" name="image[]" multiple>
     
             <div>
-                <label>A propos de la chambre :</label>
-            </div>
-            <textarea name="discription" placeholder="Description plus détaillée" required></textarea>
-
-            <div>
                 <label>prix de la chambre :</label>
             </div>
             <input type="number" name="price">
@@ -65,13 +61,15 @@
              <div>
                 <label>hotel :</label> 
             </div>
-            @foreach($hotels as $hotel)
-            <label class="group">
-                <span class ="s1">{{$hotel -> name}} </span>
-            <input type="radio" name="hotels_id" value ="{{$hotel ->id}}"> 
-            
-            </label>
-            @endforeach
+            <div>
+                <label for="hotel_id">Choisir l'hôtel :</label>
+                <select name="hotels_id" id="hotel_id" class ="s1" size="4"required >
+        
+                    @foreach($hotels as $hotel)
+                        <option value="{{ $hotel->id }}" >{{ $hotel->name }}</option>
+                    @endforeach
+                </select>
+            </div>
 
             <button type="submit">
                 Ajouter
