@@ -32,6 +32,9 @@
 
     <!-- CONTENU PRINCIPAL -->
     <main class="admin-main">
+        @if(session('success'))
+            <p style ="color:green;"> session('success')</p>
+        @endif
         <header class="admin-topbar">
             <h2>Tableau de bord</h2>
             <div class="admin-profile">
@@ -46,21 +49,21 @@
                 <div class="stat-icon blue"><i class="fas fa-hotel"></i></div>
                 <div class="stat-info">
                     <h4>Hôtels</h4>
-                    <p>{{12}}</p> <!-- Chiffre statique -->
+                    <p>{{$nbHotels}}</p> <!-- Chiffre statique -->
                 </div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon green"><i class="fas fa-bed"></i></div>
                 <div class="stat-info">
                     <h4>Chambres</h4>
-                    <p>45</p> <!-- Chiffre statique -->
+                    <p> {{$nbChambres}} </p> <!-- Chiffre statique -->
                 </div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon orange"><i class="fas fa-users"></i></div>
                 <div class="stat-info">
                     <h4>Utilisateurs</h4>
-                    <p>156</p> <!-- Chiffre statique -->
+                    <p> {{$nbUsers}} </p> <!-- Chiffre statique -->
                 </div>
             </div>
         </section>
@@ -83,28 +86,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($hotels as $hotel)
                     <tr>
-                        <td><strong>Crystal Palace</strong></td>
-                        <td>Douala</td>
-                        <td><span class="badge-status">Actif</span></td>
+                        <td><strong> {{$hotel ->name}} </strong></td>
+                        <td>{{$hotel ->city}}</td>
+                        <td><span class="badge-status">{{$hotel ->status}}</span></td>
                         <td>
                             <div class="action-btns">
-                                <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
+                                <a href="{{route ('hotels.edit',['id' => $hotel ->id])}}" alt ="pas trouve"><button class="btn-icon edit"><i class="fas fa-edit"></i></button></a>
+                                <a href="{{route ('hotels.delete', ['id' => $hotel ->id])}}" alt ="pas trouve"> <button class="btn-icon delete"><i class="fas fa-trash"></i></button></a>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td><strong>Tagidor Hotel</strong></td>
-                        <td>Bangou</td>
-                        <td><span class="badge-status">Actif</span></td>
-                        <td>
-                            <div class="action-btns">
-                                <button class="btn-icon edit"><i class="fas fa-edit"></i></button>
-                                <button class="btn-icon delete"><i class="fas fa-trash"></i></button>
-                            </div>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </section>

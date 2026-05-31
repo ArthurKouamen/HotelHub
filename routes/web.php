@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,9 +25,8 @@ Route::get('/', function () {
 
 
 //routes pour la page d'accueil
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [AdminController::class, 'index']
+)->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
@@ -48,7 +48,7 @@ Route::get('/', [HotelController::class, 'welcome'])->name('welcome');
 
 
 // Routes pour les hôtels
-Route::get('/hotels', [HotelController::class, 'index'])->name('hotels.index');
+Route::get('/hotels/index', [HotelController::class, 'index'])->name('hotels.index');
 
 Route::get('/hotels/create', [HotelController::class, 'create'])->name('hotels.create');
 
@@ -56,7 +56,10 @@ Route::get('/hotels/search', [HotelController::class, 'search'])->name('hotel.se
 
 Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
 
-Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
+Route::get('/hotels/show/{id}', [HotelController::class, 'show'])->name('hotels.show');
+Route::get('/hotels/edit/{id}', [HotelController::class, 'edit'])->name('hotels.edit');
+Route::post('/hotels/{id}', [HotelController::class, 'update'])->name('hotels.update');
+Route::get('/hotels/delete/{id}', [HotelController::class, 'delete'])->name('hotels.delete');
 
 // Route pour voir toutes les images d'un hôtel spécifique
 Route::get('/hotels/{hotel}/images', [App\Http\Controllers\HotelController::class, 'allImages'])->name('hotels.images');
@@ -87,7 +90,7 @@ Route::get('/room', [RoomController::class, 'index'])->name('room.index');
 
 Route::get('/room/create', [RoomController::class, 'create'])->name('room.create');
 
-Route::post('/room', [RoomController::class, 'store'])->name('room.store');
+Route::post('/room/store', [RoomController::class, 'store'])->name('room.store');
 
 Route::get('/room/{id}', [RoomController::class, 'show'])->name('room.show');
 

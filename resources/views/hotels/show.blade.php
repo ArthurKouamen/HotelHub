@@ -92,6 +92,7 @@
     </section>
 
     <!-- 3. LISTE DES CHAMBRES (Cartes horizontales) -->
+     
     <section class="rooms-section">
         <h2>Toutes les chambres de l'hôte ({{ $chambre->count() ?? 0 }})</h2>
         
@@ -100,7 +101,7 @@
             <div class="room-horizontal-card">
                 <div class="room-img">
                 
-                    <img src="{{ asset($chambres->images ->url->first ?? 'assets/img/room.jpg') }}" alt="Chambre">
+                    <img src="{{ asset($chambres->images ->first->url ?? 'assets/img/room.jpg') }}" alt="Chambre">
                 </div>
                 <div class="room-details">
                     <h3>{{ $chambres->name ?? 'Chambre Cosy' }}</h3>
@@ -109,10 +110,10 @@
                         <span><i class="fas fa-bed"></i> 1 lit double</span>
                         <span><i class="fas fa-bath"></i> 1 salle de bain</span>
                     </div>
-                    <p class="room-desc">{{ str::limit($chambres -> description, 100)}}.</p>
+                    <p class="room-desc">{{ Str::limit($chambres -> description, 100)}}.</p>
                 </div>
                 <div class="room-price-action">
-                    <div class="price"><strong>{{ $chambre->price }} €</strong> / nuit</div>
+                    <div class="price"><strong>{{ $chambres->price }} €</strong> / nuit</div>
                     <a href="#" class="btn-primary">Voir les détails</a>
                 </div>
             </div>
