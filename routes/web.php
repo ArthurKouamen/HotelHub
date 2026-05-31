@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,23 +54,13 @@ Route::get('/hotels/create', [HotelController::class, 'create'])->name('hotels.c
 
 Route::get('/hotels/search', [HotelController::class, 'search'])->name('hotel.search');
 
-Route::post('/hotels', [HotelController::class, 'store'])->name('hotels.store');
+Route::post('/hotels/store', [HotelController::class, 'store'])->name('hotels.store');
 
 Route::get('/hotels/{id}', [HotelController::class, 'show'])->name('hotels.show');
 Route::put('/hotels/create', [HotelController::class, ''])->name('hotels.show');
 
 // Route pour voir toutes les images d'un hôtel spécifique
 Route::get('/hotels/{hotel}/images', [App\Http\Controllers\HotelController::class, 'allImages'])->name('hotels.images');
-
-
-
-// Routes pour les chambres
-Route::get('/chambre', [RoomController::class, 'index'])->name('chambre.index');
-
-Route::get('/chambre/create', [RoomController::class, 'create'])->name('chambre.create');
-    
-Route::get('/chambre/{id}', [RoomController::class, 'show'])->name('chambre.show');
-
 
 
 
@@ -95,11 +85,11 @@ Route::post('/room', [RoomController::class, 'store'])->name('room.store');
 Route::get('/room/{id}', [RoomController::class, 'show'])->name('room.show');
 //route pour les reservations
 
-Route::get('/reservation', [ReservationController::class, 'index'])->name('reservation.index');
+Route::get('/reservation/{id}', [ReservationController::class, 'index'])->name('reservation.index');
 
 Route::get('/reservation/create', [ReservationController::class, 'create'])->name('reservation.create');
 
-Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation./store');
+Route::post('/reservation/store', [ReservationController::class, 'store'])->name('reservations.store');
 
 Route::get('/reservation/{id}', [ReservationController::class, 'show'])->name('reservation.show');
 

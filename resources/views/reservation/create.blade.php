@@ -4,8 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Réservation</title>
-        <link rel="stylesheet" href="{{ asset('assets/css/reservation.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/create-hotel.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/reservation.css') }}">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body>
