@@ -60,6 +60,10 @@ body{
     backdrop-filter: blur(10px);
 }
 
+.about-text h1 {
+    color: white;
+}
+
 .about-text h1{
     font-size: 55px;
     line-height: 1.2;

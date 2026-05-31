@@ -38,9 +38,16 @@ Route::get('/client/dashboard', function () {
     return view('client.dashboard');
 })->middleware(['auth', 'verified'])->name('client.dashboard');
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('admin.dashboard');
+Route::get('/admin/dashboard', [AdminController::class,'index'] 
+)->middleware(['auth', 'verified'])->name('admin.dashboard');
+
+//Routes des navigations dashboard admin
+Route::get('/admin/gestion-chambre', [RoomController::class,'index'] 
+)->middleware(['auth', 'verified'])->name('admin.gestion-chambre');
+
+Route::get('/admin/gestion-hotel', [AdminController::class,'index'] 
+)->middleware(['auth', 'verified'])->name('admin.gestion-hotel');
+
 
 Route::get('/hotels/create', [HotelController::class, 'create'])->name('hotels.create');
 

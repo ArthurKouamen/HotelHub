@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Models\Hotel;
 use App\Models\Chambre;
 use App\Models\Image; // Assure-toi que ton modèle s'appelle Room ou Chambre
@@ -10,6 +10,26 @@ use Illuminate\Support\Facades\Storage;
 
 class RoomController extends Controller
 {
+    public function index() 
+    {
+        $nbHotels = Hotel::count();
+        $nbChambres = Chambre::count();
+        $nbUser = User::count();
+        $chambres = Chambre:: select([
+            "number",
+            "type",
+            "price",
+            "status",
+            'id',
+            'capacity',
+            'hotels_id'
+        ]) -> with('hotels') -> get();
+        $nbHotels = Hotel::count();
+
+        return view('admin.gestion-chambre', compact('chambres', 'nbHotels', 'nbChambres','nbUser'));
+
+    }
+
     /**
      * Affiche le formulaire de création d'une chambre pour un hôtel précis
      */
@@ -72,9 +92,10 @@ class RoomController extends Controller
     /**
      * Affiche les détails d'une chambre (pour la réservation par exemple)
      */
-    public function show(Room $room)
+    public function show($id)
     {
-        return view('rooms.show', compact('room'));
+        $chambres = Chambre::with(['images', 'hotels']) -> findOrFail($id);
+        return view('chambre.show', compact('chambres'));
     }
 
     /**

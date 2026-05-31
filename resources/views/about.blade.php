@@ -26,11 +26,9 @@
         <div class="about-container">
             <div class="about-text">
                 <span class="tag">Bienvenue sur HotelHub</span>
-
-                <h1>
-                    Votre plateforme moderne de
-                    <span>gestion hôtelière</span>
-                </h1>
+                
+                <h1>Votre plateforme moderne de</h1>
+                <h1><span>gestion hôtelière</span></h1>
 
                 <p>
                     HotelHub est une solution innovante permettant de gérer

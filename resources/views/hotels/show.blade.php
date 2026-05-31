@@ -111,7 +111,7 @@
                     <p class="room-desc">{{ Str::limit($chambres -> description, 100)}}.</p>
                 </div>
                 <div class="room-price-action">
-                    <div class="price"><strong>{{ $chambres -> price }} €</strong> / nuit</div>
+                    <div class="price">{{ $chambres -> price }} FCFA / nuit</div>
                     <a href="{{route ('room.show',['id' => $chambres ->id])}}" class="btn-primary">Voir les détails</a>
                 </div>
             </div>

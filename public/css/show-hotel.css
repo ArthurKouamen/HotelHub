@@ -158,7 +158,6 @@
 
 .room-price-action {
     flex: 1;
-    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -63,7 +63,7 @@
                 <div class="stat-icon orange"><i class="fas fa-users"></i></div>
                 <div class="stat-info">
                     <h4>Utilisateurs</h4>
-                    <p> {{$nbUsers}} </p> <!-- Chiffre statique -->
+                    <p> {{$nbUser}} </p> <!-- Chiffre statique -->
                 </div>
             </div>
         </section>
@@ -71,9 +71,9 @@
         <!-- TABLEAU DES HÔTELS (Statique) -->
         <section class="admin-table-section">
             <div class="section-header">
-                <h3>Hôtels récents</h3>
-                <a href="/hotels/create">
-                    <button class="btn-add">+ Ajouter un hôtel</button>
+                <h3>Chambres récentes</h3>
+                <a href="/room/create">
+                    <button class="btn-add">+ Ajouter une chambre</button>
                 </a>
             </div>
             <table class="admin-table">
@@ -82,15 +82,21 @@
                         <th>Nom</th>
                         <th>Ville</th>
                         <th>Status</th>
+                        <th>type</th>
+                        <th>Capacité</th>
+                        <th>price</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($hotels as $hotel)
+                    @foreach($chambres as $hotel)
                     <tr>
-                        <td><strong> {{$hotel ->name}} </strong></td>
-                        <td>{{$hotel ->city}}</td>
+                        <td><strong> {{$hotel ->number}} </strong></td>
+                        <td>{{$hotel ->hotels ->name ?? "pas de valeur"}}</td>
                         <td><span class="badge-status">{{$hotel ->status}}</span></td>
+                        <td><span class="badge-status">{{$hotel ->type}}</span></td>
+                        <td><span class="badge-status">{{$hotel ->capacity}}</span></td>
+                        <td><span class="badge-status">{{$hotel ->price}}</span></td>
                         <td>
                             <div class="action-btns">
                                 <a href="{{route ('hotels.edit',['id' => $hotel ->id])}}" alt ="pas trouve"><button class="btn-icon edit"><i class="fas fa-edit"></i></button></a>
